@@ -41,7 +41,7 @@ sys.excepthook = handle_exception
 def aggreg(
     mrio_path: Union[str, pathlib.Path],
     sector_aggregator_path: Union[str, pathlib.Path],
-    save_path = None,
+    save_path=None,
 ):
     logger.info("Loading region aggregator")
     logger.info(

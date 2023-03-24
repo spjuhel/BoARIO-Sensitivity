@@ -15,27 +15,29 @@ import pandas as pd
 #     script:
 #         "../scripts/aggregate_eora26.py"
 
+
 rule eora_sector_config:
     input:
         exio3_sectors_config="config/exiobase3_full_sectors.csv",
-        aggregation_master="config/exiobase3_to_other_mrio_sectors.ods"
+        aggregation_master="config/exiobase3_to_other_mrio_sectors.ods",
     output:
-        "config/eora26_full_sectors.csv"
+        "config/eora26_full_sectors.csv",
     conda:
         "../envs/BoARIO-sensi.yml"
     params:
-        mrio_type="eora26"
+        mrio_type="eora26",
     script:
         "../scripts/params_gen_from_exiobase3_full.py"
 
+
 rule preparse_eora26:
     input:
-        "autodownloads/eora26/Eora26_{year}_bp.zip"
+        "autodownloads/eora26/Eora26_{year}_bp.zip",
     output:
-        "mrio-files/pkls/eora26/eora26_full_{year}.pkl"
+        "mrio-files/pkls/eora26/eora26_full_{year}.pkl",
     conda:
         "../envs/BoARIO-sensi.yml"
     log:
-        "logs/preparse_eora26/preparse_eora26_{year}.log"
+        "logs/preparse_eora26/preparse_eora26_{year}.log",
     script:
         "../scripts/preparse_eora26.py"

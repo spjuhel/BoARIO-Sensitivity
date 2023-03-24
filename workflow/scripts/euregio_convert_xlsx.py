@@ -30,12 +30,22 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 # Install exception handler
 sys.excepthook = handle_exception
 
+
 def convert(inpt, output, folder, office_exists, uno_exists):
     if not office_exists:
-        raise FileNotFoundError("Creating xlsx files require at least libreoffice which wasn't found (and optionally unoserver). You may wan't to convert EUREGIO files by yourself if you are unable to install libreoffice")
+        raise FileNotFoundError(
+            "Creating xlsx files require at least libreoffice which wasn't found (and optionally unoserver). You may wan't to convert EUREGIO files by yourself if you are unable to install libreoffice"
+        )
     if uno_exists:
         os.system(f"unoconvert --port 2002 --convert-to xlsx {inpt} {output}")
     else:
         os.system(f"libreoffice --convert-to xlsx --outdir {folder} {inpt}")
 
-convert(snakemake.input.inp_file, snakemake.output, snakemake.params.folder, snakemake.params.office_exists, snakemake.params.uno_exists)
+
+convert(
+    snakemake.input.inp_file,
+    snakemake.output,
+    snakemake.params.folder,
+    snakemake.params.office_exists,
+    snakemake.params.uno_exists,
+)

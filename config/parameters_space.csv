@@ -1,7 +1,7 @@
-mrio,region_affected,order,psi,base_alpha,max_alpha,tau_alpha,sectors_scenario,recovery_scenario,flood_scenario
-eora26_full_2000,DE,alt,0.5,1,1.25,365,default,reb90,mm
-eora26_full_2010,DE,alt,0.8,1,1.25,365,default,reb15q,hl
-euregio_full_2000,DE,alt,0.999,1,1.25,30,default,reclin2,mm
-euregio_full_2010,DE,alt,0.999,1,1.25,30,default,reb90,hl
-exiobase3_full_2000_ixi,DE,alt,0.999,1,1.25,365,default,recfast,hl
-exiobase3_full_2010_ixi,DE,alt,0.5,1,1.25,30,default,reb15,lm
+mrio,order,psi,base_alpha,max_alpha,tau_alpha,sectors_scenario,recovery_scenario,flood_scenario
+eora26_full_2000,alt,0.8,1,1.25,30,default,reclin2,germany21
+eora26_full_2010,alt,0.8,1,1.25,365,default,reb15q,germany21
+euregio_full_2000,alt,0.8,1,1.25,30,default,reclin2,germany21
+euregio_full_2010,alt,0.5,1,1.25,30,default,recfast,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,30,default,reb90,germany21
+exiobase3_full_2010_ixi,alt,0.999,1,1.25,365,default,recS2,germany21

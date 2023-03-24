@@ -33,6 +33,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 # Install exception handler
 sys.excepthook = handle_exception
 
+
 def lexico_reindex(mrio: pym.IOSystem) -> pym.IOSystem:
     """Re-index IOSystem lexicographicaly
 
@@ -51,29 +52,48 @@ def lexico_reindex(mrio: pym.IOSystem) -> pym.IOSystem:
 
     """
     for attr in ["Z", "Y", "x", "A"]:
-        if getattr(mrio,attr) is None:
-            raise ValueError("Attribute {} is None, did you forget to calc_all() the MRIO ?".format(attr))
-    mrio.Z = mrio.Z.reindex(sorted(mrio.Z.index), axis=0)#type: ignore
-    mrio.Z = mrio.Z.reindex(sorted(mrio.Z.columns), axis=1)#type: ignore
-    mrio.Y = mrio.Y.reindex(sorted(mrio.Y.index), axis=0)#type: ignore
-    mrio.Y = mrio.Y.reindex(sorted(mrio.Y.columns), axis=1)#type: ignore
-    mrio.x = mrio.x.reindex(sorted(mrio.x.index), axis=0) #type: ignore
-    mrio.A = mrio.A.reindex(sorted(mrio.A.index), axis=0)#type: ignore
-    mrio.A = mrio.A.reindex(sorted(mrio.A.columns), axis=1)#type: ignore
+        if getattr(mrio, attr) is None:
+            raise ValueError(
+                "Attribute {} is None, did you forget to calc_all() the MRIO ?".format(
+                    attr
+                )
+            )
+    mrio.Z = mrio.Z.reindex(sorted(mrio.Z.index), axis=0)  # type: ignore
+    mrio.Z = mrio.Z.reindex(sorted(mrio.Z.columns), axis=1)  # type: ignore
+    mrio.Y = mrio.Y.reindex(sorted(mrio.Y.index), axis=0)  # type: ignore
+    mrio.Y = mrio.Y.reindex(sorted(mrio.Y.columns), axis=1)  # type: ignore
+    mrio.x = mrio.x.reindex(sorted(mrio.x.index), axis=0)  # type: ignore
+    mrio.A = mrio.A.reindex(sorted(mrio.A.index), axis=0)  # type: ignore
+    mrio.A = mrio.A.reindex(sorted(mrio.A.columns), axis=1)  # type: ignore
 
     return mrio
 
-def preparse_exio3(mrio_zip:str, output:str):
-    logger.info("Make sure you use the same python environment as the one loading the pickle file (especial pymrio and pandas version !)")
-    logger.info("Your current environment is: {}".format(os.environ['CONDA_PREFIX']))
+
+def preparse_exio3(mrio_zip: str, output: str):
+    logger.info(
+        "Make sure you use the same python environment as the one loading the pickle file (especial pymrio and pandas version !)"
+    )
+    logger.info("Your current environment is: {}".format(os.environ["CONDA_PREFIX"]))
     mrio_path = pathlib.Path(mrio_zip)
     mrio_pym = pym.parse_exiobase3(path=mrio_path)
     logger.info("Removing unnecessary IOSystem attributes")
-    attr = ['Z', 'Y', 'x', 'A', 'L', 'unit', 'population', 'meta', '__non_agg_attributes__', '__coefficients__', '__basic__']
+    attr = [
+        "Z",
+        "Y",
+        "x",
+        "A",
+        "L",
+        "unit",
+        "population",
+        "meta",
+        "__non_agg_attributes__",
+        "__coefficients__",
+        "__basic__",
+    ]
     tmp = list(mrio_pym.__dict__.keys())
     for at in tmp:
         if at not in attr:
-            delattr(mrio_pym,at)
+            delattr(mrio_pym, at)
     assert isinstance(mrio_pym, pym.IOSystem)
     logger.info("Done")
     logger.info("Computing the missing IO components")
@@ -85,7 +105,8 @@ def preparse_exio3(mrio_zip:str, output:str):
     save_path = pathlib.Path(output)
     logger.info("Saving to {}".format(save_path.absolute()))
     save_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(save_path, 'wb') as f:
+    with open(save_path, "wb") as f:
         pkl.dump(mrio_pym, f)
+
 
 preparse_exio3(snakemake.input[0], snakemake.output[0])

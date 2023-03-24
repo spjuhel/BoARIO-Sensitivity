@@ -8,67 +8,100 @@ configfile: "config/config.yaml"
 from snakemake.utils import Paramspace
 import pandas as pd
 
+
 include: "rules/exio3_treatment.smk"
 include: "rules/euregio_treatment.smk"
 include: "rules/eora26_treatment.smk"
 include: "rules/oecd_treatment.smk"
+include: "rule/plotting.smk"
 
 wildcard_constraints:
-    year = "\d\d\d\d",
-    aggregation = "full_exio3compat|74_sectors"
+    year="\d\d\d\d",
+    aggregation="full_exio3compat|74_sectors",
 
-EXIO3_MRIOT = expand("mrio-files/pkls/exiobase3/exiobase3_full_{year}_ixi.pkl", year=[2000,2010])
-ALL_MRIOT = expand("mrio-files/pkls/{mrio_type}/{mrio_type}_full_{year}.pkl", mrio_type=["euregio","eora26","oecd_v2021"], year=[2000,2010]) + EXIO3_MRIOT
+
+EXIO3_MRIOT = expand(
+    "mrio-files/pkls/exiobase3/exiobase3_full_{year}_ixi.pkl", year=[2000, 2010]
+)
+ALL_MRIOT = (
+    expand(
+        "mrio-files/pkls/{mrio_type}/{mrio_type}_full_{year}.pkl",
+        mrio_type=["euregio", "eora26", "oecd_v2021"],
+        year=[2000, 2010],
+    )
+    + EXIO3_MRIOT
+)
+
 
 rule all_mriot:
-    input: ALL_MRIOT
-
-
-
-paramspace = Paramspace(pd.read_csv("config/parameters_space.csv"), filename_params=["region_affected","order","psi","base_alpha","max_alpha","tau_alpha"])
-
-rule all:
     input:
-        expand("results/simulations/{params}/jsons/indexes.json", params=paramspace.instance_patterns)
+        ALL_MRIOT,
+
+
+paramspace = Paramspace(
+    pd.read_csv("config/parameters_space.csv"),
+    filename_params=[
+        "order",
+        "psi",
+        "base_alpha",
+        "max_alpha",
+        "tau_alpha",
+    ],
+)
+
+rule all_parquets:
+    input:
+        expand(
+            "results/simulations/{params}/jsons/indexes.json",
+            params=paramspace.instance_patterns,
+        ),
+
 
 def get_simulation_inputs(wildcards):
     mrio_name = wildcards.mrio
     sectors_scenario = wildcards.sectors_scenario
-    filepath = 'mrio-files/pkls/'  # the path to the pickle files
-    regex = re.compile(r'^(oecd_v2021|euregio|exiobase3|eora26)_full_(\d{4})')  # the regular expression to match filenames
+    filepath = "mrio-files/pkls/"  # the path to the pickle files
+    regex = re.compile(
+        r"^(oecd_v2021|euregio|exiobase3|eora26)_full_(\d{4})"
+    )  # the regular expression to match filenames
     match = regex.match(mrio_name)  # match the filename with the regular expression
     if not match:
         raise ValueError(f"The file name {mrio_name} is not valid.")
     prefix, year = match.groups()  # get the prefix and year from the matched groups
-    fullpath = filepath + prefix + '/' + mrio_name + '.pkl'  # create the full file path
-    sectors_config_path = config["sectors_scenarios"][prefix+"_full"][sectors_scenario]
-    return {"mrio":fullpath, "sectors_config":sectors_config_path}
+    fullpath = filepath + prefix + "/" + mrio_name + ".pkl"  # create the full file path
+    sectors_config_path = config["sectors_scenarios"][prefix + "_full"][
+        sectors_scenario
+    ]
+    return {"mrio": fullpath, "sectors_config": sectors_config_path}
+
 
 rule simulate:
     input:
-        unpack(get_simulation_inputs)
+        unpack(get_simulation_inputs),
     output:
         # format a wildcard pattern like "alpha~{alpha}/beta~{beta}/gamma~{gamma}"
         # into a file path, with alpha, beta, gamma being the columns of the data frame
-        output_dir = directory(f"results/simulations/{paramspace.wildcard_pattern}"),
-        parquet_files = directory(f"results/simulations/{paramspace.wildcard_pattern}/parquets"),
-        json_files = f"results/simulations/{paramspace.wildcard_pattern}/jsons/indexes.json",
+        output_dir=directory(f"results/simulations/{paramspace.wildcard_pattern}"),
+        parquet_files=directory(
+            f"results/simulations/{paramspace.wildcard_pattern}/parquets"
+        ),
+        json_files=f"results/simulations/{paramspace.wildcard_pattern}/jsons/indexes.json",
         #.format(paramspace.wildcard_pattern,"{files}"), files=["indexes","equilibrium_checks","simulated_events","simulated_params"]),
-        done = touch(f"results/simulations/{paramspace.wildcard_pattern}/sim.done")
+        done=touch(f"results/simulations/{paramspace.wildcard_pattern}/sim.done"),
     params:
         # automatically translate the wildcard values into an instance of the param space
         # in the form of a dict (here: {"alpha": ..., "beta": ..., "gamma": ...})
-        simulation_params=paramspace.instance
+        simulation_params=paramspace.instance,
     log:
-        f"logs/simulations/{paramspace.wildcard_pattern}.log"
-    threads:
-        4
+        f"logs/simulations/{paramspace.wildcard_pattern}.log",
+    threads: 4
     benchmark:
         f"benchmarks/simulations/{paramspace.wildcard_pattern}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
         "scripts/simulate.py"
+
 
 # rule plot:
 #     input:

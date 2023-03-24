@@ -1,20 +1,23 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
 samples: config/samples.csv
+flood_scenarios: config/flood_scenarios.csv
 
-sim_length: 40
+sim_length: 20
 monetary_factor: 1000000
 register_stocks: False
 
 # % of gva affected for event intensity class
-impact_intensity:
-  high: 0.3
-  med: 0.1
-  low: 0.01
+# impact_intensity:
+#   high: 0.3
+#   med: 0.1
+#   low: 0.01
+#   germany 2021: 30854
 
-flood_scenarios:
-  hl: [high, 14]
-  mm: [med, 7]
-  lm: [low, 7]
+# flood_scenarios:
+#   hl: [germany, high, 14]
+#   mm: [germany, med, 7]
+#   lm: [germany, low, 7]
+#   germany21: [germany, germany 2021, 14]
 
 sectors_scenarios:
   exiobase3_full:
