@@ -10,5 +10,3 @@ A Snakemake workflow for deploying a sensitivity analysis for the BoARIO economi
 ## Usage
 
 The usage of this workflow is described in the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/?usage=spjuhel%2FBoARIO-Sensitivity).
-
-If you use this workflow in a paper, don't forget to give credits to the authors by citing the URL of this (original) BoARIO-Sensitivitysitory and its DOI (see above).

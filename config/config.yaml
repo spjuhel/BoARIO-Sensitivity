@@ -1,0 +1,80 @@
+# path or URL to sample sheet (TSV format, columns: sample, condition, ...)
+samples: config/samples.csv
+
+sim_length: 40
+monetary_factor: 1000000
+register_stocks: False
+
+# % of gva affected for event intensity class
+impact_intensity:
+  high: 0.3
+  med: 0.1
+  low: 0.01
+
+flood_scenarios:
+  hl: [high, 14]
+  mm: [med, 7]
+  lm: [low, 7]
+
+sectors_scenarios:
+  exiobase3_full:
+    default:
+      config/exiobase3_full_sectors.csv
+  oecd_v2021_full:
+    default:
+      config/oecd_v2021_full_sectors.csv
+  euregio_full:
+    default:
+      config/euregio_full_sectors.csv
+  eora26_full:
+    default:
+      config/eora26_full_sectors.csv
+
+recovery_scenarios_mapping:
+  recfast: Rapid recovery (capital recovered under 15 days)
+  reclin2: Linear recovery in ~2 months
+  recS2: S-shaped recovery in ~2months
+  reclin6: Linear recovery in ~6months
+  recS6: S-shaped recovery in ~6months
+  reb15: Very fast paced rebuilding all damages (<15 days tau)
+  reb90: Longer rebuilding all damages (90-120 days tau)
+  reb15q: Very fast paced rebuilding .25 damages  (<15 days tau)
+  reb90q: Longer rebuilding .25 damages (90-120 days tau)
+
+recovery_scenarios:
+  recfast:
+    - recovery
+    - linear
+    - 14
+  reclin2:
+    - recovery
+    - linear
+    - 60
+  recS2:
+    - recovery
+    - convexe
+    - 60
+  reclin6:
+    - recovery
+    - linear
+    - 180
+  recS6:
+    - recovery
+    - convexe
+    - 180
+  reb15:
+    - rebuilding
+    - 1
+    - 14
+  reb90:
+    - rebuilding
+    - 1
+    - 90
+  reb15q:
+    - rebuilding
+    - 0.25
+    - 14
+  reb90q:
+    - rebuilding
+    - 0.25
+    - 90
