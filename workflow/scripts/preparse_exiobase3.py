@@ -105,6 +105,7 @@ def preparse_exio3(mrio_zip: str, output: str):
     save_path = pathlib.Path(output)
     logger.info("Saving to {}".format(save_path.absolute()))
     save_path.parent.mkdir(parents=True, exist_ok=True)
+    setattr(mrio_pym, "monetary_factor", 1000000)
     with open(save_path, "wb") as f:
         pkl.dump(mrio_pym, f)
 

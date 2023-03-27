@@ -1,10 +1,22 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
 samples: config/samples.csv
 flood_scenarios: config/flood_scenarios.csv
+sectors_common_aggreg: config/sectors_common_aggreg.ods
+regions_common_aggreg: config/regions_common_aggreg.ods
 
 sim_length: 20
-monetary_factor: 1000000
+monetary_factor:
+  exiobase3_full: 1000000
+  oecd_v2021_full: 1000000
+  euregio_full: 1000000
+  eora26_full:  1000
+
 register_stocks: False
+
+variables:
+  - production_realised
+  - final_demand_unmet
+  - production_capacity
 
 # % of gva affected for event intensity class
 # impact_intensity:

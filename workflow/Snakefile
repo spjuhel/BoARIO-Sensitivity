@@ -13,7 +13,10 @@ include: "rules/exio3_treatment.smk"
 include: "rules/euregio_treatment.smk"
 include: "rules/eora26_treatment.smk"
 include: "rules/oecd_treatment.smk"
-include: "rule/plotting.smk"
+
+
+# include: "rule/plotting.smk"
+
 
 wildcard_constraints:
     year="\d\d\d\d",
@@ -49,11 +52,58 @@ paramspace = Paramspace(
     ],
 )
 
+
+rule plot_results:
+    input:
+        "results/common_aggreg.parquet",
+    output:
+        "results/figs/",
+    log:
+        f"logs/plot_results.log",
+    threads: 4
+    benchmark:
+        f"benchmarks/plot_results.log"
+    conda:
+        "envs/BoARIO-sensi.yml"
+    script:
+        "scripts/plot_results.py"
+
+
+def regroup_input(wildcards):
+    dico = {
+        var: expand(
+            "results/simulations/{params}/parquets/" + var + ".parquet",
+            params=paramspace.instance_patterns,
+        )
+        for var in config["variables"]
+    }
+    return dico
+
+
+rule regroup_parquet_to_common_aggreg:
+    input:
+        unpack(regroup_input),
+        sectors_aggreg_ods=config["sectors_common_aggreg"],
+        regions_aggreg_ods=config["regions_common_aggreg"],
+    output:
+        "results/common_aggreg.parquet",
+    log:
+        f"logs/regroup_aggreg.log",
+    threads: 4
+    benchmark:
+        f"benchmarks/regroup_aggreg.log"
+    conda:
+        "envs/BoARIO-sensi.yml"
+    script:
+        "scripts/regroup_aggreg.py"
+
+
 rule all_parquets:
     input:
-        expand(
-            "results/simulations/{params}/jsons/indexes.json",
+        parquet_files=expand(
+            "results/simulations/{params}/parquets/{var}.parquet",
             params=paramspace.instance_patterns,
+            var=config["variables"],
         ),
 
 
@@ -82,10 +132,23 @@ rule simulate:
         # format a wildcard pattern like "alpha~{alpha}/beta~{beta}/gamma~{gamma}"
         # into a file path, with alpha, beta, gamma being the columns of the data frame
         output_dir=directory(f"results/simulations/{paramspace.wildcard_pattern}"),
-        parquet_files=directory(
-            f"results/simulations/{paramspace.wildcard_pattern}/parquets"
-        ),
-        json_files=f"results/simulations/{paramspace.wildcard_pattern}/jsons/indexes.json",
+        parquet_files=[
+            f"results/simulations/{paramspace.wildcard_pattern}/parquets/"
+            + var
+            + ".parquet"
+            for var in config["variables"]
+        ],
+        json_files=[
+            f"results/simulations/{paramspace.wildcard_pattern}/jsons/"
+            + json
+            + ".json"
+            for json in [
+                "indexes",
+                "equilibrium_checks",
+                "simulated_events",
+                "simulated_params",
+            ]
+        ],
         #.format(paramspace.wildcard_pattern,"{files}"), files=["indexes","equilibrium_checks","simulated_events","simulated_params"]),
         done=touch(f"results/simulations/{paramspace.wildcard_pattern}/sim.done"),
     params:

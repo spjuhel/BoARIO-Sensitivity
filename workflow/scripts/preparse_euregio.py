@@ -177,6 +177,7 @@ def preparse_euregio(mrio_csv: str, output: str, year):
     save_path = pathlib.Path(output)
     logger.info("Saving to {}".format(save_path.absolute()))
     save_path.parent.mkdir(parents=True, exist_ok=True)
+    setattr(euregio, "monetary_factor", 1000000)
     with open(save_path, "wb") as f:
         pkl.dump(euregio, f)
 

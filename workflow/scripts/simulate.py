@@ -152,6 +152,7 @@ def create_event(
             aff_sectors=aff_sectors,
             impact_sectoral_distrib_type=impact_sectoral_distrib_type,
             duration=duration,
+            event_monetary_factor=10**6,
         )
     elif sce_tuple[0] == "rebuilding":
         event = EventKapitalRebuild(
@@ -164,6 +165,7 @@ def create_event(
             impact_sectoral_distrib_type=impact_sectoral_distrib_type,
             duration=duration,
             rebuilding_factor=sce_tuple[1],
+            event_monetary_factor=10**6,
         )
     else:
         raise ValueError(
@@ -241,6 +243,7 @@ def run(
     sim.overproduction.to_parquet(output_parquets / "overproduction.parquet")
     sim.rebuild_prod.to_parquet(output_parquets / "rebuild_prod.parquet")
     sim.final_demand.to_parquet(output_parquets / "final_demand.parquet")
+    sim.final_demand_unmet.to_parquet(output_parquets / "final_demand_unmet.parquet")
     sim.intermediate_demand.to_parquet(output_parquets / "intermediate_demand.parquet")
     sim.rebuild_demand.to_parquet(output_parquets / "rebuild_demand.parquet")
     sim.kapital_to_recover.to_parquet(output_parquets / "kapital_to_recover.parquet")
@@ -252,7 +255,7 @@ simulation_params = snakemake.params.simulation_params
 sectors_df = pd.read_csv(snakemake.input.sectors_config, index_col=0, decimal=".")
 smk_config = snakemake.config
 output_dir = pathlib.Path(snakemake.output.output_dir).resolve()
-output_parquets = pathlib.Path(snakemake.output.parquet_files).resolve()
+output_parquets = output_dir / "parquets"
 flood_scenario = simulation_params["flood_scenario"]
 recovery_scenario = smk_config["recovery_scenarios"][
     simulation_params["recovery_scenario"]
@@ -268,6 +271,19 @@ logger.info(
 )
 logger.info("BoARIO's location is : {}".format(boario.__path__))
 
+mrio_regex = re.compile(
+    r"^((?:oecd_v2021|euregio|exiobase3|eora26)_full)_(\d{4})"
+)  # the regular expression to match filenames
+
+mrio_match = mrio_regex.match(simulation_params["mrio"])
+if not mrio_match:
+    raise ValueError(f"The file name {simulation_params['mrio']} is not valid.")
+(
+    mrio_basename,
+    year,
+) = mrio_match.groups()  # get the prefix and year from the matched groups
+
+
 run(
     mrio_name=simulation_params["mrio"],
     order_type=simulation_params["order"],
@@ -279,7 +295,7 @@ run(
     flood_scenario=flood_scenario,
     output_dir=output_dir,
     output_parquets=output_parquets,
-    monetary_factor=smk_config["monetary_factor"],
+    monetary_factor=smk_config["monetary_factor"][mrio_basename],
     sim_length=smk_config["sim_length"],
     register_stocks=smk_config["register_stocks"],
     sectors_df=sectors_df,
