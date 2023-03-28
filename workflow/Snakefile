@@ -154,11 +154,14 @@ rule simulate:
         # automatically translate the wildcard values into an instance of the param space
         # in the form of a dict (here: {"alpha": ..., "beta": ..., "gamma": ...})
         simulation_params=paramspace.instance,
+        sim_length=config["sim_length"]
     log:
         f"logs/simulations/{paramspace.wildcard_pattern}.log",
     threads: 4
     benchmark:
         f"benchmarks/simulations/{paramspace.wildcard_pattern}.log"
+    resources:
+        mem_mb=10000
     conda:
         "envs/BoARIO-sensi.yml"
     script:

@@ -4,7 +4,7 @@ flood_scenarios: config/flood_scenarios.csv
 sectors_common_aggreg: config/sectors_common_aggreg.ods
 regions_common_aggreg: config/regions_common_aggreg.ods
 
-sim_length: 20
+sim_length: 40
 monetary_factor:
   exiobase3_full: 1000000
   oecd_v2021_full: 1000000
