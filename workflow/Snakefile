@@ -52,7 +52,6 @@ paramspace = Paramspace(
     ],
 )
 
-
 rule plot_results:
     input:
         "results/common_aggreg.parquet",

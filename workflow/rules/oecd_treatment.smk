@@ -24,6 +24,10 @@ rule preparse_oecd_v2021:
         "../envs/BoARIO-sensi.yml"
     log:
         "logs/preparse_oecd_v2021/preparse_oecd_v2021_{year}.log",
+    resources:
+        mem_mb=6000
+    benchmark:
+        "benchmarks/mrios/preparse_oecd_v2021_{year}.log"
     script:
         "../scripts/preparse_oecd_v2021.py"
 

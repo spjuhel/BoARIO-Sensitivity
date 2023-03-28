@@ -39,5 +39,9 @@ rule preparse_eora26:
         "../envs/BoARIO-sensi.yml"
     log:
         "logs/preparse_eora26/preparse_eora26_{year}.log",
+    resources:
+        mem_mb=6000
+    benchmark:
+        "benchmarks/mrios/preparse_eora26_{year}.log"
     script:
         "../scripts/preparse_eora26.py"

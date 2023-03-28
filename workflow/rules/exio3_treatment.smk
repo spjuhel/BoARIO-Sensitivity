@@ -10,6 +10,8 @@ rule aggregate_exiobase3:
         "../envs/BoARIO-sensi.yml"
     log:
         "logs/aggregate_exiobase3/aggregate_exiobase3_{aggregation}_{year}_{system}.log",
+    benchmark:
+        "benchmarks/mrios/aggregate_exiobase3_{aggregation}_{year}_{system}.log"
     script:
         "../scripts/aggregate_exiobase3.py"
 
@@ -23,6 +25,10 @@ rule preparse_exiobase3:
         "../envs/BoARIO-sensi.yml"
     log:
         "logs/preparse_exiobase3/preparse_exiobase3_{year}_{system}.log",
+    resources:
+        mem_mb=6000
+    benchmark:
+        "benchmarks/mrios/preparse_exiobase3_{year}_{system}.log"
     script:
         "../scripts/preparse_exiobase3.py"
 

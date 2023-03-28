@@ -1,7 +1,6 @@
 import sys, os
 import logging, traceback
 import pandas as pd
-import pickle as pkl
 import re
 import collections
 
