@@ -40,17 +40,28 @@ rule all_mriot:
     input:
         ALL_MRIOT,
 
-
-paramspace = Paramspace(
-    pd.read_csv(config["parameters space"]),
-    filename_params=[
-        "order",
-        "psi",
-        "base_alpha",
-        "max_alpha",
-        "tau_alpha",
-    ],
-)
+if config["testing"]:
+    paramspace = Paramspace(
+        pd.read_csv(config["parameters space test"]),
+        filename_params=[
+            "order",
+            "psi",
+            "base_alpha",
+            "max_alpha",
+            "tau_alpha",
+        ],
+    )
+else:
+    paramspace = Paramspace(
+        pd.read_csv(config["parameters space"]),
+        filename_params=[
+            "order",
+            "psi",
+            "base_alpha",
+            "max_alpha",
+            "tau_alpha",
+        ],
+    )
 
 rule plot_grid:
     input:
