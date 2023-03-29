@@ -63,19 +63,23 @@ else:
         ],
     )
 
+rule all_grid:
+    input:
+        expand("results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.{ext}", focus=config["focus"].keys(), variable=config["variables"], plot_type=config["plot config"]["plot types"], ext=config["plot config"]["extensions"])
+
 rule plot_grid:
     input:
         "results/plot_df_{focus}.parquet",
     output:
-        "results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.pdf",
+        "results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.{ext}",
     params:
         sharey=config["plot config"]["grid"]["sharey"],
         row_order=config["plot config"]["grid"]["row order"]
     log:
-        "logs/plot_results_{focus}_{variable}_{plot_type}.log",
+        "logs/plot_results_{focus}_{variable}_{plot_type}_{ext}.log",
     threads: 4
     benchmark:
-        "benchmarks/plot_results_{focus}_{variable}_{plot_type}.log"
+        "benchmarks/plot_results_{focus}_{variable}_{plot_type}_{ext}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:

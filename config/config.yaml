@@ -19,7 +19,6 @@ register_stocks: False
 
 variables:
   - production_realised
-  - final_demand_unmet
   - production_capacity
 
 plot config:
@@ -31,6 +30,14 @@ plot config:
     production_realised: production
     final_demand_unmet: final demand not met
     production_capacity: production capacity
+
+  plot types:
+    - classic
+    - cumsum
+
+  extensions:
+    - pdf
+    - svg
 
 focus:
   full: {}
