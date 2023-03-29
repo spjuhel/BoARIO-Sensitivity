@@ -8,7 +8,7 @@ regions_common_aggreg: config/regions_common_aggreg.ods
 
 testing: False
 
-sim_length: 40
+sim_length: 365
 monetary_factor:
   exiobase3_full: 1000000
   oecd_v2021_full: 1000000
@@ -42,6 +42,7 @@ plot config:
 focus:
   full: {}
   no_high_psi: {psi: "0.999"}
+  minimal_1: {psi: ["0.999","0.5"], alpha_tau: "30"}
 
 # % of gva affected for event intensity class
 # impact_intensity:

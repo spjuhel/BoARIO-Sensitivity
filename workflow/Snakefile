@@ -63,6 +63,19 @@ else:
         ],
     )
 
+rule make_rst_report:
+    input:
+        expand("results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.{ext}", focus=config["focus"].keys(), variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+    output:
+        "report/build/html/index.html"
+    conda:
+        "envs/boario-sensi-report.yml"
+    shell:
+        """
+        cd report;
+        make html;
+        """
+
 rule all_grid:
     input:
         expand("results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.{ext}", focus=config["focus"].keys(), variable=config["variables"], plot_type=config["plot config"]["plot types"], ext=config["plot config"]["extensions"])
