@@ -42,7 +42,7 @@ rule all_mriot:
 
 
 paramspace = Paramspace(
-    pd.read_csv("config/parameters_space.csv"),
+    pd.read_csv(config["parameters space"]),
     filename_params=[
         "order",
         "psi",
@@ -52,21 +52,40 @@ paramspace = Paramspace(
     ],
 )
 
-rule plot_results:
+rule plot_grid:
     input:
-        "results/common_aggreg.parquet",
+        "results/plot_df_{focus}.parquet",
     output:
-        "results/figs/",
+        "results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.pdf",
+    params:
+        sharey=config["plot config"]["grid"]["sharey"],
+        row_order=config["plot config"]["grid"]["row order"]
     log:
-        f"logs/plot_results.log",
+        "logs/plot_results_{focus}_{variable}_{plot_type}.log",
     threads: 4
     benchmark:
-        f"benchmarks/plot_results.log"
+        "benchmarks/plot_results_{focus}_{variable}_{plot_type}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
         "scripts/plot_results.py"
 
+rule prep_plot_df:
+    input:
+        "results/common_aggreg.parquet",
+    output:
+        "results/plot_df_{focus}.parquet"
+    params:
+        drop_dict=lambda wildcards: config["focus"][wildcards.focus]
+    log:
+        "logs/prep_plot_df_{focus}.log"
+    threads: 4
+    benchmark:
+        "benchmarks/prep_plot_df_{focus}.log"
+    conda:
+        "envs/BoARIO-sensi.yml"
+    script:
+        "scripts/prep_plot_df.py"
 
 def regroup_input(wildcards):
     dico = {

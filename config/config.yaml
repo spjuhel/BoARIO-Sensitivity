@@ -1,6 +1,7 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
 samples: config/samples.csv
 flood_scenarios: config/flood_scenarios.csv
+parameters space: config/parameters_space_test.csv
 sectors_common_aggreg: config/sectors_common_aggreg.ods
 regions_common_aggreg: config/regions_common_aggreg.ods
 
@@ -17,6 +18,20 @@ variables:
   - production_realised
   - final_demand_unmet
   - production_capacity
+
+plot config:
+  grid:
+    sharey: True
+    row order: ["DEU","FRA","CHN","USA","ROW"]
+
+  plot variable name mapping:
+    production_realised: production
+    final_demand_unmet: final demand not met
+    production_capacity: production capacity
+
+focus:
+  full: {}
+  no_high_psi: {psi: "0.999"}
 
 # % of gva affected for event intensity class
 # impact_intensity:
