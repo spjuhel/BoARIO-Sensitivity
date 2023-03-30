@@ -119,3 +119,15 @@ recovery_scenarios:
     - rebuilding
     - 0.25
     - 90
+  reb180:
+    - rebuilding
+    - 1
+    - 180
+  reb365:
+    - rebuilding
+    - 1
+    - 365
+  reb545:
+    - rebuilding
+    - 1
+    - 545

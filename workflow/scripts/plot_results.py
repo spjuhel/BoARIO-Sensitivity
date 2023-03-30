@@ -134,8 +134,8 @@ def plot_variable_grid(
         x=0.4
     )
     sns.move_legend(
-    grid.fig, "lower center",
-    bbox_to_anchor=(.4, -0.08), ncol=4, title="Experiences", frameon=True,
+    grid.fig, "upper center",
+    bbox_to_anchor=(.45, 0.0), ncol=4, title="Experiences", frameon=True,
     )
     if output:
         grid.savefig(output)
