@@ -73,7 +73,10 @@ def get_grids(wildcards):
 
 rule make_rst_report:
     input:
-        get_grids
+        dfs=expand("results/plot_df_{focus}.parquet", focus=config["focus"].keys),
+        grids=get_grids
+    params:
+        variables = config["variables"]
     output:
         "report/build/html/index.html"
     conda:
