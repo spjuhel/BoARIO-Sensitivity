@@ -5,9 +5,24 @@ dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
   - alabaster=0.7.13=pyhd8ed1ab_0
+  - arrow-cpp=11.0.0=ha770c72_13_cpu
+  - aws-c-auth=0.6.26=hf365957_1
+  - aws-c-cal=0.5.21=h48707d8_2
+  - aws-c-common=0.8.14=h0b41bf4_0
+  - aws-c-compression=0.2.16=h03acc5a_5
+  - aws-c-event-stream=0.2.20=h00877a2_4
+  - aws-c-http=0.7.6=hf342b9f_0
+  - aws-c-io=0.13.19=h5b20300_3
+  - aws-c-mqtt=0.8.6=hc4349f7_12
+  - aws-c-s3=0.2.7=h909e904_1
+  - aws-c-sdkutils=0.1.8=h03acc5a_0
+  - aws-checksums=0.1.14=h03acc5a_5
+  - aws-crt-cpp=0.19.8=hf7fbfca_12
+  - aws-sdk-cpp=1.10.57=h17c43bd_8
   - babel=2.12.1=pyhd8ed1ab_1
   - brotlipy=0.7.0=py311hd4cff14_1005
   - bzip2=1.0.8=h7f98852_4
+  - c-ares=1.18.1=h7f98852_0
   - ca-certificates=2022.12.7=ha878542_0
   - certifi=2022.12.7=pyhd8ed1ab_0
   - cffi=1.15.1=py311h409f033_3
@@ -15,32 +30,58 @@ dependencies:
   - colorama=0.4.6=pyhd8ed1ab_0
   - cryptography=40.0.1=py311h9b4c7bb_0
   - docutils=0.19=py311h38be061_1
+  - gflags=2.2.2=he1b5a44_1004
+  - glog=0.6.0=h6f12383_0
   - idna=3.4=pyhd8ed1ab_0
   - imagesize=1.4.1=pyhd8ed1ab_0
   - importlib-metadata=6.1.0=pyha770c72_0
   - jinja2=3.1.2=pyhd8ed1ab_1
+  - keyutils=1.6.1=h166bdaf_0
+  - krb5=1.20.1=h81ceb04_0
   - ld_impl_linux-64=2.40=h41732ed_0
+  - libabseil=20230125.0=cxx17_hcb278e6_1
+  - libarrow=11.0.0=h93537a5_13_cpu
   - libblas=3.9.0=16_linux64_openblas
+  - libbrotlicommon=1.0.9=h166bdaf_8
+  - libbrotlidec=1.0.9=h166bdaf_8
+  - libbrotlienc=1.0.9=h166bdaf_8
   - libcblas=3.9.0=16_linux64_openblas
+  - libcrc32c=1.1.2=h9c3ff4c_0
+  - libcurl=7.88.1=hdc1c0ab_1
+  - libedit=3.1.20191231=he28a2e2_2
+  - libev=4.33=h516909a_1
+  - libevent=2.1.10=h28343ad_4
   - libffi=3.4.2=h7f98852_5
   - libgcc-ng=12.2.0=h65d4601_19
   - libgfortran-ng=12.2.0=h69a702a_19
   - libgfortran5=12.2.0=h337968e_19
   - libgomp=12.2.0=h65d4601_19
+  - libgoogle-cloud=2.8.0=h0bc5f78_1
+  - libgrpc=1.52.1=hcf146ea_1
   - liblapack=3.9.0=16_linux64_openblas
+  - libnghttp2=1.52.0=h61bc06f_0
   - libnsl=2.0.0=h7f98852_0
+  - libnuma=2.0.16=h0b41bf4_1
   - libopenblas=0.3.21=pthreads_h78a6416_3
+  - libprotobuf=3.21.12=h3eb15da_0
   - libsqlite=3.40.0=h753d276_0
+  - libssh2=1.10.0=hf14f497_3
   - libstdcxx-ng=12.2.0=h46fd767_19
+  - libthrift=0.18.1=h5e4af38_0
+  - libutf8proc=2.8.0=h166bdaf_0
   - libuuid=2.32.1=h7f98852_1000
   - libzlib=1.2.13=h166bdaf_4
+  - lz4-c=1.9.4=hcb278e6_0
   - markupsafe=2.1.2=py311h2582759_0
   - ncurses=6.3=h27087fc_1
   - numpy=1.24.2=py311h8e6699e_0
   - openssl=3.1.0=h0b41bf4_0
+  - orc=1.8.3=hfdbbad2_0
   - packaging=23.0=pyhd8ed1ab_0
   - pandas=1.5.3=py311h2872171_1
+  - parquet-cpp=1.5.1=2
   - pip=23.0.1=pyhd8ed1ab_0
+  - pyarrow=11.0.0=py311hbdf6286_13_cpu
   - pycparser=2.21=pyhd8ed1ab_0
   - pygments=2.14.0=pyhd8ed1ab_0
   - pyopenssl=23.1.1=pyhd8ed1ab_0
@@ -49,10 +90,13 @@ dependencies:
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.11=3_cp311
   - pytz=2023.2=pyhd8ed1ab_0
+  - re2=2023.02.02=hcb278e6_0
   - readline=8.2=h8228510_1
   - requests=2.28.2=pyhd8ed1ab_0
+  - s2n=1.3.41=h3358134_0
   - setuptools=67.6.1=pyhd8ed1ab_0
   - six=1.16.0=pyh6c4a22f_0
+  - snappy=1.1.10=h9fff704_0
   - snowballstemmer=2.2.0=pyhd8ed1ab_0
   - sphinx=6.1.3=pyhd8ed1ab_0
   - sphinxcontrib-applehelp=1.0.4=pyhd8ed1ab_0
@@ -63,10 +107,13 @@ dependencies:
   - sphinxcontrib-serializinghtml=1.1.5=pyhd8ed1ab_2
   - tk=8.6.12=h27826a3_0
   - tzdata=2023c=h71feb2d_0
+  - ucx=1.14.0=ha0ee010_0
   - urllib3=1.26.15=pyhd8ed1ab_0
   - wheel=0.40.0=pyhd8ed1ab_0
   - xz=5.2.6=h166bdaf_0
   - zipp=3.15.0=pyhd8ed1ab_0
+  - zlib=1.2.13=h166bdaf_4
+  - zstd=1.5.2=h3eb15da_6
   - pip:
     - beautifulsoup4==4.12.0
     - css-html-js-minify==2.5.5
