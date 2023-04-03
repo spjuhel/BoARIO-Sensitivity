@@ -19,7 +19,7 @@ register_stocks: False
 
 variables:
   - production_realised
-  - production_capacity
+#  - production_capacity
 
 plot config:
   grid:
@@ -33,7 +33,7 @@ plot config:
 
   plot types:
     - classic
-    - cumsum
+#    - cumsum
 
   extensions:
     - pdf
