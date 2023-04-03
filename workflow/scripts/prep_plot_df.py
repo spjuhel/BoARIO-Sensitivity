@@ -117,12 +117,12 @@ def prepare_df_2(df, neg_bins, pos_bins):
     #_df.reset_index(inplace=True)
     #_df.set_index("step", inplace=True)
     #display(_df)
-    _df["value_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value"].progress_apply(pct_change)
-    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value_pct"].progress_apply(yearly_pct_change_cumsum)
-    _df["max_neg_impact_value_pct"] = _df.groupby("Experience")["value_pct"].progress_transform(min)
-    _df["max_neg_impact_class"] = _df.groupby("Experience")[["max_neg_impact_value_pct"]].progress_transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
-    _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].progress_transform(max)
-    _df["max_pos_impact_class"] = _df.groupby("Experience")[["max_pos_impact_value_pct"]].progress_transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
+    _df["value_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value"].apply(pct_change)
+    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value_pct"].apply(yearly_pct_change_cumsum)
+    _df["max_neg_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(min)
+    _df["max_neg_impact_class"] = _df.groupby("Experience")[["max_neg_impact_value_pct"]].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
+    _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(max)
+    _df["max_pos_impact_class"] = _df.groupby("Experience")[["max_pos_impact_value_pct"]].transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
     return _df
 
 drop_dict = snakemake.params.get("drop_dict")
