@@ -138,11 +138,11 @@ def build_from_csv(csv_file, inv_treatment=True):
     ioy = ioy.rename_axis(["region", "sector"])
     ioy = ioy.rename_axis(["region", "category"], axis=1)
     if inv_treatment:
-        invs = ioy.loc[:, (slice(None), "Inventory_adjustment")].sum(axis=1)
-        invs.name = "Inventory_use"
-        invs_neg = pd.DataFrame(-invs).T
-        invs_neg[invs_neg < 0] = 0
-        iova = pd.concat([iova, invs_neg], axis=0)
+        #invs = ioy.loc[:, (slice(None), "Inventory_adjustment")].sum(axis=1)
+        #invs.name = "Inventory_use"
+        #invs_neg = pd.DataFrame(-invs).T
+        #invs_neg[invs_neg < 0] = 0
+        #iova = pd.concat([iova, invs_neg], axis=0)
         ioy = ioy.clip(lower=0)
 
     return ioz, ioy, iova

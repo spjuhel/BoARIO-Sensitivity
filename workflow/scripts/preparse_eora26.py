@@ -69,7 +69,7 @@ def lexico_reindex(mrio: pym.IOSystem) -> pym.IOSystem:
     return mrio
 
 
-def preparse_eora26(mrio_zip: str, output: str):
+def preparse_eora26(mrio_zip: str, output: str, inv_treatment=True):
     logger.info(
         "Make sure you use the same python environment as the one loading the pickle file (especial pymrio and pandas version !)"
     )
@@ -101,6 +101,14 @@ def preparse_eora26(mrio_zip: str, output: str):
     )
     mrio_pym.rename_sectors({"Re-export & Re-import": "Others"})
     mrio_pym.aggregate_duplicates()
+
+    if inv_treatment:
+        #invs = mrio_pym.Y.loc[:, (slice(None), "Inventory_adjustment")].sum(axis=1)
+        #invs.name = "Inventory_use"
+        #invs_neg = pd.DataFrame(-invs).T
+        #invs_neg[invs_neg < 0] = 0
+        #iova = pd.concat([iova, invs_neg], axis=0)
+        mrio_pym.Y = mrio_pym.clip(lower=0)
     logger.info("Computing the missing IO components")
     mrio_pym.calc_all()
     logger.info("Done")
@@ -115,4 +123,4 @@ def preparse_eora26(mrio_zip: str, output: str):
         pkl.dump(mrio_pym, f)
 
 
-preparse_eora26(snakemake.input[0], snakemake.output[0])
+preparse_eora26(snakemake.input[0], snakemake.output[0], inv_treatment=True)
