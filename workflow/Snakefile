@@ -22,7 +22,6 @@ wildcard_constraints:
     year="\d\d\d\d",
     aggregation="full_exio3compat|74_sectors",
 
-
 EXIO3_MRIOT = expand(
     "mrio-files/pkls/exiobase3/exiobase3_full_{year}_ixi.pkl", year=[2000, 2010]
 )
@@ -63,9 +62,18 @@ else:
         ],
     )
 
+def get_grids(wildcards):
+    grids = []
+    bins = config["impacts_bins"].keys()
+    for focus in config["focus.keys"]:
+        plot_df = pd.read_parquet(f"results/plot_df_{focus}.parquet")
+        actual_classes = plot_df.max_neg_impact_class.unique()
+        grids += expand("results/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+    return grids
+
 rule make_rst_report:
     input:
-        expand("results/figs/sectors_regions_grids/{focus}/{variable}_{plot_type}.{ext}", focus=config["focus"].keys(), variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        get_grids
     output:
         "report/build/html/index.html"
     conda:
@@ -78,7 +86,7 @@ rule make_rst_report:
 
 rule make_rst_results:
     input:
-        expand("results/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", focus=config["focus"].keys(), impact_class=config["impacts_bins"].keys(), variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        get_grids
     output:
         "report/source/results.rst"
     log:
@@ -91,7 +99,7 @@ rule make_rst_results:
 
 rule all_grid:
     input:
-        expand("results/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", focus=config["focus"].keys(), impact_class=config["impacts_bins"].keys(), variable=config["variables"], plot_type=config["plot config"]["plot types"], ext=config["plot config"]["extensions"])
+        get_grids
 
 rule plot_grid:
     input:
