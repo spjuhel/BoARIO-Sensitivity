@@ -41,8 +41,31 @@ plot config:
 
 focus:
   full: {}
-  no_high_psi: {psi: "0.999"}
-  minimal_1: {psi: ["0.999","0.5"], alpha_tau: "30"}
+#  no_high_psi: {psi: "0.999"}
+#  minimal_1: {psi: ["0.999","0.5"], alpha_tau: "30"}
+
+impacts_bins: {'crash': -.inf,
+ 'L>90%': -100,
+ '90%>L>70%': -90,
+ '70%>L>50%': -70,
+ '50%>L>25%': -50,
+ '25%>L>10%': -25,
+ '10%>L>5%': -10,
+ '5%>L>2%': -5,
+ '2%>L>1,5%': -2,
+ '1,5%>L>1%': -1.5,
+ '1%>L>0,5%': -1,
+ '0,5%>L>0%': -0.5,
+ 'no losses': 0}
+
+gains_bins: {'no gains': -.inf,
+ '0%>G>2%': 0,
+ '2%>G>5%': 2,
+ '5%>G>10%': 5,
+ '10%>G>15%': 10,
+ '15%>G>20%': 15,
+ '20%>G>25%': 20,
+ 'G>25%': 25}
 
 # % of gva affected for event intensity class
 # impact_intensity:
