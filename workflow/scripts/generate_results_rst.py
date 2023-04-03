@@ -1,7 +1,6 @@
 import sys, os
 import logging, traceback
 import pandas as pd
-import numpy as np
 
 logging.basicConfig(
     filename=snakemake.log[0],
