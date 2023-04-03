@@ -50,7 +50,7 @@ var_name_dict = {}#snakemake.config["a"]
 
 def generate_var_class(impact_class, variable, variable_name, focus) -> str:
     return f"""Results on {variable}
------------------------
+---------------------------------------
 
 Change from initial level
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,7 +68,7 @@ def generate_class(impact_class, variables, focus) -> str:
     res = f"""Regrouping results such that {impact_class}:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    """
+"""
     res = res + "\n".join([generate_var_class(impact_class, var, var_name_dict, focus) for var in variables])
     return res
 
@@ -77,7 +77,7 @@ def generate_focus(focus, classes, variables) -> str:
     res = f"""Regrouping results for focus == {focus} :
 ..........................................................
 
-    """
+"""
     res += "\n".join([generate_class(impact_class, variables, focus) for impact_class in classes])
     return res
 
