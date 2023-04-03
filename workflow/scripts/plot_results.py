@@ -2,6 +2,7 @@ import sys, os
 import logging, traceback
 import pandas as pd
 import seaborn as sns
+import numpy as np
 
 logging.basicConfig(
     filename=snakemake.log[0],
@@ -38,52 +39,21 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 # Install exception handler
 sys.excepthook = handle_exception
 
+def make_selection(df, selection):
+    selection_lists = {key: [value] if isinstance(value, str) else value for key, value in selection.items()}
+    qry = ' and '.join(["{} == {}".format(k,v) for k,v in selection_lists.items()])
+    return df.query(qry)
 
-def subselect_var(df: pd.DataFrame, var: str) -> None:
-    """
-    Given a pandas DataFrame with a multi-level index and a multi-level column index,
-    sub-selects a DataFrame based on "var", "region" and "sector" and normalize its values
-    by the values of the first row (which are the value of the first step).
-    """
-    _df = df.copy()
-    # Sub-select the DataFrame based on "var", "region" and "sector"
-    _df = _df.xs(var, level="variable")
-
-    # Group the DataFrame by mrio, rec_sce, psi and alpha_t
-    return _df
-
-
-def subselect_region(df: pd.DataFrame, region: str) -> None:
-    """
-    Given a pandas DataFrame with a multi-level index and a multi-level column index,
-    sub-selects a DataFrame based on "var", "region" and "sector" and normalize its values
-    by the values of the first row (which are the value of the first step).
-    """
-    _df = df.copy()
-    # Sub-select the DataFrame based on "var", "region" and "sector"
-    _df = _df.xs(region, level="region")
-
-    # Group the DataFrame by mrio, rec_sce, psi and alpha_t
-    return _df
-
-
-def subselect_sector(df: pd.DataFrame, sector: str) -> None:
-    """
-    Given a pandas DataFrame with a multi-level index and a multi-level column index,
-    sub-selects a DataFrame based on "var", "region" and "sector" and normalize its values
-    by the values of the first row (which are the value of the first step).
-    """
-    _df = df.copy()
-    # Sub-select the DataFrame based on "var", "region" and "sector"
-    _df = _df.xs(sector, level="sector")
-
-    # Group the DataFrame by mrio, rec_sce, psi and alpha_t
-    return _df
-
+def make_exclusion(df, exclusion):
+    exclusion_lists = {key: [value] if isinstance(value, str) else value for key, value in exclusion.items()}
+    qry = ' and '.join(["{} != {}".format(k,v) for k,v in exclusion_lists.items()])
+    return df.query(qry)
 
 def plot_variable_grid(
     plot_df,
     variable,
+    selection={},
+    exclusion=None,
     plot_type="classic",
     hue="Experience",
     col="sector",
@@ -93,25 +63,11 @@ def plot_variable_grid(
     aspect=1.7,
     output=None,
 ):
-    def pct_change(x):
-        return ((x - x.loc[0]) / x.loc[0]) * 100
-
-    def pct_change_cumsum(x):
-        return (((x - x.loc[0]) / (x.loc[0] * 365)) * 100).cumsum()
-
-    if plot_type == "cumsum":
-        plot_fun = pct_change_cumsum
-    elif plot_type == "classic":
-        plot_fun = pct_change
-    else:
-        raise ValueError(f"Invalide plot_type : {plot_type}")
-
-    df_to_plot = subselect_var(plot_df, variable)
-    df_to_plot.reset_index(inplace=True)
-    df_to_plot.set_index("step", inplace=True)
-    df_to_plot.loc[:, "value_n"] = df_to_plot.groupby(
-        list(df_to_plot.columns[df_to_plot.columns != "value"])
-    ).transform(lambda x: plot_fun(x))
+    selection["variable"] = variable# if isinstance(variable, list) else [variable]
+    df_to_plot = make_selection(plot_df, selection)
+    if exclusion:
+        df_to_plot = make_exclusion(plot_df, exclusion)
+    #df_to_plot = subselect_var(plot_df, variable)
 
     grid = sns.FacetGrid(
         data=df_to_plot,
@@ -123,7 +79,7 @@ def plot_variable_grid(
         row_order=row_order,
         aspect=aspect,
     )
-    grid.map_dataframe(sns.lineplot, x="step", y="value_n", linewidth=3, alpha=0.9)
+    grid.map_dataframe(sns.lineplot, x="step", y="value_pct", linewidth=3, alpha=0.9)
     grid.add_legend()
     grid.set_axis_labels(y_var="% change")
     grid.set_titles(row_template="{row_name}", col_template="{col_name}")
@@ -140,13 +96,13 @@ def plot_variable_grid(
     if output:
         grid.savefig(output)
 
-
 plot_df = pd.read_parquet(snakemake.input[0])
 plot_variable_grid(
     plot_df,
     snakemake.wildcards.variable,
-    snakemake.wildcards.plot_type,
+    plot_type=snakemake.wildcards.plot_type,
     sharey=snakemake.params.sharey,
     row_order=snakemake.params.row_order,
     output=snakemake.output[0],
+    selection={"max_neg_impact_class":snakemake.wildcards.impact_class}
 )

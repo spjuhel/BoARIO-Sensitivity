@@ -1,7 +1,7 @@
 import sys, os
 import logging, traceback
 import pandas as pd
-import seaborn as sns
+import numpy as np
 
 logging.basicConfig(
     filename=snakemake.log[0],
@@ -53,42 +53,82 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-
 def drop_xps(df, drop_dict):
     _df = df.copy()
-    for key, val in drop_dict.items():
-        if isinstance(val, str):
-            val = [val]
+    for key,val in drop_dict.items():
+        if isinstance(val,str):
+            val=[val]
         for v in val:
             try:
-                _df.drop(index=str(v), level=key, inplace=True, axis=0)
+                _df.drop(index=str(v), level=key,inplace=True,axis=0)
             except KeyError:
-                logger.warning(
-                    f"You ask to remove rows where {key} = {val}, but none were found in the dataframe."
-                )
+                logger.warning(f"You ask to remove rows where {key} = {val}, but none were found in the dataframe.")
     return _df
 
+def prepare_df_1(inpt, drop_dict=None):
+    """
+    Prepare DataFrame for analysis.
 
-def prepare_res_df(inpt, drop_dict=None):
+    Args:
+        inpt (str): Path to parquet file.
+        drop_dict (dict): Dictionary of columns to drop.
+
+    Returns:
+        res_df (pandas.DataFrame): Prepared DataFrame.
+    """
     res_df = pd.read_parquet(inpt)
-    res_df = res_df.melt(ignore_index=False)
-    res_df.reset_index(level=["mrio", "mrio year"], inplace=True)
+    logger.info("Melting")
+    res_df = res_df.melt(ignore_index=False).reset_index(level=["mrio", "mrio year"])
+    logger.info("Joining mrio with year")
     res_df["mrio"] = res_df[["mrio", "mrio year"]].agg("_".join, axis=1)
     res_df.drop("mrio year", axis=1, inplace=True)
     res_df.set_index("mrio", append=True, inplace=True)
+
     if drop_dict:
+        logger.info("Dropping xps to drop")
         res_df = drop_xps(res_df, drop_dict)
+
+    logger.info("Droping unused index levels")
     res_df = drop_levels_with_identical_values(res_df)
-    res_df.set_index(["region", "sector"], append=True, inplace=True)
-    res_df.reset_index(inplace=True)
-    res_df.set_index(["step", "region", "sector", "variable"], inplace=True)
+    logger.info("Reindexing")
+    res_df = res_df.reset_index().set_index(["step", "region", "sector", "variable"]).sort_index()
+
     col_var = list(res_df.columns[res_df.columns != "value"])
+    logger.info("Experience naming")
     res_df["Experience"] = res_df[col_var].agg("~".join, axis=1)
     res_df.drop(col_var, axis=1, inplace=True)
-    res_df.reset_index(inplace=True)
-    res_df.set_index(["variable", "region", "sector", "step"], inplace=True)
+    res_df = res_df.reset_index().set_index(["variable", "region", "sector", "step"]).sort_index()
+
     return res_df
 
+def prepare_df_2(df, neg_bins, pos_bins):
+    def pct_change(x):
+        return ((x - x.iloc[0]) / x.iloc[0]) * 100
+
+    def yearly_pct_change_cumsum(x):
+        return (x / 365).cumsum()
+
+    max_neg_bins = list(neg_bins.values())
+    max_neg_bins.append(np.inf) #   # Define the bin edges
+    max_neg_labels = neg_bins.keys() #   # Define the bin labels
+    max_pos_bins = list(pos_bins.values())
+    max_pos_bins.append(np.inf) # [-np.inf, 0, 2, 5, 10, 15, 20, 25, np.inf]  # Define the bin edges
+    max_pos_labels = pos_bins.keys() # ["no gains", "0%>G>2%", "2%>G>5%", "5%>G>10%", "10%>G>15%", "15%>G>20%", "20%>G>25%", "G>25%"]  # Define the bin labels
+
+    _df = df.copy().reset_index()
+    cols_to_groupby = list(_df.columns[(_df.columns != "value") & (_df.columns != "step")])
+    #_df.reset_index(inplace=True)
+    #_df.set_index("step", inplace=True)
+    #display(_df)
+    _df["value_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value"].progress_apply(pct_change)
+    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value_pct"].progress_apply(yearly_pct_change_cumsum)
+    _df["max_neg_impact_value_pct"] = _df.groupby("Experience")["value_pct"].progress_transform(min)
+    _df["max_neg_impact_class"] = _df.groupby("Experience")[["max_neg_impact_value_pct"]].progress_transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
+    _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].progress_transform(max)
+    _df["max_pos_impact_class"] = _df.groupby("Experience")[["max_pos_impact_value_pct"]].progress_transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
+    return _df
+
 drop_dict = snakemake.params.get("drop_dict")
-res_df = prepare_res_df(snakemake.input[0], drop_dict=drop_dict)
+res_df = prepare_df_1(snakemake.input[0], drop_dict=drop_dict)
+res_df = prepare_df_2(res_df, neg_bins=snakemake.config["impacts_bins"], pos_bins=snakemake.config["gains_bins"])
 res_df.to_parquet(snakemake.output[0])
