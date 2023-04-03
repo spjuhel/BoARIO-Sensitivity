@@ -13,9 +13,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())
 
-sns.set_theme()
-sns.set_context(snakemake.config.get("sns context", "notebook"))
-
 variable_name = snakemake.config["plot config"]["plot variable name mapping"]
 
 
