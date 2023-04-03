@@ -10,11 +10,11 @@ Comparison of indirect impacts for each variable in a facet format
 with sectors as columns and regions as row.
 
 Regrouping results for focus == full :
-
 ..........................................................
-    Regrouping results such that 1_5L1:
 
+    Regrouping results such that 1_5L1:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     Results on production_realised
 -----------------------
 
@@ -44,8 +44,8 @@ Cumulative change (expressed as percentage of yearly total)
 
 
 Regrouping results such that 1L0_5:
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     Results on production_realised
 -----------------------
 
@@ -75,8 +75,8 @@ Cumulative change (expressed as percentage of yearly total)
 
 
 Regrouping results such that 90L70:
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     Results on production_realised
 -----------------------
 
@@ -106,8 +106,8 @@ Cumulative change (expressed as percentage of yearly total)
 
 
 Regrouping results such that 25L10:
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     Results on production_realised
 -----------------------
 
