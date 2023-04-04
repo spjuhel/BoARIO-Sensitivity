@@ -34,12 +34,8 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 sys.excepthook = handle_exception
 
 header = ["""******************
-RESULTS
+RESULTS : General overview
 ******************
-
-
-General overview
-==================
 
 Comparison of indirect impacts for each variable in a facet format
 with sectors as columns and regions as row.
