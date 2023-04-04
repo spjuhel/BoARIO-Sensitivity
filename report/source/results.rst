@@ -1,6 +1,6 @@
-******************
+***************************
 RESULTS : General overview
-******************
+************************************
 
 Comparison of indirect impacts for each variable in a facet format
 with sectors as columns and regions as row.
