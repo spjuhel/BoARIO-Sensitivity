@@ -84,7 +84,7 @@ lines = header
 
 for focus in snakemake.config["focus"].keys():
     plot_df = pd.read_parquet(f"results/plot_df_{focus}.parquet")
-    focus_classes = plot_df.max_neg_impact_class.unique()
+    focus_classes = plot_df.max_neg_impact_class.sort_values().unique()
     lines += generate_focus(focus, focus_classes, variables_to_plot)
 
 with open(snakemake.output[0],'w') as f:

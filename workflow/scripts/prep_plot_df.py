@@ -63,7 +63,7 @@ def drop_xps(df, drop_dict):
                 logger.warning(f"You ask to remove rows where {key} = {val}, but none were found in the dataframe.")
     return _df
 
-def prepare_df_1(inpt, drop_dict=None):
+def prepare_df_1(inpt, drop_dict=None, drop_unused=False):
     """
     Prepare DataFrame for analysis.
 
@@ -86,8 +86,10 @@ def prepare_df_1(inpt, drop_dict=None):
         logger.info("Dropping xps to drop")
         res_df = drop_xps(res_df, drop_dict)
 
-    logger.info("Droping unused index levels")
-    res_df = drop_levels_with_identical_values(res_df)
+    if drop_unused:
+        logger.info("Droping unused index levels")
+        res_df = drop_levels_with_identical_values(res_df)
+
     logger.info("Reindexing")
     res_df = res_df.reset_index().set_index(["step", "region", "sector", "variable"]).sort_index()
 

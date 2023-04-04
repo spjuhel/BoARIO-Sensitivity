@@ -33,7 +33,7 @@ plot config:
 
   plot types:
     - classic
-#    - cumsum
+    - cumsum
 
   extensions:
     - pdf

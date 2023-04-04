@@ -69,6 +69,11 @@ def plot_variable_grid(
         df_to_plot = make_exclusion(plot_df, exclusion)
     #df_to_plot = subselect_var(plot_df, variable)
 
+    if plot_type=="cumsum":
+        y="value_cumsum_pct"
+    else:
+        y="value_pct"
+
     grid = sns.FacetGrid(
         data=df_to_plot,
         col=col,
@@ -79,7 +84,7 @@ def plot_variable_grid(
         row_order=row_order,
         aspect=aspect,
     )
-    grid.map_dataframe(sns.lineplot, x="step", y="value_pct", linewidth=3, alpha=0.9)
+    grid.map_dataframe(sns.lineplot, x="step", y=y, linewidth=3, alpha=0.9)
     grid.add_legend()
     grid.set_axis_labels(y_var="% change")
     grid.set_titles(row_template="{row_name}", col_template="{col_name}")
