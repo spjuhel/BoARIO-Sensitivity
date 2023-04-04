@@ -66,7 +66,7 @@ def get_grids(wildcards):
     grids = []
     bins = config["impacts_bins"].keys()
     for focus in config["focus"].keys():
-        plot_df = pd.read_parquet(f"results/plot_df_{focus}.parquet")
+        plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
         grids += expand("results/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
     return grids
@@ -122,7 +122,7 @@ rule plot_grid:
     script:
         "scripts/plot_results.py"
 
-rule prep_plot_df:
+checkpoint prep_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
