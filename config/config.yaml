@@ -43,6 +43,20 @@ focus:
   full: {}
 #  no_high_psi: {psi: "0.999"}
 #  minimal_1: {psi: ["0.999","0.5"], alpha_tau: "30"}
+impacts_bins_name: {'crash': 'economy crashed',
+ 'L90': 'losses >90%',
+ '90L70': 'losses in 90-70%',
+ '70L50': 'losses in 70-50%',
+ '50L25': 'losses in 50-25%',
+ '25L10': 'losses in 25-10%',
+ '10L5': 'losses in 10-5%',
+ '5L2': 'losses in 5-2%',
+ '2L1_5': 'losses in 2-1,5%',
+ '1_5L1': 'losses in 1,5-1%',
+ '1L0_5': 'losses in 1-0,5%',
+ '0_5L0': 'losses in <0,5%',
+ 'no losses': 'no losses',
+ }
 
 impacts_bins: {'crash': -.inf,
  'L90': -100,
@@ -55,7 +69,7 @@ impacts_bins: {'crash': -.inf,
  '2L1_5': -2,
  '1_5L1': -1.5,
  '1L0_5': -1,
- '0_5L>0': -0.5,
+ '0_5L0': -0.5,
  'no losses': 0}
 
 gains_bins: {'no gains': -.inf,

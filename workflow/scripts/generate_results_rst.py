@@ -12,8 +12,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())
 
-variable_name = snakemake.config["plot config"]["plot variable name mapping"]
-
+variable_names = snakemake.config["plot config"]["plot variable name mapping"]
+impact_names = snakemake.config["impacts_bins_name"]
 
 def handle_exception(exc_type, exc_value, exc_traceback):
     if issubclass(exc_type, KeyboardInterrupt):
@@ -45,7 +45,7 @@ with sectors as columns and regions as row.
 var_name_dict = {}#snakemake.config["a"]
 
 def generate_var_class(impact_class, variable, variable_name, focus) -> str:
-    return f"""Results on {variable}
+    return f"""Results on {variable_name}
 ---------------------------------------
 
 Change from initial level
@@ -60,12 +60,12 @@ Cumulative change (expressed as percentage of yearly total)
 
 """
 
-def generate_class(impact_class, variables, focus) -> str:
-    res = f"""Regrouping results such that {impact_class}:
+def generate_class(impact_class, impact_class_name, variables, focus) -> str:
+    res = f"""Simulation for which {impact_class_name}:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 """
-    res = res + "\n".join([generate_var_class(impact_class, var, var_name_dict, focus) for var in variables])
+    res = res + "\n".join([generate_var_class(impact_class, var, variable_names[var], focus) for var in variables])
     return res
 
 
@@ -74,7 +74,7 @@ def generate_focus(focus, classes, variables) -> str:
 ..........................................................
 
 """
-    res += "\n".join([generate_class(impact_class, variables, focus) for impact_class in classes])
+    res += "\n".join([generate_class(impact_class, impact_names[impact_class], variables, focus) for impact_class in classes])
     return res
 
 
