@@ -47,7 +47,7 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
 
     # Drop the levels that should be dropped
     logger.info(f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable'] )] }")
-    df = df.droplevel(level=[i for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable'] )])
+    df = df.droplevel(level=[i for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable','psi','alpha_tau'] )])
 
     return df
 
@@ -63,7 +63,7 @@ def drop_xps(df, drop_dict):
                 logger.warning(f"You ask to remove rows where {key} = {val}, but none were found in the dataframe.")
     return _df
 
-def prepare_df_1(inpt, drop_dict=None, drop_unused=False):
+def prepare_df_1(inpt, drop_dict=None, drop_unused=True):
     """
     Prepare DataFrame for analysis.
 
