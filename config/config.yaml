@@ -8,7 +8,7 @@ regions_common_aggreg: config/regions_common_aggreg.ods
 
 testing: False
 
-sim_length: 365
+sim_length: 730
 monetary_factor:
   exiobase3_full: 1000000
   oecd_v2021_full: 1000000
