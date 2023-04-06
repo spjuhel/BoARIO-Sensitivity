@@ -132,6 +132,8 @@ checkpoint prep_plot_df:
     log:
         "logs/prep_plot_df_{focus}.log"
     threads: 4
+    resources:
+        mem_mb=12000
     benchmark:
         "benchmarks/prep_plot_df_{focus}.log"
     conda:
