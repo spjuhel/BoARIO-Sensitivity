@@ -63,7 +63,7 @@ def drop_xps(df, drop_dict):
                 logger.warning(f"You ask to remove rows where {key} = {val}, but none were found in the dataframe.")
     return _df
 
-def prepare_df_1(inpt, drop_dict=None, drop_unused=True):
+def prepare_df_general(inpt, drop_dict=None, drop_unused=True):
     """
     Prepare DataFrame for analysis.
 
@@ -101,6 +101,46 @@ def prepare_df_1(inpt, drop_dict=None, drop_unused=True):
 
     return res_df
 
+def prepare_df_local_analysis(inpt, region, drop_dict=None):
+    """
+    Prepare DataFrame for analysis for one region.
+
+    Args:
+        inpt (str): Path to parquet file.
+        drop_dict (dict): Dictionary of columns to drop.
+
+    Returns:
+        res_df (pandas.DataFrame): Prepared DataFrame.
+    """
+    res_df = pd.read_parquet(inpt)
+    logger.info("Selecting region")
+    res_df = res_df.loc[:,region].sum(axis=1).copy()
+
+    logger.info("Droping unused index levels")
+    res_df = drop_levels_with_identical_values(res_df)
+
+    res_df.name = "value"
+    res_df = res_df.reset_index()
+
+    res_df["mrio"] = res_df[["mrio", "mrio year"]].agg("_".join, axis=1)
+    res_df.drop("mrio year", axis=1, inplace=True)
+    res_df.set_index("mrio", inplace=True)
+
+    if drop_dict:
+        logger.info("Dropping xps to drop")
+        res_df = drop_xps(res_df, drop_dict)
+
+    logger.info("Reindexing")
+    res_df = res_df.reset_index().set_index(["step", "variable", "recovery_sce", "mrio"]).sort_index()
+
+    col_var = list(res_df.columns[res_df.columns != "value"])
+    logger.info("Experience naming")
+    res_df["Experience"] = res_df[col_var].agg("~".join, axis=1)
+    res_df.drop(col_var, axis=1, inplace=True)
+    res_df = res_df.reset_index().set_index(["variable", "step"]).sort_index()
+    return res_df
+
+
 def prepare_df_2(df, neg_bins, pos_bins):
     def pct_change(x):
         return ((x - x.iloc[0]) / x.iloc[0]) * 100
@@ -129,6 +169,11 @@ def prepare_df_2(df, neg_bins, pos_bins):
     return _df
 
 drop_dict = snakemake.params.get("drop_dict")
-res_df = prepare_df_1(snakemake.input[0], drop_dict=drop_dict)
+if snakemake.params.df_type=="general":
+    res_df = prepare_df_general(snakemake.input[0], drop_dict=drop_dict)
+elif snakemake.params.df_type=="local":
+    res_df = prepare_df_local_analysis(snakemake.input[0], region=snakemake.config["flood scenario params"]["local region"], drop_dict=drop_dict)
+else:
+    raise ValueError(f"Invalid df type {snakemake.params.df_type}")
 res_df = prepare_df_2(res_df, neg_bins=snakemake.config["impacts_bins"], pos_bins=snakemake.config["gains_bins"])
 res_df.to_parquet(snakemake.output[0])

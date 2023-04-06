@@ -107,13 +107,29 @@ def plot_variable_grid(
         else:
             raise ValueError(f"output ({output}) should be a list or a str")
 
-plot_df = pd.read_parquet(snakemake.input[0])
-plot_variable_grid(
-    plot_df,
-    snakemake.wildcards.variable,
-    plot_type=snakemake.wildcards.plot_type,
-    sharey=snakemake.params.sharey,
-    row_order=snakemake.params.row_order,
-    output=snakemake.output,
-    selection={"max_neg_impact_class":snakemake.wildcards.impact_class}
-)
+general_plot_df = pd.read_parquet(snakemake.input.general)
+local_plot_df = pd.read_parquet(snakemake.input.local)
+
+if snakemake.wildcards.grid_type=="sectors_regions_grids":
+    plot_variable_grid(
+        general_plot_df,
+        snakemake.wildcards.variable,
+        plot_type=snakemake.wildcards.plot_type,
+        sharey=snakemake.params.sharey,
+        row_order=snakemake.params.row_order,
+        output=snakemake.output,
+        selection={"max_neg_impact_class":snakemake.wildcards.impact_class}
+    )
+elif snakemake.wildcards.grid_type=="params_recovery_local_grids":
+    plot_variable_grid(
+        local_plot_df,
+        snakemake.wildcards.variable,
+        plot_type=snakemake.wildcards.plot_type,
+        hue="mrio",
+        col="Experience",
+        row="recovery_sce"
+        sharey=snakemake.params.sharey,
+        output=snakemake.output,
+        aspect=1.5,
+        selection={"max_neg_impact_class":snakemake.wildcards.impact_class}
+    )

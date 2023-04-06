@@ -8,6 +8,9 @@ regions_common_aggreg: config/regions_common_aggreg.ods
 
 testing: False
 
+flood scenario params:
+  local region: "DEU"
+
 sim_length: 730
 monetary_factor:
   exiobase3_full: 1000000

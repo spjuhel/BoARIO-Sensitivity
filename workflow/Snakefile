@@ -62,37 +62,70 @@ else:
         ],
     )
 
-def get_grids(wildcards):
+def get_all_grids(wildcards):
     grids = []
     bins = config["impacts_bins"].keys()
     for focus in config["focus"].keys():
         plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand("{dirs}/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        grids += expand("{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], grid_type=["params_recovery_local_grids","sectors_regions_grids"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        return grids
+
+def get_local_grids(wildcards):
+    grids = []
+    bins = config["impacts_bins"].keys()
+    for focus in config["focus"].keys():
+        plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
+        actual_classes = plot_df.max_neg_impact_class.unique()
+        grids += expand("{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], grid_type=["params_recovery_local_grids"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
     return grids
+
+def get_general_grids(wildcards):
+    grids = []
+    bins = config["impacts_bins"].keys()
+    for focus in config["focus"].keys():
+        plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
+        actual_classes = plot_df.max_neg_impact_class.unique()
+        grids += expand("{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], grid_type=["sectors_regions_grids"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        return grids
 
 rule make_rst_report:
     input:
         general = "report/source/general_results.rst",
-        images = get_grids
+        local = "report/source/local_results.rst",
+        images = get_all_grids
     output:
         "report/build/html/index.html"
     conda:
         "envs/boario-sensi-report.yml"
     shell:
         """
-        git add {input.general}
-        git add report/images
-        make html;
+        git add {input.general};
+        git add {input.local};
+        git add report/images ;
+        git commit -m "update results from workflow";
+        git push;
         """
 
 rule make_rst_local_results:
-
+    input:
+        dfs=expand("results/local_plot_df_{focus}.parquet", focus=config["focus"].keys()),
+        grids = get_local_grids
+    params:
+        variables = config["variables"]
+    output:
+        "report/source/local_results.rst"
+    log:
+        "logs/make_local_rst_results.log",
+    conda:
+        "envs/boario-sensi-report.yml"
+    script:
+        "scripts/generate_local_results_rst.py"
 
 rule make_rst_general_results:
     input:
-        dfs=expand("results/plot_df_{focus}.parquet", focus=config["focus"].keys()),
-        grids=get_grids
+        dfs=expand("results/general_plot_df_{focus}.parquet", focus=config["focus"].keys()),
+        grids=get_general_grids
     params:
         variables = config["variables"]
     output:
@@ -104,21 +137,21 @@ rule make_rst_general_results:
     script:
         "scripts/generate_results_rst.py"
 
-
 rule all_grid:
     input:
-        get_grids
+        get_all_grids
 
 rule plot_grid:
     input:
-        "results/plot_df_{focus}.parquet",
+        general="results/general_plot_df_{focus}.parquet",
+        local="results/local_plot_df_{focus}.parquet"
     output:
-        expand("{dirs}/sectors_regions_grids/{{focus}}/{{impact_class}}/{{variable}}_{{plot_type}}.{{ext}}",dirs=["results/figs","report/images/figs"])
+        expand("{dirs}/{{grid_type}}/{{focus}}/{{impact_class}}/{{variable}}_{{plot_type}}.{{ext}}",dirs=["results/figs","report/images/figs"])
     params:
         sharey=config["plot config"]["grid"]["sharey"],
         row_order=config["plot config"]["grid"]["row order"]
     log:
-        "logs/plot_results_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log",
+        "logs/plot_results_{grid_type}_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log",
     threads: 4
     benchmark:
         "benchmarks/plot_results_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log"
@@ -127,20 +160,41 @@ rule plot_grid:
     script:
         "scripts/plot_results.py"
 
-checkpoint prep_plot_df:
+checkpoint prep_local_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
-        "results/plot_df_{focus}.parquet"
+        "results/local_plot_df_{focus}.parquet"
     params:
-        drop_dict=lambda wildcards: config["focus"][wildcards.focus]
+        drop_dict=lambda wildcards: config["focus"][wildcards.focus],
+        df_type="local"
     log:
-        "logs/prep_plot_df_{focus}.log"
+        "logs/prep_local_plot_df_{focus}.log"
     threads: 4
     resources:
         mem_mb=12000
     benchmark:
-        "benchmarks/prep_plot_df_{focus}.log"
+        "benchmarks/prep_local_plot_df_{focus}.log"
+    conda:
+        "envs/BoARIO-sensi.yml"
+    script:
+        "scripts/prep_plot_df.py"
+
+checkpoint prep_general_plot_df:
+    input:
+        "results/common_aggreg.parquet",
+    output:
+        "results/general_plot_df_{focus}.parquet"
+    params:
+        drop_dict=lambda wildcards: config["focus"][wildcards.focus],
+        df_type="general"
+    log:
+        "logs/prep_general_plot_df_{focus}.log"
+    threads: 4
+    resources:
+        mem_mb=12000
+    benchmark:
+        "benchmarks/prep_general_plot_df_{focus}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
