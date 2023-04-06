@@ -34,7 +34,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 sys.excepthook = handle_exception
 
 header = ["""************************************
-RESULTS : General overview
+RESULTS : Focus
 ************************************
 
 Comparison of indirect impacts for each variable in a facet format

@@ -73,25 +73,30 @@ def get_grids(wildcards):
 
 rule make_rst_report:
     input:
-        get_grids
+        general = "report/source/general_results.rst",
+        images = get_grids
     output:
         "report/build/html/index.html"
     conda:
         "envs/boario-sensi-report.yml"
     shell:
         """
-        cd report;
+        git add {input.general}
+        git add report/images
         make html;
         """
 
-rule make_rst_results:
+rule make_rst_local_results:
+
+
+rule make_rst_general_results:
     input:
         dfs=expand("results/plot_df_{focus}.parquet", focus=config["focus"].keys()),
         grids=get_grids
     params:
         variables = config["variables"]
     output:
-        "report/source/results.rst"
+        "report/source/general_results.rst"
     log:
         "logs/make_rst_results.log",
     conda:
