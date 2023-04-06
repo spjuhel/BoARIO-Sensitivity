@@ -68,7 +68,7 @@ def get_grids(wildcards):
     for focus in config["focus"].keys():
         plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand("results/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        grids += expand("{dirs}/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
     return grids
 
 rule make_rst_report:
@@ -108,7 +108,7 @@ rule plot_grid:
     input:
         "results/plot_df_{focus}.parquet",
     output:
-        "results/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
+        expand("{dirs}/sectors_regions_grids/{{focus}}/{{impact_class}}/{{variable}}_{{plot_type}}.{{ext}}",dirs=["results/figs","report/images/figs"])
     params:
         sharey=config["plot config"]["grid"]["sharey"],
         row_order=config["plot config"]["grid"]["row order"]

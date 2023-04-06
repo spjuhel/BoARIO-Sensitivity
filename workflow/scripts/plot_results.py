@@ -99,7 +99,13 @@ def plot_variable_grid(
     bbox_to_anchor=(.45, 0.0), ncol=4, title="Experiences", frameon=True,
     )
     if output:
-        grid.savefig(output)
+        if isinstance(output,str):
+            grid.savefig(output)
+        elif isinstance(output,list):
+            for out in output:
+                grid.savefig(out)
+        else:
+            raise ValueError(f"output ({output}) should be a list or a str")
 
 plot_df = pd.read_parquet(snakemake.input[0])
 plot_variable_grid(
@@ -108,6 +114,6 @@ plot_variable_grid(
     plot_type=snakemake.wildcards.plot_type,
     sharey=snakemake.params.sharey,
     row_order=snakemake.params.row_order,
-    output=snakemake.output[0],
+    output=snakemake.output,
     selection={"max_neg_impact_class":snakemake.wildcards.impact_class}
 )
