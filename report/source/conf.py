@@ -35,3 +35,5 @@ html_theme_options = {
 	"show_scrolltop": True,
 	
 }
+
+extensions = ['sphinx_collapse']

@@ -11,8 +11,8 @@ BoARIO Sensivity Report
    :caption: Contents:
 
    sim-overview
+   compare-process
    results
-
 
 Indices and tables
 ==================
