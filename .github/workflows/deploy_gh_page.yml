@@ -13,7 +13,7 @@ jobs:
       with:
         publish: false
         documentation_path: './report/source'
-        pyproject_extras: './report/'
+        requirements_path: './report/requirements.txt'
     - uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
