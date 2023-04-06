@@ -1,4 +1,4 @@
-***************************
+************************************
 RESULTS : General overview
 ************************************
 
@@ -7,6 +7,23 @@ with sectors as columns and regions as row.
 
 Regrouping results for focus == full :
 ..........................................................
+
+Simulation for which economy crashed:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Results on production
+---------------------------------------
+
+Change from initial level
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../results/figs/sectors_regions_grids/full/crash/production_realised_classic.svg
+
+Cumulative change (expressed as percentage of yearly total)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../results/figs/sectors_regions_grids/full/crash/production_realised_cumsum.svg
+
 
 Simulation for which losses >90%:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
