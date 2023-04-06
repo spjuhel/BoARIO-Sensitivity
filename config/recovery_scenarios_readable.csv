@@ -1,8 +1,0 @@
-Recovery,,Rebuilding,
-Name,Description,Name,Description
-recfast,Rapid recovery (capital recovered under 15 days),reb15,Very fast paced rebuilding all damages (15 days tau)
-reclin2,Linear recovery in ~2 months,reb90,Longer rebuilding all damages (90 days tau)
-recS2,S-shaped recovery in ~2months,reb15q,Very fast paced rebuilding .25 damages  (15 days tau)
-reclin6,Linear recovery in ~6months,reb90q,Longer rebuilding .25 damages (90 days tau)
-recS6,S-shaped recovery in ~6months,reb365,Very long rebuilding (365 days tau)
-,,reb545,Extremely long rebuilding (545 days tau)
