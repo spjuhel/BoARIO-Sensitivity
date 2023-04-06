@@ -22,6 +22,7 @@ wildcard_constraints:
     year="\d\d\d\d",
     aggregation="full_exio3compat|74_sectors",
 
+
 EXIO3_MRIOT = expand(
     "mrio-files/pkls/exiobase3/exiobase3_full_{year}_ixi.pkl", year=[2000, 2010]
 )
@@ -38,6 +39,7 @@ ALL_MRIOT = (
 rule all_mriot:
     input:
         ALL_MRIOT,
+
 
 if config["testing"]:
     paramspace = Paramspace(
@@ -62,14 +64,25 @@ else:
         ],
     )
 
+
 def get_all_grids(wildcards):
     grids = []
     bins = config["impacts_bins"].keys()
     for focus in config["focus"].keys():
         plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand("{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], grid_type=["params_recovery_local_grids","sectors_regions_grids"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        grids += expand(
+            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
+            dirs=["results/figs", "report/images/figs"],
+            grid_type=["params_recovery_local_grids", "sectors_regions_grids"],
+            focus=focus,
+            impact_class=actual_classes,
+            variable=config["variables"],
+            plot_type=config["plot config"]["plot types"],
+            ext="svg",
+        )
         return grids
+
 
 def get_local_grids(wildcards):
     grids = []
@@ -77,8 +90,18 @@ def get_local_grids(wildcards):
     for focus in config["focus"].keys():
         plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand("{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], grid_type=["params_recovery_local_grids"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        grids += expand(
+            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
+            dirs=["results/figs", "report/images/figs"],
+            grid_type=["params_recovery_local_grids"],
+            focus=focus,
+            impact_class=actual_classes,
+            variable=config["variables"],
+            plot_type=config["plot config"]["plot types"],
+            ext="svg",
+        )
     return grids
+
 
 def get_general_grids(wildcards):
     grids = []
@@ -86,16 +109,26 @@ def get_general_grids(wildcards):
     for focus in config["focus"].keys():
         plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand("{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}", dirs=["results/figs","report/images/figs"], grid_type=["sectors_regions_grids"], focus=focus, impact_class=actual_classes, variable=config["variables"], plot_type=config["plot config"]["plot types"], ext="svg")
+        grids += expand(
+            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
+            dirs=["results/figs", "report/images/figs"],
+            grid_type=["sectors_regions_grids"],
+            focus=focus,
+            impact_class=actual_classes,
+            variable=config["variables"],
+            plot_type=config["plot config"]["plot types"],
+            ext="svg",
+        )
         return grids
+
 
 rule make_rst_report:
     input:
-        general = "report/source/general_results.rst",
-        local = "report/source/local_results.rst",
-        images = get_all_grids
+        general="report/source/general_results.rst",
+        local="report/source/local_results.rst",
+        images=get_all_grids,
     output:
-        "report/build/html/index.html"
+        "report/build/html/index.html",
     conda:
         "envs/boario-sensi-report.yml"
     shell:
@@ -107,14 +140,17 @@ rule make_rst_report:
         git push;
         """
 
+
 rule make_rst_local_results:
     input:
-        dfs=expand("results/local_plot_df_{focus}.parquet", focus=config["focus"].keys()),
-        grids = get_local_grids
+        dfs=expand(
+            "results/local_plot_df_{focus}.parquet", focus=config["focus"].keys()
+        ),
+        grids=get_local_grids,
     params:
-        variables = config["variables"]
+        variables=config["variables"],
     output:
-        "report/source/local_results.rst"
+        "report/source/local_results.rst",
     log:
         "logs/make_local_rst_results.log",
     conda:
@@ -122,14 +158,17 @@ rule make_rst_local_results:
     script:
         "scripts/generate_local_results_rst.py"
 
+
 rule make_rst_general_results:
     input:
-        dfs=expand("results/general_plot_df_{focus}.parquet", focus=config["focus"].keys()),
-        grids=get_general_grids
+        dfs=expand(
+            "results/general_plot_df_{focus}.parquet", focus=config["focus"].keys()
+        ),
+        grids=get_general_grids,
     params:
-        variables = config["variables"]
+        variables=config["variables"],
     output:
-        "report/source/general_results.rst"
+        "report/source/general_results.rst",
     log:
         "logs/make_rst_results.log",
     conda:
@@ -137,19 +176,24 @@ rule make_rst_general_results:
     script:
         "scripts/generate_results_rst.py"
 
+
 rule all_grid:
     input:
-        get_all_grids
+        get_all_grids,
+
 
 rule plot_grid:
     input:
         general="results/general_plot_df_{focus}.parquet",
-        local="results/local_plot_df_{focus}.parquet"
+        local="results/local_plot_df_{focus}.parquet",
     output:
-        expand("{dirs}/{{grid_type}}/{{focus}}/{{impact_class}}/{{variable}}_{{plot_type}}.{{ext}}",dirs=["results/figs","report/images/figs"])
+        expand(
+            "{dirs}/{{grid_type}}/{{focus}}/{{impact_class}}/{{variable}}_{{plot_type}}.{{ext}}",
+            dirs=["results/figs", "report/images/figs"],
+        ),
     params:
         sharey=config["plot config"]["grid"]["sharey"],
-        row_order=config["plot config"]["grid"]["row order"]
+        row_order=config["plot config"]["grid"]["row order"],
     log:
         "logs/plot_results_{grid_type}_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log",
     threads: 4
@@ -160,19 +204,20 @@ rule plot_grid:
     script:
         "scripts/plot_results.py"
 
+
 checkpoint prep_local_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
-        "results/local_plot_df_{focus}.parquet"
+        "results/local_plot_df_{focus}.parquet",
     params:
         drop_dict=lambda wildcards: config["focus"][wildcards.focus],
-        df_type="local"
+        df_type="local",
     log:
-        "logs/prep_local_plot_df_{focus}.log"
+        "logs/prep_local_plot_df_{focus}.log",
     threads: 4
     resources:
-        mem_mb=12000
+        mem_mb=12000,
     benchmark:
         "benchmarks/prep_local_plot_df_{focus}.log"
     conda:
@@ -180,25 +225,27 @@ checkpoint prep_local_plot_df:
     script:
         "scripts/prep_plot_df.py"
 
+
 checkpoint prep_general_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
-        "results/general_plot_df_{focus}.parquet"
+        "results/general_plot_df_{focus}.parquet",
     params:
         drop_dict=lambda wildcards: config["focus"][wildcards.focus],
-        df_type="general"
+        df_type="general",
     log:
-        "logs/prep_general_plot_df_{focus}.log"
+        "logs/prep_general_plot_df_{focus}.log",
     threads: 4
     resources:
-        mem_mb=12000
+        mem_mb=12000,
     benchmark:
         "benchmarks/prep_general_plot_df_{focus}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
         "scripts/prep_plot_df.py"
+
 
 def regroup_input(wildcards):
     dico = {
@@ -286,14 +333,14 @@ rule simulate:
         # automatically translate the wildcard values into an instance of the param space
         # in the form of a dict (here: {"alpha": ..., "beta": ..., "gamma": ...})
         simulation_params=paramspace.instance,
-        sim_length=config["sim_length"]
+        sim_length=config["sim_length"],
     log:
         f"logs/simulations/{paramspace.wildcard_pattern}.log",
     threads: 4
     benchmark:
         f"benchmarks/simulations/{paramspace.wildcard_pattern}.log"
     resources:
-        mem_mb=10000
+        mem_mb=10000,
     conda:
         "envs/BoARIO-sensi.yml"
     script:

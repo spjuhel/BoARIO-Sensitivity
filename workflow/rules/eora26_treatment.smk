@@ -40,7 +40,7 @@ rule preparse_eora26:
     log:
         "logs/preparse_eora26/preparse_eora26_{year}.log",
     resources:
-        mem_mb=6000
+        mem_mb=6000,
     benchmark:
         "benchmarks/mrios/preparse_eora26_{year}.log"
     script:

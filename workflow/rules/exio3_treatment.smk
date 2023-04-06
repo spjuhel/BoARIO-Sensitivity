@@ -26,7 +26,7 @@ rule preparse_exiobase3:
     log:
         "logs/preparse_exiobase3/preparse_exiobase3_{year}_{system}.log",
     resources:
-        mem_mb=6000
+        mem_mb=6000,
     benchmark:
         "benchmarks/mrios/preparse_exiobase3_{year}_{system}.log"
     script:

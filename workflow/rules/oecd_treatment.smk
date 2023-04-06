@@ -25,7 +25,7 @@ rule preparse_oecd_v2021:
     log:
         "logs/preparse_oecd_v2021/preparse_oecd_v2021_{year}.log",
     resources:
-        mem_mb=6000
+        mem_mb=6000,
     benchmark:
         "benchmarks/mrios/preparse_oecd_v2021_{year}.log"
     script:

@@ -34,6 +34,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 # Install exception handler
 sys.excepthook = handle_exception
 
+
 def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
     """
     Given a pandas DataFrame with a multi-level index, drop any levels for which all
@@ -46,22 +47,38 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
     masks = [df.index.get_level_values(i).nunique() == 1 for i in range(len(levels))]
 
     # Drop the levels that should be dropped
-    logger.info(f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable'] )] }")
-    df = df.droplevel(level=[i for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable','psi','alpha_tau'] )])
+    logger.info(
+        f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable'] )] }"
+    )
+    df = df.droplevel(
+        level=[
+            i
+            for i, mask in enumerate(masks)
+            if (
+                mask
+                and not df.index.levels[i].name
+                in ["mrio", "variable", "psi", "alpha_tau"]
+            )
+        ]
+    )
 
     return df
 
+
 def drop_xps(df, drop_dict):
     _df = df.copy()
-    for key,val in drop_dict.items():
-        if isinstance(val,str):
-            val=[val]
+    for key, val in drop_dict.items():
+        if isinstance(val, str):
+            val = [val]
         for v in val:
             try:
-                _df.drop(index=str(v), level=key,inplace=True,axis=0)
+                _df.drop(index=str(v), level=key, inplace=True, axis=0)
             except KeyError:
-                logger.warning(f"You ask to remove rows where {key} = {val}, but none were found in the dataframe.")
+                logger.warning(
+                    f"You ask to remove rows where {key} = {val}, but none were found in the dataframe."
+                )
     return _df
+
 
 def prepare_df_general(inpt, drop_dict=None, drop_unused=True):
     """
@@ -91,15 +108,24 @@ def prepare_df_general(inpt, drop_dict=None, drop_unused=True):
         res_df = drop_levels_with_identical_values(res_df)
 
     logger.info("Reindexing")
-    res_df = res_df.reset_index().set_index(["step", "region", "sector", "variable"]).sort_index()
+    res_df = (
+        res_df.reset_index()
+        .set_index(["step", "region", "sector", "variable"])
+        .sort_index()
+    )
 
     col_var = list(res_df.columns[res_df.columns != "value"])
     logger.info("Experience naming")
     res_df["Experience"] = res_df[col_var].agg("~".join, axis=1)
     res_df.drop(col_var, axis=1, inplace=True)
-    res_df = res_df.reset_index().set_index(["variable", "region", "sector", "step"]).sort_index()
+    res_df = (
+        res_df.reset_index()
+        .set_index(["variable", "region", "sector", "step"])
+        .sort_index()
+    )
 
     return res_df
+
 
 def prepare_df_local_analysis(inpt, region, drop_dict=None):
     """
@@ -114,7 +140,7 @@ def prepare_df_local_analysis(inpt, region, drop_dict=None):
     """
     res_df = pd.read_parquet(inpt)
     logger.info("Selecting region")
-    res_df = res_df.loc[:,region].sum(axis=1).copy()
+    res_df = res_df.loc[:, region].sum(axis=1).copy()
 
     logger.info("Droping unused index levels")
     res_df = drop_levels_with_identical_values(res_df)
@@ -131,7 +157,11 @@ def prepare_df_local_analysis(inpt, region, drop_dict=None):
         res_df = drop_xps(res_df, drop_dict)
 
     logger.info("Reindexing")
-    res_df = res_df.reset_index().set_index(["step", "variable", "recovery_sce", "mrio"]).sort_index()
+    res_df = (
+        res_df.reset_index()
+        .set_index(["step", "variable", "recovery_sce", "mrio"])
+        .sort_index()
+    )
 
     col_var = list(res_df.columns[res_df.columns != "value"])
     logger.info("Experience naming")
@@ -149,31 +179,58 @@ def prepare_df_2(df, neg_bins, pos_bins):
         return (x / 365).cumsum()
 
     max_neg_bins = list(neg_bins.values())
-    max_neg_bins.append(np.inf) #   # Define the bin edges
-    max_neg_labels = neg_bins.keys() #   # Define the bin labels
+    max_neg_bins.append(np.inf)  #   # Define the bin edges
+    max_neg_labels = neg_bins.keys()  #   # Define the bin labels
     max_pos_bins = list(pos_bins.values())
-    max_pos_bins.append(np.inf) # [-np.inf, 0, 2, 5, 10, 15, 20, 25, np.inf]  # Define the bin edges
-    max_pos_labels = pos_bins.keys() # ["no gains", "0%>G>2%", "2%>G>5%", "5%>G>10%", "10%>G>15%", "15%>G>20%", "20%>G>25%", "G>25%"]  # Define the bin labels
+    max_pos_bins.append(
+        np.inf
+    )  # [-np.inf, 0, 2, 5, 10, 15, 20, 25, np.inf]  # Define the bin edges
+    max_pos_labels = (
+        pos_bins.keys()
+    )  # ["no gains", "0%>G>2%", "2%>G>5%", "5%>G>10%", "10%>G>15%", "15%>G>20%", "20%>G>25%", "G>25%"]  # Define the bin labels
 
     _df = df.copy().reset_index()
-    cols_to_groupby = list(_df.columns[(_df.columns != "value") & (_df.columns != "step")])
-    #_df.reset_index(inplace=True)
-    #_df.set_index("step", inplace=True)
-    #display(_df)
-    _df["value_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value"].apply(pct_change)
-    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby,axis=0,group_keys=False)["value_pct"].apply(yearly_pct_change_cumsum)
-    _df["max_neg_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(min)
-    _df["max_neg_impact_class"] = _df.groupby("Experience")[["max_neg_impact_value_pct"]].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
-    _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(max)
-    _df["max_pos_impact_class"] = _df.groupby("Experience")[["max_pos_impact_value_pct"]].transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
+    cols_to_groupby = list(
+        _df.columns[(_df.columns != "value") & (_df.columns != "step")]
+    )
+    # _df.reset_index(inplace=True)
+    # _df.set_index("step", inplace=True)
+    # display(_df)
+    _df["value_pct"] = _df.groupby(cols_to_groupby, axis=0, group_keys=False)[
+        "value"
+    ].apply(pct_change)
+    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby, axis=0, group_keys=False)[
+        "value_pct"
+    ].apply(yearly_pct_change_cumsum)
+    _df["max_neg_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
+        min
+    )
+    _df["max_neg_impact_class"] = _df.groupby("Experience")[
+        ["max_neg_impact_value_pct"]
+    ].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
+    _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
+        max
+    )
+    _df["max_pos_impact_class"] = _df.groupby("Experience")[
+        ["max_pos_impact_value_pct"]
+    ].transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
     return _df
 
+
 drop_dict = snakemake.params.get("drop_dict")
-if snakemake.params.df_type=="general":
+if snakemake.params.df_type == "general":
     res_df = prepare_df_general(snakemake.input[0], drop_dict=drop_dict)
-elif snakemake.params.df_type=="local":
-    res_df = prepare_df_local_analysis(snakemake.input[0], region=snakemake.config["flood scenario params"]["local region"], drop_dict=drop_dict)
+elif snakemake.params.df_type == "local":
+    res_df = prepare_df_local_analysis(
+        snakemake.input[0],
+        region=snakemake.config["flood scenario params"]["local region"],
+        drop_dict=drop_dict,
+    )
 else:
     raise ValueError(f"Invalid df type {snakemake.params.df_type}")
-res_df = prepare_df_2(res_df, neg_bins=snakemake.config["impacts_bins"], pos_bins=snakemake.config["gains_bins"])
+res_df = prepare_df_2(
+    res_df,
+    neg_bins=snakemake.config["impacts_bins"],
+    pos_bins=snakemake.config["gains_bins"],
+)
 res_df.to_parquet(snakemake.output[0])
