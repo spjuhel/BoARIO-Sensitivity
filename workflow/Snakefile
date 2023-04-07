@@ -198,7 +198,7 @@ rule plot_grid:
         "logs/plot_results_{grid_type}_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log",
     threads: 4
     benchmark:
-        "benchmarks/plot_results_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log"
+        "benchmarks/plot_results_{grid_type}_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
