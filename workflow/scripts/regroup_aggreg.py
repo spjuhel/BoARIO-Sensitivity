@@ -104,7 +104,7 @@ def common_monetary_factor(df, mrio_basename):
 
 def create_result_dict(inputs):
     xp_regex = re.compile(
-        r"results/simulations/mrio~(?P<mrio_basename>[\w]+)_(?P<year>\d\d\d\d)/sectors_scenario~(?P<sectors_scenario>[^/]+)/recovery_scenario~(?P<recovery_scenario>[^/]+)/flood_scenario~(?P<flood_scenario>[^/]+)/order~(?P<order>[^/]+)_psi~(?P<psi>[^/]+)_base_alpha~(?P<base_alpha>[^/_]+)_max_alpha~(?P<max_alpha>[^/_]+)_tau_alpha~(?P<tau_alpha>[^/]+)"
+        r"results/simulations/mrio~(?P<mrio_basename>[\w]+)_(?P<year>\d\d\d\d)(?:_ixi)?/sectors_scenario~(?P<sectors_scenario>[^/]+)/recovery_scenario~(?P<recovery_scenario>[^/]+)/flood_scenario~(?P<flood_scenario>[^/]+)/order~(?P<order>[^/]+)_psi~(?P<psi>[^/]+)_base_alpha~(?P<base_alpha>[^/_]+)_max_alpha~(?P<max_alpha>[^/_]+)_tau_alpha~(?P<tau_alpha>[^/]+)"
     )
     res_dict = {}
     for key, val in inputs.items():
