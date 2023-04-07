@@ -1,6 +1,6 @@
-*****************************************
+**********************************************************
 RESULTS : Local comparison (MRIO influence)
-******************************************
+**********************************************************
 
 Comparison of indirect impacts for each variable in a facet format
 with sectors as columns and regions as row.
@@ -108,6 +108,7 @@ Cumulative change (expressed as percentage of yearly total)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../images/figs/params_recovery_local_grids/full/2L1_5/production_realised_cumsum.svg
+            :alt: Nothing to plot
 
 
 Simulation for which losses in 1,5-1%:
@@ -142,4 +143,3 @@ Cumulative change (expressed as percentage of yearly total)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../images/figs/params_recovery_local_grids/full/1L0_5/production_realised_cumsum.svg
-
