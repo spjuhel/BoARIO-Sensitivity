@@ -96,7 +96,7 @@ rule make_all_rst_results:
     output:
         "report/source/results.rst",
     log:
-        "logs/make_rst_results_{focus}.log",
+        "logs/make_rst_results_index.log",
     conda:
         "envs/boario-sensi-report.yml"
     script:
