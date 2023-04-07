@@ -162,5 +162,5 @@ plot_variable_grid(
     row_order=row_order,
     aspect=1.7,
     output=snakemake.output,
-    col_wrap=None
+    col_wrap=col_wrap
     )
