@@ -70,7 +70,7 @@ rule make_rst_report:
     input:
         "report/source/results.rst",
     output:
-        "report/build/html/index.html",
+        touch("report/report_pushed")
     conda:
         "envs/boario-sensi-report.yml"
     shell:

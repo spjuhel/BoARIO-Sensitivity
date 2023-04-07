@@ -44,7 +44,7 @@ lines="""Results
    :maxdepth: 2
    :caption: Contents:
 
-"""+"\n".join([pathlib.Path(f).stem for f in snakemake.input.local_rst])+"\n".join([pathlib.Path(f).stem for f in snakemake.input.general_rst])
+"""+"\n".join([pathlib.Path(f).stem for f in snakemake.input.local_rst])+"\n"+"\n".join([pathlib.Path(f).stem for f in snakemake.input.general_rst])
 
 with open(snakemake.output[0], "w") as f:
     f.writelines(lines)
