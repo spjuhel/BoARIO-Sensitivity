@@ -88,7 +88,7 @@ def get_local_grids(wildcards):
     grids = []
     bins = config["impacts_bins"].keys()
     for focus in config["focus"].keys():
-        plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
+        plot_df = pd.read_parquet(checkpoints.prep_local_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
         grids += expand(
             "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
@@ -107,7 +107,7 @@ def get_general_grids(wildcards):
     grids = []
     bins = config["impacts_bins"].keys()
     for focus in config["focus"].keys():
-        plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
+        plot_df = pd.read_parquet(checkpoints.prep_general_plot_df.get(focus=focus).output)
         actual_classes = plot_df.max_neg_impact_class.unique()
         grids += expand(
             "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
