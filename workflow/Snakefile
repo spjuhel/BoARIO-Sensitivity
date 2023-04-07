@@ -135,13 +135,6 @@ rule make_rst_result:
     script:
         "scripts/generate_results_rst.py"
 
-
-
-rule all_grid:
-    input:
-        get_all_grids,
-
-
 rule plot_grid:
     input:
         plot_df="results/{scope}_plot_df_{focus}.parquet"
