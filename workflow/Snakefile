@@ -156,43 +156,20 @@ rule plot_grid:
     script:
         "scripts/plot_results.py"
 
-
-checkpoint prep_local_plot_df:
-    input:
-        "results/common_aggreg.parquet",
-    output:
-        "results/local_plot_df_{focus}.parquet",
-    params:
-        drop_dict=lambda wildcards: config["focus"][wildcards.focus],
-        df_type="local",
-    log:
-        "logs/prep_local_plot_df_{focus}.log",
-    threads: 4
-    resources:
-        mem_mb=12000,
-    benchmark:
-        "benchmarks/prep_local_plot_df_{focus}.log"
-    conda:
-        "envs/BoARIO-sensi.yml"
-    script:
-        "scripts/prep_plot_df.py"
-
-
 checkpoint prep_general_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
-        "results/general_plot_df_{focus}.parquet",
+        "results/{scope}_plot_df_{focus}.parquet",
     params:
-        drop_dict=lambda wildcards: config["focus"][wildcards.focus],
-        df_type="general",
+        drop_dict=lambda wildcards: config["focus"][wildcards.focus]
     log:
-        "logs/prep_general_plot_df_{focus}.log",
+        "logs/prep_{scope}_plot_df_{focus}.log",
     threads: 4
     resources:
         mem_mb=12000,
     benchmark:
-        "benchmarks/prep_general_plot_df_{focus}.log"
+        "benchmarks/prep_{scope}_plot_df_{focus}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:

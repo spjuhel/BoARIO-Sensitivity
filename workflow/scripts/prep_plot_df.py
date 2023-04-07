@@ -218,16 +218,17 @@ def prepare_df_2(df, neg_bins, pos_bins):
 
 
 drop_dict = snakemake.params.get("drop_dict")
-if snakemake.params.df_type == "general":
+if snakemake.wildcards.scope == "general":
     res_df = prepare_df_general(snakemake.input[0], drop_dict=drop_dict)
-elif snakemake.params.df_type == "local":
+elif snakemake.wildcards.scope == "local":
     res_df = prepare_df_local_analysis(
         snakemake.input[0],
         region=snakemake.config["flood scenario params"]["local region"],
         drop_dict=drop_dict,
     )
 else:
-    raise ValueError(f"Invalid df type {snakemake.params.df_type}")
+    raise ValueError(f"Invalid df type {snakemake.wildcards.scope}")
+
 res_df = prepare_df_2(
     res_df,
     neg_bins=snakemake.config["impacts_bins"],
