@@ -75,8 +75,7 @@ rule make_rst_report:
         "envs/boario-sensi-report.yml"
     shell:
         """
-        git add {input.general};
-        git add {input.local};
+        git add report/source;
         git add report/images ;
         git commit -m "update results from workflow";
         git push;
