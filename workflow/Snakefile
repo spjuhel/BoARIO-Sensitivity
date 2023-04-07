@@ -69,14 +69,26 @@ def get_all_grids(wildcards):
     grids = []
     bins = config["impacts_bins"].keys()
     for focus in config["focus"].keys():
-        plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(focus=focus).output)
-        actual_classes = plot_df.max_neg_impact_class.unique()
+        plot_df_1 = pd.read_parquet(checkpoints.prep_general_plot_df.get(focus=focus).output)
+        plot_df_2 = pd.read_parquet(checkpoints.prep_local_plot_df.get(focus=focus).output)
+        actual_classes_1 = plot_df_1.max_neg_impact_class.unique()
+        actual_classes_2 = plot_df_2.max_neg_impact_class.unique()
         grids += expand(
             "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
             dirs=["results/figs", "report/images/figs"],
-            grid_type=["params_recovery_local_grids", "sectors_regions_grids"],
+            grid_type=["sectors_regions_grids"],
             focus=focus,
-            impact_class=actual_classes,
+            impact_class=actual_classes_1,
+            variable=config["variables"],
+            plot_type=config["plot config"]["plot types"],
+            ext="svg",
+        )
+        grids += expand(
+            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
+            dirs=["results/figs", "report/images/figs"],
+            grid_type=["params_recovery_local_grids"],
+            focus=focus,
+            impact_class=actual_classes_2,
             variable=config["variables"],
             plot_type=config["plot config"]["plot types"],
             ext="svg",
