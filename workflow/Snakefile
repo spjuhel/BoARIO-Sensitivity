@@ -104,7 +104,8 @@ rule make_all_rst_results:
 
 def get_grids(wildcards):
     grids = []
-    plot_df = pd.read_parquet(checkpoints.prep_plot_df.get(scope=wildcards.scope, focus=wildcards.focus).output)
+    df_path=checkpoints.prep_plot_df.get(**wildcards).output[0]
+    plot_df = pd.read_parquet(df_path)
     selections = plot_df[wildcards.selection_type].sort_values().unique()
     grids += expand(
         "{dirs}/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_{plot_type}.{ext}",
