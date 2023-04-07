@@ -35,6 +35,8 @@ ALL_MRIOT = (
     + EXIO3_MRIOT
 )
 
+localrules: make_rst_report
+
 
 rule all_mriot:
     input:
