@@ -13,6 +13,7 @@ BoARIO Sensivity Report
    sim-overview
    compare-process
    general_results
+   local_results
 
 Indices and tables
 ==================
