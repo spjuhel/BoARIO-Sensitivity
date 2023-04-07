@@ -78,6 +78,14 @@ def generate_all_selections(scope, focus, selection_type, selections, faceting, 
     )
     return res
 
+variables_to_plot = snakemake.params.variables
+focus = snakemake.wildcards.focus
+scope = snakemake.wildcards.scope
+selection_type = snakemake.wildcards.selection_type
+faceting = snakemake.wildcards.faceting
+plot_df = pd.read_parquet(snakemake.input.plot_df)
+selections = plot_df[selection_type].sort_values().unique()
+
 header_sec_reg = f"""**********************************************************
 Comparing by resulting impact (sector,region facets) ({focus})
 **********************************************************
@@ -96,15 +104,6 @@ based on recovery scenario. Regrouping plot by common parameters.
 
 """
 
-variables_to_plot = snakemake.params.variables
-focus = snakemake.wildcards.focus
-scope = snakemake.wildcards.scope
-selection_type = snakemake.wildcards.selection_type
-faceting = snakemake.wildcards.faceting
-
-plot_df = pd.read_parquet(snakemake.input.plot_df)
-
-selections = plot_df[selection_type].sort_values().unique()
 
 lines = header_sec_reg + generate_all_selections(scope, focus, selection_type, selections, faceting, variables_to_plot)
 
