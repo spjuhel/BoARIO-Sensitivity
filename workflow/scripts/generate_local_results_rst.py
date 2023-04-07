@@ -55,12 +55,12 @@ def generate_var_class(impact_class, variable, variable_name, focus) -> str:
 Change from initial level
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/figs/params_recovery_local_grid/{focus}/{impact_class}/{variable}_classic.svg
+.. image:: ../images/figs/params_recovery_local_grids/{focus}/{impact_class}/{variable}_classic.svg
 
 Cumulative change (expressed as percentage of yearly total)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/figs/params_recovery_local_grid/{focus}/{impact_class}/{variable}_cumsum.svg
+.. image:: ../images/figs/params_recovery_local_grids/{focus}/{impact_class}/{variable}_cumsum.svg
 
 """
 
