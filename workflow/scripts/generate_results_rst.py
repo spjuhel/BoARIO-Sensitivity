@@ -30,77 +30,83 @@ def handle_exception(exc_type, exc_value, exc_traceback):
         )
     )
 
+    #max_neg_impact_class
+#{{scope}}/{{selection_type}}~{{selection}}/{{faceting}}/{{variable}}_{{plot_type}}.
 
 # Install exception handler
 sys.excepthook = handle_exception
 
-header = [
-    """************************************
-RESULTS : General overview
-************************************
-
-Comparison of indirect impacts for each variable in a facet format
-with sectors as columns and regions as row.
-
-"""
-]
-
-var_name_dict = {}  # snakemake.config["a"]
-
-
-def generate_var_class(impact_class, variable, variable_name, focus) -> str:
-    return f"""Results on {variable_name}
+def generate_plot_var(scope, focus, selection_type, selection, faceting, variable) -> str:
+    return f"""Variable is: {variable}
 ---------------------------------------
 
 Change from initial level
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_classic.svg
+.. image:: ../images/figs/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_classic.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
 
 Cumulative change (expressed as percentage of yearly total)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/figs/sectors_regions_grids/{focus}/{impact_class}/{variable}_cumsum.svg
+.. image:: ../images/figs/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_cumsum.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
 
 """
 
 
-def generate_class(impact_class, impact_class_name, variables, focus) -> str:
-    res = f"""Simulation for which {impact_class_name}:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+def generate_plot_selection(scope, focus, selection_type, selection, faceting, variables) -> str:
+    res = f"""Simulation regrouped such that {selection_type}=={selection} :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 """
     res = res + "\n".join(
         [
-            generate_var_class(impact_class, var, variable_names[var], focus)
+            generate_plot_var(scope, focus, selection_type, selection, faceting, var)
             for var in variables
         ]
     )
     return res
 
 
-def generate_focus(focus, classes, variables) -> str:
-    res = f"""Regrouping results for focus == {focus} :
-..........................................................
-
-"""
-    res += "\n".join(
+def generate_all_selections(scope, focus, selection_type, selections, faceting, variables) -> str:
+    res = "\n".join(
         [
-            generate_class(impact_class, impact_names[impact_class], variables, focus)
-            for impact_class in classes
+            generate_plot_selection(scope, focus, selection_type, selec, faceting, variables)
+            for selec in selections
         ]
     )
     return res
 
+header_sec_reg = f"""**********************************************************
+Comparing by resulting impact (sector,region facets) ({focus})
+**********************************************************
+
+Comparison of indirect impacts for each variable in a facet format
+with sectors as columns and regions as row. Regrouping plots by maximum size of indirect impact.
+
+"""
+
+header_recov_local = f"""***************************************************************
+Comparing by params for the affected region (recover scenario facets) ({focus})
+***************************************************************
+
+Comparison of indirect impacts for each variable in a facet format
+based on recovery scenario. Regrouping plot by common parameters.
+
+"""
 
 variables_to_plot = snakemake.params.variables
+focus = snakemake.wildcards.focus
+scope = snakemake.wildcards.scope
+selection_type = snakemake.wildcards.selection_type
+faceting = snakemake.wildcards.faceting
 
-lines = header
+plot_df = pd.read_parquet(snakemake.input.plot_df)
 
-for focus in snakemake.config["focus"].keys():
-    plot_df = pd.read_parquet(f"results/plot_df_{focus}.parquet")
-    focus_classes = plot_df.max_neg_impact_class.sort_values().unique()
-    lines += generate_focus(focus, focus_classes, variables_to_plot)
+selections = plot_df[selection_type].sort_values().unique()
 
-with open(snakemake.output[0], "w") as f:
+lines = header_sec_reg + generate_all_selections(scope, focus, selection_type, selections, faceting, variables_to_plot)
+
+with open(snakemake.output.res_rst, "w") as f:
     f.writelines(lines)

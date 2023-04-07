@@ -132,19 +132,17 @@ variable=snakemake.wildcards.variable
 faceting=snakemake.wildcards.faceting
 plot_type=snakemake.wildcards.plot_type
 
-facet_re = re.compile(r"^([^~\\n]+)(?:~(\\S+))?$")
+facet_re = re.compile(r"^(?P<facet_col>[^X\n]+)(X(?P<facet_row>\S+))?~(?P<facet_hue>\S+)$")
 match = facet_re.match(faceting)
 if not match:
     raise ValueError(f"{faceting} does not correspond to a valid possible faceting")
 
-col, row = match.groups()
-
-if not row:
+if not match["facet_row"]:
     col_wrap=3
 else:
     col_wrap=None
 
-if row="region":
+if match["facet_row"]=="region":
     row_order=snakemake.params.row_order
 else:
     row_order=None
@@ -157,12 +155,12 @@ plot_variable_grid(
     selection={},
     exclusion=None,
     plot_type=plot_type,
-    hue="Experience",
-    col="sector",
-    row="region",
+    hue=match["facet_hue"],
+    col=match["facet_col"],
+    row=match["facet_row"],
     sharey=True,
     row_order=row_order,
     aspect=1.7,
-    output=None,
+    output=snakemake.output,
     col_wrap=None
     )

@@ -43,7 +43,7 @@ plot config:
     - svg
 
 focus:
-  full: {}
+  all_sim: {}
 #  no_high_psi: {psi: "0.999"}
 #  minimal_1: {psi: ["0.999","0.5"], alpha_tau: "30"}
 impacts_bins_name: {'crash': 'economy crashed',

@@ -2,3 +2,15 @@
     flex-grow: 1;
     max-width: 100%;
 }
+
+.bd-sidebar-primary {
+    max-width: 15%;
+}
+
+.bd-page-width {
+    max-width: 95%;
+}
+
+.bd-main .bd-content .bd-article-container {
+    max-width: 600em;
+}

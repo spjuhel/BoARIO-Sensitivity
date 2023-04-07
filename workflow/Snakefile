@@ -66,81 +66,9 @@ else:
         ],
     )
 
-
-def get_all_grids(wildcards):
-    grids = []
-    bins = config["impacts_bins"].keys()
-    for focus in config["focus"].keys():
-        plot_df_1 = pd.read_parquet(checkpoints.prep_general_plot_df.get(focus=focus).output)
-        plot_df_2 = pd.read_parquet(checkpoints.prep_local_plot_df.get(focus=focus).output)
-        actual_classes_1 = plot_df_1.max_neg_impact_class.unique()
-        actual_classes_2 = plot_df_2.max_neg_impact_class.unique()
-        grids += expand(
-            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
-            dirs=["results/figs", "report/images/figs"],
-            grid_type=["sectors_regions_grids"],
-            focus=focus,
-            impact_class=actual_classes_1,
-            variable=config["variables"],
-            plot_type=config["plot config"]["plot types"],
-            ext="svg",
-        )
-        grids += expand(
-            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
-            dirs=["results/figs", "report/images/figs"],
-            grid_type=["params_recovery_local_grids"],
-            focus=focus,
-            impact_class=actual_classes_2,
-            variable=config["variables"],
-            plot_type=config["plot config"]["plot types"],
-            ext="svg",
-        )
-        return grids
-
-
-def get_local_grids(wildcards):
-    grids = []
-    bins = config["impacts_bins"].keys()
-    for focus in config["focus"].keys():
-        plot_df = pd.read_parquet(checkpoints.prep_local_plot_df.get(focus=focus).output)
-        actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand(
-            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
-            dirs=["results/figs", "report/images/figs"],
-            grid_type=["params_recovery_local_grids"],
-            focus=focus,
-            impact_class=actual_classes,
-            variable=config["variables"],
-            plot_type=config["plot config"]["plot types"],
-            ext="svg",
-        )
-    return grids
-
-
-def get_general_grids(wildcards):
-    grids = []
-    bins = config["impacts_bins"].keys()
-    for focus in config["focus"].keys():
-        plot_df = pd.read_parquet(checkpoints.prep_general_plot_df.get(focus=focus).output)
-        actual_classes = plot_df.max_neg_impact_class.unique()
-        grids += expand(
-            "{dirs}/{grid_type}/{focus}/{impact_class}/{variable}_{plot_type}.{ext}",
-            dirs=["results/figs", "report/images/figs"],
-            grid_type=["sectors_regions_grids"],
-            focus=focus,
-            impact_class=actual_classes,
-            variable=config["variables"],
-            plot_type=config["plot config"]["plot types"],
-            ext="svg",
-        )
-        return grids
-
-
 rule make_rst_report:
     input:
-        general="report/source/general_results.rst",
-        local="report/source/local_results.rst",
-        images=get_all_grids,
+        "report/source/results.rst",
     output:
         "report/build/html/index.html",
     conda:
@@ -155,40 +83,58 @@ rule make_rst_report:
         """
 
 
-rule make_rst_local_results:
+rule make_all_rst_results:
     input:
-        dfs=expand(
-            "results/local_plot_df_{focus}.parquet", focus=config["focus"].keys()
+        local_rst=expand(
+            "report/source/local_{focus}_{selection_type}_{faceting}_results.rst", focus=config["focus"].keys(), selection_type=["recovery_sce"], faceting=["Experience~mrio"]
         ),
-        grids=get_local_grids,
+        general_rst=expand(
+            "report/source/general_{focus}_{selection_type}_{faceting}_results.rst", focus=config["focus"].keys(), selection_type=["max_neg_impact_class"], faceting=["sectorXregion~mrio"]
+        ),
     params:
         variables=config["variables"],
     output:
-        "report/source/local_results.rst",
+        "report/source/results.rst",
     log:
-        "logs/make_local_rst_results.log",
+        "logs/make_rst_results_{focus}.log",
     conda:
         "envs/boario-sensi-report.yml"
     script:
-        "scripts/generate_local_results_rst.py"
+        "scripts/generate_results_index_rst.py"
 
 
-rule make_rst_general_results:
+def get_grids(wildcards):
+    grids = []
+    plot_df = pd.read_parquet(f"results/{wildcards.scope}_plot_df_{wildcards.focus}.parquet")
+    selections = plot_df[wildcards.selection_type].sort_values().unique()
+    grids += expand(
+        "{dirs}/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_{plot_type}.{ext}",
+        dirs=["results/figs", "report/images/figs"],
+        selection_type=wildcards.selection_type,
+        selection=selections,
+        focus=wildcards.focus,
+        faceting=wildcards.faceting,
+        variable=config["variables"],
+        plot_type=config["plot config"]["plot types"],
+        ext="svg",
+    )
+    return grids
+
+rule make_rst_result:
     input:
-        dfs=expand(
-            "results/general_plot_df_{focus}.parquet", focus=config["focus"].keys()
-        ),
-        grids=get_general_grids,
+        plot_df="results/{scope}_plot_df_{focus}.parquet",
+        grids=get_grids,
+    output:
+        res_rst="report/source/{scope}_{focus}_{selection_type}_{faceting}_results.rst"
     params:
         variables=config["variables"],
-    output:
-        "report/source/general_results.rst",
     log:
-        "logs/make_rst_results.log",
+        "logs/make_rst_results_{scope}_{focus}_{selection_type}_{faceting}.log",
     conda:
         "envs/boario-sensi-report.yml"
     script:
         "scripts/generate_results_rst.py"
+
 
 
 rule all_grid:
@@ -201,17 +147,17 @@ rule plot_grid:
         plot_df="results/{scope}_plot_df_{focus}.parquet"
     output:
         expand(
-            "{dirs}/{{scope}}/{{selection_type}}~{{selection}}/{{faceting}}/{{variable}}_{{plot_type}}.{{ext}}",
+            "{dirs}/{{scope}}/{{focus}}/{{selection_type}}~{{selection}}/{{faceting}}/{{variable}}_{{plot_type}}.{{ext}}",
             dirs=["results/figs", "report/images/figs"],
         ),
     params:
         sharey=config["plot config"]["grid"]["sharey"],
         row_order=config["plot config"]["grid"]["row order"],
     log:
-        "logs/plot_results_{scope}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log",
+        "logs/plot_results_{scope}_{focus}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log",
     threads: 4
     benchmark:
-        "benchmarks/plot_results_{scope}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log"
+        "benchmarks/plot_results_{scope}_{focus}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
