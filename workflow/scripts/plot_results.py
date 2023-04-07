@@ -3,6 +3,7 @@ import logging, traceback
 import pandas as pd
 import seaborn as sns
 import numpy as np
+import re
 
 logging.basicConfig(
     filename=snakemake.log[0],
@@ -71,6 +72,7 @@ def plot_variable_grid(
     row_order=None,
     aspect=1.7,
     output=None,
+    col_wrap=None
 ):
     selection["variable"] = variable  # if isinstance(variable, list) else [variable]
     df_to_plot = make_selection(plot_df, selection)
@@ -92,6 +94,7 @@ def plot_variable_grid(
         hue=hue,
         row_order=row_order,
         aspect=aspect,
+        col_wrap=col_wrap,
     )
     grid.map_dataframe(sns.lineplot, x="step", y=y, linewidth=3, alpha=0.9)
     grid.add_legend()
@@ -121,30 +124,45 @@ def plot_variable_grid(
             raise ValueError(f"output ({output}) should be a list or a str")
 
 
-general_plot_df = pd.read_parquet(snakemake.input.general)
-local_plot_df = pd.read_parquet(snakemake.input.local)
+plot_df = pd.read_parquet(snakemake.input.plot_df)
 
-if snakemake.wildcards.grid_type == "sectors_regions_grids":
-    plot_variable_grid(
-        general_plot_df,
-        snakemake.wildcards.variable,
-        plot_type=snakemake.wildcards.plot_type,
-        sharey=snakemake.params.sharey,
-        row_order=snakemake.params.row_order,
-        output=snakemake.output,
-        selection={"max_neg_impact_class": snakemake.wildcards.impact_class},
-    )
 
-elif snakemake.wildcards.grid_type == "params_recovery_local_grids":
-    plot_variable_grid(
-        local_plot_df,
-        snakemake.wildcards.variable,
-        plot_type=snakemake.wildcards.plot_type,
-        hue="mrio",
-        col="Experience",
-        row="recovery_sce",
-        sharey=snakemake.params.sharey,
-        output=snakemake.output,
-        aspect=1.5,
-        selection={"max_neg_impact_class": snakemake.wildcards.impact_class},
+selection={snakemake.wildcards.selection_type:snakemake.wildcards.selection}
+variable=snakemake.wildcards.variable
+faceting=snakemake.wildcards.faceting
+plot_type=snakemake.wildcards.plot_type
+
+facet_re = re.compile(r"^([^~\\n]+)(?:~(\\S+))?$")
+match = facet_re.match(faceting)
+if not match:
+    raise ValueError(f"{faceting} does not correspond to a valid possible faceting")
+
+col, row = match.groups()
+
+if not row:
+    col_wrap=3
+else:
+    col_wrap=None
+
+if row="region":
+    row_order=snakemake.params.row_order
+else:
+    row_order=None
+
+#sharey=snakemake.config["plot config"]["gr"]
+
+plot_variable_grid(
+    plot_df,
+    variable=variable,
+    selection={},
+    exclusion=None,
+    plot_type=plot_type,
+    hue="Experience",
+    col="sector",
+    row="region",
+    sharey=True,
+    row_order=row_order,
+    aspect=1.7,
+    output=None,
+    col_wrap=None
     )

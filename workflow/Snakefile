@@ -198,21 +198,20 @@ rule all_grid:
 
 rule plot_grid:
     input:
-        general="results/general_plot_df_{focus}.parquet",
-        local="results/local_plot_df_{focus}.parquet",
+        plot_df="results/{scope}_plot_df_{focus}.parquet"
     output:
         expand(
-            "{dirs}/{{grid_type}}/{{focus}}/{{impact_class}}/{{variable}}_{{plot_type}}.{{ext}}",
+            "{dirs}/{{scope}}/{{selection_type}}~{{selection}}/{{faceting}}/{{variable}}_{{plot_type}}.{{ext}}",
             dirs=["results/figs", "report/images/figs"],
         ),
     params:
         sharey=config["plot config"]["grid"]["sharey"],
         row_order=config["plot config"]["grid"]["row order"],
     log:
-        "logs/plot_results_{grid_type}_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log",
+        "logs/plot_results_{scope}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log",
     threads: 4
     benchmark:
-        "benchmarks/plot_results_{grid_type}_{focus}_{impact_class}_{variable}_{plot_type}_{ext}.log"
+        "benchmarks/plot_results_{scope}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:

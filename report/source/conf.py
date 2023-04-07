@@ -23,9 +23,8 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+html_theme = "pydata_sphinx_theme"
 
-html_theme = 'sphinxawesome_theme'
-extensions = ["sphinxawesome_theme"]
 #html_theme_path = [sphinx_redactor_theme.get_html_theme_path()]
 html_static_path = ["_static"]
 html_css_files = ["css/custom.css"]
@@ -33,7 +32,7 @@ html_css_files = ["css/custom.css"]
 html_theme_options = {
 	"show_prev_next": True,
 	"show_scrolltop": True,
-	
+
 }
 
 extensions = ['sphinx_collapse']
