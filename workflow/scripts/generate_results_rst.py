@@ -103,9 +103,15 @@ Comparison of indirect impacts for each variable in a facet format
 based on recovery scenario. Regrouping plot by common parameters.
 
 """
+lines =""
 
+if scope=="general":
+    lines = header_sec_reg
+elif scope=="local":
+    lines = header_recov_local
 
-lines = header_sec_reg + generate_all_selections(scope, focus, selection_type, selections, faceting, variables_to_plot)
+lines += generate_all_selections(scope, focus, selection_type, selections, faceting, variables_to_plot)
+
 
 with open(snakemake.output.res_rst, "w") as f:
     f.writelines(lines)

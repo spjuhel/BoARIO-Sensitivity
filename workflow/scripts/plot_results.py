@@ -152,7 +152,7 @@ else:
 plot_variable_grid(
     plot_df,
     variable=variable,
-    selection={},
+    selection=selection,
     exclusion=None,
     plot_type=plot_type,
     hue=match["facet_hue"],
