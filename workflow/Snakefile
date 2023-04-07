@@ -86,10 +86,10 @@ rule make_rst_report:
 rule make_all_rst_results:
     input:
         local_rst=expand(
-            "report/source/local_{focus}_{selection_type}_{faceting}_results.rst", focus=config["focus"].keys(), selection_type=["recovery_sce"], faceting=["Experience~mrio"]
+            "report/source/local-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["recovery_sce"], faceting=["Experience~mrio"]
         ),
         general_rst=expand(
-            "report/source/general_{focus}_{selection_type}_{faceting}_results.rst", focus=config["focus"].keys(), selection_type=["max_neg_impact_class"], faceting=["sectorXregion~mrio"]
+            "report/source/general-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["max_neg_impact_class"], faceting=["sectorXregion~mrio"]
         ),
     params:
         variables=config["variables"],
@@ -122,14 +122,14 @@ def get_grids(wildcards):
 
 rule make_rst_result:
     input:
-        plot_df="results/{scope}_plot_df_{focus}.parquet",
+        plot_df="results/{scope}-plot_df-{focus}.parquet",
         grids=get_grids,
     output:
-        res_rst="report/source/{scope}_{focus}_{selection_type}_{faceting}_results.rst"
+        res_rst="report/source/{scope}-{focus}-{selection_type}-{faceting}-results.rst"
     params:
         variables=config["variables"],
     log:
-        "logs/make_rst_results_{scope}_{focus}_{selection_type}_{faceting}.log",
+        "logs/make_rst_results-{scope}-{focus}-{selection_type}-{faceting}.log",
     conda:
         "envs/boario-sensi-report.yml"
     script:
@@ -137,7 +137,7 @@ rule make_rst_result:
 
 rule plot_grid:
     input:
-        plot_df="results/{scope}_plot_df_{focus}.parquet"
+        plot_df="results/{scope}-plot_df-{focus}.parquet"
     output:
         expand(
             "{dirs}/{{scope}}/{{focus}}/{{selection_type}}~{{selection}}/{{faceting}}/{{variable}}_{{plot_type}}.{{ext}}",
@@ -147,10 +147,10 @@ rule plot_grid:
         sharey=config["plot config"]["grid"]["sharey"],
         row_order=config["plot config"]["grid"]["row order"],
     log:
-        "logs/plot_results_{scope}_{focus}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log",
+        "logs/plot_results-{scope}-{focus}-{selection_type}-{selection}-{faceting}-{variable}-{plot_type}_{ext}.log",
     threads: 4
     benchmark:
-        "benchmarks/plot_results_{scope}_{focus}_{selection_type}_{selection}_{faceting}_{variable}_{plot_type}_{ext}.log"
+        "benchmarks/plot_results-{scope}-{focus}-{selection_type}-{selection}-{faceting}-{variable}-{plot_type}_{ext}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
@@ -160,16 +160,16 @@ checkpoint prep_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
-        "results/{scope}_plot_df_{focus}.parquet",
+        "results/{scope}-plot_df-{focus}.parquet",
     params:
         drop_dict=lambda wildcards: config["focus"][wildcards.focus]
     log:
-        "logs/prep_{scope}_plot_df_{focus}.log",
+        "logs/prep_{scope}-plot_df-{focus}.log",
     threads: 4
     resources:
         mem_mb=12000,
     benchmark:
-        "benchmarks/prep_{scope}_plot_df_{focus}.log"
+        "benchmarks/prep_{scope}-plot_df-{focus}.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:
