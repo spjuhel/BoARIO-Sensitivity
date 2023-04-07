@@ -110,6 +110,7 @@ def get_grids(wildcards):
     grids += expand(
         "{dirs}/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_{plot_type}.{ext}",
         dirs=["results/figs", "report/images/figs"],
+        scope=wildcards.scope,
         selection_type=wildcards.selection_type,
         selection=selections,
         focus=wildcards.focus,
