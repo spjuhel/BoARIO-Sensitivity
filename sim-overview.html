@@ -168,7 +168,7 @@ document.write(`
       
       
         <div class="navbar-item"><p class="last-updated">
-  Last updated on Apr 07, 2023.
+  Last updated on Apr 12, 2023.
   <br/>
 </p></div>
       
@@ -259,7 +259,7 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item"><p class="last-updated">
-  Last updated on Apr 07, 2023.
+  Last updated on Apr 12, 2023.
   <br/>
 </p></div>
         
@@ -489,12 +489,12 @@ productive capital is regained via the answer to a <code class="docutils literal
 <li><p>If <code class="docutils literal notranslate"><span class="pre">affected</span></code> is true/1, then the sectors loses productive capital following the flood.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rebuilding_factor</span></code> denotes which share of the rebuilding demand the sector will have to answer</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inventory_size</span></code> denotes the initial size of the inventory of inputs of the specified sector (e.g. if <code class="docutils literal notranslate"><span class="pre">Agriculture</span></code> is 90, then all sectors will store 90 days worth of inputs of <code class="docutils literal notranslate"><span class="pre">Agriculture</span></code> )</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kapital_to_va_ratio</span></code> is the factor used to estimate productive capital from the VA of the sector</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">productive_capital_to_va_ratio</span></code> is the factor used to estimate productive capital from the VA of the sector</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inventory_tau</span></code> is the inventory restoration characteristic time</p></li>
 </ul>
 <p>Note that default values are from Hallegatte2013</p>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="01ae32a0-4972-4f32-b24a-c37856b35131" name="01ae32a0-4972-4f32-b24a-c37856b35131" type="checkbox"><label class="sphinx_collapse__label" for="01ae32a0-4972-4f32-b24a-c37856b35131"><i class="sphinx_collapse__icon"></i>Exiobase3 default configuration</label><div class="sphinx_collapse__content docutils container">
+<input class="sphinx_collapse__input" id="abe545f8-5fc0-46da-9e33-c51635406171" name="abe545f8-5fc0-46da-9e33-c51635406171" type="checkbox"><label class="sphinx_collapse__label" for="abe545f8-5fc0-46da-9e33-c51635406171"><i class="sphinx_collapse__icon"></i>Exiobase3 default configuration</label><div class="sphinx_collapse__content docutils container">
 <table class="table">
 <colgroup>
 <col style="width: 50.0%" />
@@ -509,196 +509,196 @@ productive capital is regained via the answer to a <code class="docutils literal
 <th class="head"><p>affected</p></th>
 <th class="head"><p>rebuilding_factor</p></th>
 <th class="head"><p>inventory_size</p></th>
-<th class="head"><p>kapital_to_va_ratio</p></th>
+<th class="head"><p>productive_capital_to_va_ratio</p></th>
 <th class="head"><p>inventory_tau</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Construction (45)</p></td>
 <td><p>0</p></td>
-<td><p>0.55</p></td>
+<td><p>0,55</p></td>
 <td><p>90</p></td>
-<td><p>0.5</p></td>
+<td><p>0,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of electrical machinery and apparatus n.e.c. (31)</p></td>
 <td><p>1</p></td>
-<td><p>0.1</p></td>
+<td><p>0,1</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manufacture of furniture; manufacturing n.e.c. (36)</p></td>
 <td><p>1</p></td>
-<td><p>0.06</p></td>
+<td><p>0,06</p></td>
 <td><p>90</p></td>
 <td><p>3</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials (20)</p></td>
 <td><p>1</p></td>
-<td><p>0.05</p></td>
+<td><p>0,05</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Sale, maintenance, repair of motor vehicles, motor vehicles parts, motorcycles, motor cycles parts and accessoiries</p></td>
 <td><p>1</p></td>
-<td><p>0.05</p></td>
+<td><p>0,05</p></td>
 <td><p>90</p></td>
-<td><p>0.5</p></td>
+<td><p>0,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Wholesale trade and commission trade, except of motor vehicles and motorcycles (51)</p></td>
 <td><p>1</p></td>
-<td><p>0.05</p></td>
+<td><p>0,05</p></td>
 <td><p>90</p></td>
-<td><p>0.6</p></td>
+<td><p>0,6</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manufacture of motor vehicles, trailers and semi-trailers (34)</p></td>
 <td><p>1</p></td>
-<td><p>0.04</p></td>
+<td><p>0,04</p></td>
 <td><p>90</p></td>
 <td><p>3</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Activities auxiliary to financial intermediation (67)</p></td>
 <td><p>1</p></td>
-<td><p>0.03</p></td>
+<td><p>0,03</p></td>
 <td><p>Infinity</p></td>
-<td><p>5.45</p></td>
+<td><p>5,45</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manufacture of office machinery and computers (30)</p></td>
 <td><p>1</p></td>
-<td><p>0.025</p></td>
+<td><p>0,025</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of wearing apparel; dressing and dyeing of fur (18)</p></td>
 <td><p>1</p></td>
-<td><p>0.015</p></td>
+<td><p>0,015</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manufacture of machinery and equipment n.e.c. (29)</p></td>
 <td><p>1</p></td>
-<td><p>0.01</p></td>
+<td><p>0,01</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of other transport equipment (35)</p></td>
 <td><p>1</p></td>
-<td><p>0.01</p></td>
+<td><p>0,01</p></td>
 <td><p>90</p></td>
 <td><p>3</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods (52)</p></td>
 <td><p>1</p></td>
-<td><p>0.005</p></td>
+<td><p>0,005</p></td>
 <td><p>90</p></td>
-<td><p>1.1</p></td>
+<td><p>1,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of medical, precision and optical instruments, watches and clocks (33)</p></td>
 <td><p>1</p></td>
-<td><p>0.002</p></td>
+<td><p>0,002</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manufacture of ceramic goods</p></td>
 <td><p>1</p></td>
-<td><p>0.001</p></td>
+<td><p>0,001</p></td>
 <td><p>90</p></td>
 <td><p>2</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Cattle farming</p></td>
 <td><p>1</p></td>
-<td><p>0.0003</p></td>
+<td><p>0,0003</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Pigs farming</p></td>
 <td><p>1</p></td>
-<td><p>0.0003</p></td>
+<td><p>0,0003</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Poultry farming</p></td>
 <td><p>1</p></td>
-<td><p>0.0003</p></td>
+<td><p>0,0003</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Cultivation of cereal grains nec</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Cultivation of crops nec</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Cultivation of oil seeds</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Cultivation of paddy rice</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Cultivation of plant-based fibers</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Cultivation of sugar cane, sugar beet</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Cultivation of vegetables, fruit, nuts</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Cultivation of wheat</p></td>
 <td><p>1</p></td>
-<td><p>0.0001</p></td>
+<td><p>0,0001</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Public administration and defence; compulsory social security (75)</p></td>
 <td><p>1</p></td>
-<td><p>0.0003</p></td>
+<td><p>0,0003</p></td>
 <td><p>90</p></td>
 <td><p>2</p></td>
 <td><p>60</p></td>
@@ -721,7 +721,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Biogasification of food waste, incl. land application</p></td>
@@ -812,21 +812,21 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>Infinity</p></td>
-<td><p>5.45</p></td>
+<td><p>5,45</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Insurance and pension funding, except compulsory social security (66)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>Infinity</p></td>
-<td><p>5.45</p></td>
+<td><p>5,45</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Real estate activities (70)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>Infinity</p></td>
-<td><p>5.45</p></td>
+<td><p>5,45</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Recreational, cultural and sporting activities (92)</p></td>
@@ -854,35 +854,35 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Extraction of natural gas and services related to natural gas extraction, excluding surveying</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Extraction, liquefaction, and regasification of other petroleum and gaseous materials</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fishing, operating of fish hatcheries and fish farms; service activities incidental to fishing (05)</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Forestry, logging and related service activities (02)</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Health and social work (85)</p></td>
@@ -896,7 +896,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.2</p></td>
+<td><p>1,2</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Incineration of waste: Food</p></td>
@@ -952,7 +952,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.5</p></td>
+<td><p>2,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Landfill of waste: Food</p></td>
@@ -1015,7 +1015,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manufacture of bricks, tiles and construction products, in baked clay</p></td>
@@ -1050,7 +1050,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of gas; distribution of gaseous fuels through mains</p></td>
@@ -1078,7 +1078,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of rubber and plastic products (25)</p></td>
@@ -1092,105 +1092,105 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manufacture of tobacco products (16)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Manure treatment (biogas), storage and land application</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Manure treatment (conventional), storage and land application</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Meat animals nec</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Mining of aluminium ores and concentrates</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Mining of chemical and fertilizer minerals, production of salt, other mining and quarrying n.e.c.</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Mining of coal and lignite; extraction of peat (10)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Mining of copper ores and concentrates</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Mining of iron ores</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Mining of lead, zinc and tin ores and concentrates</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Mining of nickel ores and concentrates</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Mining of other non-ferrous metal ores and concentrates</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Mining of precious metal ores and concentrates</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Mining of uranium and thorium ores (12)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>N-fertiliser</p></td>
@@ -1211,7 +1211,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.5</p></td>
+<td><p>2,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Other non-ferrous metal production</p></td>
@@ -1239,7 +1239,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Petroleum Refinery</p></td>
@@ -1260,7 +1260,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.4</p></td>
+<td><p>2,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Precious metals production</p></td>
@@ -1281,42 +1281,42 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Processing of dairy products</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Processing of Food products nec</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Processing of meat cattle</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Processing of meat pigs</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Processing of meat poultry</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Processing of nuclear fuel</p></td>
@@ -1330,7 +1330,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Production of electricity by biomass and waste</p></td>
@@ -1421,7 +1421,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Publishing, printing and reproduction of recorded media (22)</p></td>
@@ -1435,28 +1435,28 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Quarrying of sand and clay</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Quarrying of stone</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>5.1</p></td>
+<td><p>5,1</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Raw milk</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Re-processing of ash into clinker</p></td>
@@ -1575,14 +1575,14 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>0.7</p></td>
+<td><p>0,7</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Sea and coastal water transport</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Steam and hot water supply</p></td>
@@ -1596,21 +1596,21 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Supporting and auxiliary transport activities; activities of travel agencies (63)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.5</p></td>
+<td><p>1,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-even"><td><p>Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear (19)</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>1.4</p></td>
+<td><p>1,4</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Transmission of electricity</p></td>
@@ -1624,7 +1624,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.5</p></td>
+<td><p>2,5</p></td>
 <td><p>60</p></td>
 </tr>
 <tr class="row-odd"><td><p>Transport via railways</p></td>
@@ -1652,7 +1652,7 @@ productive capital is regained via the answer to a <code class="docutils literal
 <td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>90</p></td>
-<td><p>2.9</p></td>
+<td><p>2,9</p></td>
 <td><p>60</p></td>
 </tr>
 </tbody>
@@ -1660,326 +1660,11 @@ productive capital is regained via the answer to a <code class="docutils literal
 </div>
 </div>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="f8784ae1-0901-4872-9116-c0bec90023e1" name="f8784ae1-0901-4872-9116-c0bec90023e1" type="checkbox"><label class="sphinx_collapse__label" for="f8784ae1-0901-4872-9116-c0bec90023e1"><i class="sphinx_collapse__icon"></i>Eora26 default configuration</label><div class="sphinx_collapse__content docutils container">
-<table class="table">
-<colgroup>
-<col style="width: 50.0%" />
-<col style="width: 5.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Eora sectors</p></th>
-<th class="head"><p>affected</p></th>
-<th class="head"><p>rebuilding_factor</p></th>
-<th class="head"><p>inventory_size</p></th>
-<th class="head"><p>kapital_to_va_ratio</p></th>
-<th class="head"><p>inventory_tau</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Agriculture</p></td>
-<td><p>True</p></td>
-<td><p>0.0017</p></td>
-<td><p>90.0</p></td>
-<td><p>2.7043478260869565</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Construction</p></td>
-<td><p>False</p></td>
-<td><p>0.55</p></td>
-<td><p>90.0</p></td>
-<td><p>0.5</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Education, Health and Other Services</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>inf</p></td>
-<td><p>2.0</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Electrical and Machinery</p></td>
-<td><p>True</p></td>
-<td><p>0.135</p></td>
-<td><p>90.0</p></td>
-<td><p>1.5</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Electricity, Gas and Water</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.888888888888889</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Finacial Intermediation and Business Activities</p></td>
-<td><p>True</p></td>
-<td><p>0.03</p></td>
-<td><p>Infinity</p></td>
-<td><p>4.4714285714285715</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Fishing</p></td>
-<td><p>False</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.9</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Food &amp; Beverages</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.0</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Hotels and Restraurants</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>1.2</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Maintenance and Repair</p></td>
-<td><p>True</p></td>
-<td><p>0.05</p></td>
-<td><p>90.0</p></td>
-<td><p>0.5</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Metal Products</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.466666666666667</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Mining and Quarrying</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>5.1</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Other Manufacturing</p></td>
-<td><p>True</p></td>
-<td><p>0.063</p></td>
-<td><p>90.0</p></td>
-<td><p>2.011764705882353</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Others</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>Infinity</p></td>
-<td><p>1.8666666666666667</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Petroleum, Chemical and Non-Metallic Mineral Products</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>3.3000000000000003</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Post and Telecommunications</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>3.2</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Private Households</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>1.0</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Public Administration</p></td>
-<td><p>True</p></td>
-<td><p>0.0003</p></td>
-<td><p>90.0</p></td>
-<td><p>2.0</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Recycling</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.0</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Retail Trade</p></td>
-<td><p>True</p></td>
-<td><p>0.005</p></td>
-<td><p>90.0</p></td>
-<td><p>0.9</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Textiles and Wearing Apparel</p></td>
-<td><p>True</p></td>
-<td><p>0.015</p></td>
-<td><p>90.0</p></td>
-<td><p>1.4</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Transport</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.5</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Transport Equipment</p></td>
-<td><p>True</p></td>
-<td><p>0.05</p></td>
-<td><p>90.0</p></td>
-<td><p>3.0</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Wholesale Trade</p></td>
-<td><p>True</p></td>
-<td><p>0.05</p></td>
-<td><p>90.0</p></td>
-<td><p>0.6</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Wood and Paper</p></td>
-<td><p>True</p></td>
-<td><p>0.05</p></td>
-<td><p>90.0</p></td>
-<td><p>1.6800000000000002</p></td>
-<td><p>60.0</p></td>
-</tr>
-</tbody>
-</table>
+<input class="sphinx_collapse__input" id="d63934e6-0534-4763-bb7b-bbe6c87a984b" name="d63934e6-0534-4763-bb7b-bbe6c87a984b" type="checkbox"><label class="sphinx_collapse__label" for="d63934e6-0534-4763-bb7b-bbe6c87a984b"><i class="sphinx_collapse__icon"></i>Eora26 default configuration</label><div class="sphinx_collapse__content docutils container">
 </div>
 </div>
 <div class="sphinx_collapse docutils container">
-<input class="sphinx_collapse__input" id="d87ce0c8-d0f3-463c-b062-085b84913165" name="d87ce0c8-d0f3-463c-b062-085b84913165" type="checkbox"><label class="sphinx_collapse__label" for="d87ce0c8-d0f3-463c-b062-085b84913165"><i class="sphinx_collapse__icon"></i>Euregio default configuration</label><div class="sphinx_collapse__content docutils container">
-<table class="table">
-<colgroup>
-<col style="width: 50.0%" />
-<col style="width: 5.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 15.0%" />
-<col style="width: 10.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Euregio sectors</p></th>
-<th class="head"><p>affected</p></th>
-<th class="head"><p>rebuilding_factor</p></th>
-<th class="head"><p>inventory_size</p></th>
-<th class="head"><p>kapital_to_va_ratio</p></th>
-<th class="head"><p>inventory_tau</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Agriculture</p></td>
-<td><p>True</p></td>
-<td><p>0.0017</p></td>
-<td><p>90.0</p></td>
-<td><p>2.7125</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Coke_refined_petroleum_nuclear_fuel_and_chemicals_etc</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>3.1375</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Construction</p></td>
-<td><p>True</p></td>
-<td><p>0.55</p></td>
-<td><p>90.0</p></td>
-<td><p>1.25</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Distribution</p></td>
-<td><p>True</p></td>
-<td><p>5.1</p></td>
-<td><p>90.0</p></td>
-<td><p>0.725</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Electrical_and_optical_equipment_and_Transport_equipment</p></td>
-<td><p>True</p></td>
-<td><p>27.16</p></td>
-<td><p>90.0</p></td>
-<td><p>1.9285714285714286</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Financial_intermediation</p></td>
-<td><p>True</p></td>
-<td><p>0.03</p></td>
-<td><p>Infinity</p></td>
-<td><p>5.45</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Food_beverages_and_tobacco</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>1.8999999999999997</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Hotels_and_restaurant</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>1.2</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Mining_quarrying_and_energy_supply</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>3.7764705882352945</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Non-Market_Service</p></td>
-<td><p>True</p></td>
-<td><p>0.0003</p></td>
-<td><p>Infinity</p></td>
-<td><p>1.8695652173913044</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Other_manufacturing</p></td>
-<td><p>True</p></td>
-<td><p>1.11</p></td>
-<td><p>90.0</p></td>
-<td><p>2.2551724137931037</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Real_estate_renting_and_busine_activitie</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>Infinity</p></td>
-<td><p>4.3625</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-even"><td><p>Textiles_and_leather_etc</p></td>
-<td><p>True</p></td>
-<td><p>15.0</p></td>
-<td><p>90.0</p></td>
-<td><p>1.3999999999999997</p></td>
-<td><p>60.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Transport_storage_and_communication</p></td>
-<td><p>True</p></td>
-<td><p>0.0</p></td>
-<td><p>90.0</p></td>
-<td><p>2.322222222222222</p></td>
-<td><p>60.0</p></td>
-</tr>
-</tbody>
-</table>
+<input class="sphinx_collapse__input" id="3f771bbf-ab36-4e03-9f2f-f04d9555d4f7" name="3f771bbf-ab36-4e03-9f2f-f04d9555d4f7" type="checkbox"><label class="sphinx_collapse__label" for="3f771bbf-ab36-4e03-9f2f-f04d9555d4f7"><i class="sphinx_collapse__icon"></i>Euregio default configuration</label><div class="sphinx_collapse__content docutils container">
 </div>
 </div>
 </section>

@@ -74,7 +74,7 @@ Here are the configuration for the sectors we use across the different MRIOT. Th
 
 - ``inventory_size`` denotes the initial size of the inventory of inputs of the specified sector (e.g. if ``Agriculture`` is 90, then all sectors will store 90 days worth of inputs of ``Agriculture`` )
 
-- ``kapital_to_va_ratio`` is the factor used to estimate productive capital from the VA of the sector
+- ``productive_capital_to_va_ratio`` is the factor used to estimate productive capital from the VA of the sector
 
 - ``inventory_tau`` is the inventory restoration characteristic time
 
