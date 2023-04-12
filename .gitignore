@@ -3,3 +3,11 @@ resources/**
 logs/**
 .snakemake
 .snakemake/**
+autodownloads/**
+benchmarks/**
+dataportaal.pbl.nl/**
+report/build/**
+mrio-files/**
+.mypy_cache
+config/parameters_space_building.ods
+stats.json
