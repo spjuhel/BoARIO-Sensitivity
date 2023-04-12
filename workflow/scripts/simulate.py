@@ -114,7 +114,7 @@ def get_flood_scenario(mrio_name, flood_scenario, smk_config):
         index_col=[0, 1],
         converters={
             "regions_affected": ast.literal_eval,
-            "impact_regional_distrib": ast.literal_eval,
+            "productive_capital_impact_regional_distrib": ast.literal_eval,
         },
     )
     scenar = flood_scenarios.loc[(mrio_basename, flood_scenario)]
@@ -134,35 +134,37 @@ def create_event(
     ].to_dict()
     scenar = get_flood_scenario(mrio_name, flood_scenario, smk_config)
     logger.debug(
-        f"Creating event from : impact {scenar.impact} ; duration {scenar.duration} ; aff_sectors {aff_sectors} ; reb_sectors {rebuilding_sectors}"
+        f"Creating event from : productive_capital_impact {scenar.productive_capital_impact} ; households_impact {scenar.households_impact} ; duration {scenar.duration} ; aff_sectors {aff_sectors} ; reb_sectors {rebuilding_sectors}"
     )
     sce_tuple = recovery_scenario
-    impact = int(scenar.impact)
+    productive_capital_impact = int(scenar.productive_capital_impact)
+    households_impact = int(scenar.households_impact)
     duration = scenar.duration
     aff_regions = scenar.regions_affected
-    impact_regional_distrib = scenar.impact_regional_distrib
-    impact_sectoral_distrib_type = scenar.impact_sectoral_distrib_type
+    productive_capital_impact_regional_distrib = scenar.productive_capital_impact_regional_distrib
+    productive_capital_impact_sectoral_distrib_type = scenar.productive_capital_impact_sectoral_distrib_type
     if sce_tuple[0] == "recovery":
         event = EventKapitalRecover(
-            impact,
+            productive_capital_impact,
             recovery_function=sce_tuple[1],
             recovery_time=sce_tuple[2],
             aff_regions=aff_regions,
-            impact_regional_distrib=impact_regional_distrib,
+            productive_capital_impact_regional_distrib=productive_capital_impact_regional_distrib,
             aff_sectors=aff_sectors,
-            impact_sectoral_distrib_type=impact_sectoral_distrib_type,
+            productive_capital_impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             event_monetary_factor=10**6,
         )
     elif sce_tuple[0] == "rebuilding":
         event = EventKapitalRebuild(
-            impact,
+            productive_capital_impact,
+            households_impact,
             rebuilding_sectors=rebuilding_sectors,
             rebuild_tau=sce_tuple[2],
             aff_regions=aff_regions,
-            impact_regional_distrib=impact_regional_distrib,
+            productive_capital_impact_regional_distrib=productive_capital_impact_regional_distrib,
             aff_sectors=aff_sectors,
-            impact_sectoral_distrib_type=impact_sectoral_distrib_type,
+            productive_capital_impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             rebuilding_factor=sce_tuple[1],
             event_monetary_factor=10**6,
