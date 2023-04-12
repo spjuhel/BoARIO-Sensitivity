@@ -203,7 +203,7 @@ def run(
         monetary_factor=monetary_factor,
         temporal_units_by_step=1,
         iotable_year_to_temporal_unit_factor=365,
-        kapital_to_VA_dict=sectors_df.kapital_to_va_ratio.to_dict(),
+        productive_capital_to_VA_dict=sectors_df.productive_capital_to_va_ratio.to_dict(),
         psi_param=psi_param,
         inventory_restoration_tau=sectors_df.inventory_tau.to_dict(),
         inventory_dict=sectors_df.inventory_size.to_dict(),
@@ -246,7 +246,7 @@ def run(
     sim.final_demand_unmet.to_parquet(output_parquets / "final_demand_unmet.parquet")
     sim.intermediate_demand.to_parquet(output_parquets / "intermediate_demand.parquet")
     sim.rebuild_demand.to_parquet(output_parquets / "rebuild_demand.parquet")
-    sim.kapital_to_recover.to_parquet(output_parquets / "kapital_to_recover.parquet")
+    sim.productive_capital_to_recover.to_parquet(output_parquets / "productive_capital_to_recover.parquet")
 
 
 # conf = load_config(snakemake.config, snakemake.wildcards, snakemake.input, snakemake.output.output_dir, snakemake.params)

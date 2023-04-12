@@ -19,7 +19,7 @@ res = (
             "affected",
             "rebuilding_factor",
             "inventory_size",
-            "kapital_to_va_ratio",
+            "productive_capital_to_va_ratio",
             "inventory_tau",
         ]
     ]
@@ -29,7 +29,7 @@ res = (
             "affected": any,
             "rebuilding_factor": sum,
             "inventory_size": "mean",
-            "kapital_to_va_ratio": "mean",
+            "productive_capital_to_va_ratio": "mean",
             "inventory_tau": "mean",
         }
     )
