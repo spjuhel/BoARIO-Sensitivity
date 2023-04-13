@@ -24,6 +24,25 @@ Cumulative change (expressed as percentage of yearly total)
     :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
 
 
+Simulation regrouped such that max_neg_impact_class==1_5L1 :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Variable is: production_realised
+---------------------------------------
+
+Change from initial level
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/figs/general/all_sim/max_neg_impact_class~1_5L1/sectorXregion~Experience/production_realised_classic.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
+
+Cumulative change (expressed as percentage of yearly total)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/figs/general/all_sim/max_neg_impact_class~1_5L1/sectorXregion~Experience/production_realised_cumsum.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
+
+
 Simulation regrouped such that max_neg_impact_class==1L0_5 :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
