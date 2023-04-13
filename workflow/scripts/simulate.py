@@ -157,8 +157,8 @@ def create_event(
         )
     elif sce_tuple[0] == "rebuilding":
         event = EventKapitalRebuild(
-            productive_capital_impact,
-            households_impact,
+            productive_capital_impact=productive_capital_impact,
+            households_impact=households_impact,
             rebuilding_sectors=rebuilding_sectors,
             rebuild_tau=sce_tuple[2],
             aff_regions=aff_regions,

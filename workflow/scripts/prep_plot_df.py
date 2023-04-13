@@ -208,12 +208,21 @@ def prepare_df_2(df, neg_bins, pos_bins):
     _df["max_neg_impact_class"] = _df.groupby("Experience")[
         ["max_neg_impact_value_pct"]
     ].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
+
     _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
         max
     )
     _df["max_pos_impact_class"] = _df.groupby("Experience")[
         ["max_pos_impact_value_pct"]
     ].transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
+
+    _df["mean_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
+        np.mean
+    )
+    _df["mean_impact_class"] = _df.groupby("Experience")[
+        ["mean_impact_value_pct"]
+    ].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
+
     return _df
 
 
