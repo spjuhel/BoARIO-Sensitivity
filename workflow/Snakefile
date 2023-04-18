@@ -88,7 +88,7 @@ rule make_all_rst_results:
             "report/source/local-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["recovery_sce"], faceting=["Experience~mrio"]
         ),
         general_rst=expand(
-            "report/source/general-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["max_neg_impact_class"], faceting=["sectorXregion~Experience"]
+            "report/source/general-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["mean_impact_class"], faceting=["sectorXregion~Experience"]
         ),
     params:
         variables=config["variables"],
