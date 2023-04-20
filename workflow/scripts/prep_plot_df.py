@@ -223,6 +223,13 @@ def prepare_df_2(df, neg_bins, pos_bins):
         ["mean_impact_value_pct"]
     ].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
 
+    _df["cumsum_pct_min"] = _df.groupby("Experience")["value_cumsum_pct"].transform(
+        "min"
+    )
+    _df["cumsum_impact_class"] = _df.groupby("Experience")[
+        ["cumsum_pct_min"]
+    ].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
+
     return _df
 
 
