@@ -85,19 +85,6 @@ gains_bins: {'no gains': -.inf,
  '20G25': 20,
  'G25': 25}
 
-# % of gva affected for event intensity class
-# impact_intensity:
-#   high: 0.3
-#   med: 0.1
-#   low: 0.01
-#   germany 2021: 30854
-
-# flood_scenarios:
-#   hl: [germany, high, 14]
-#   mm: [germany, med, 7]
-#   lm: [germany, low, 7]
-#   germany21: [germany, germany 2021, 14]
-
 sectors_scenarios:
   exiobase3_full:
     default:
@@ -113,70 +100,66 @@ sectors_scenarios:
       config/eora26_full_sectors.csv
 
 recovery_scenarios_mapping:
-  recfast: Rapid recovery (capital recovered under 15 days)
-  reclin2: Linear recovery in ~2 months
-  recS2: S-shaped recovery in ~2months
-  reclin6: Linear recovery in ~6months
-  recS6: S-shaped recovery in ~6months
-  reb15: Very fast paced rebuilding all damages (15 days tau)
-  reb90: Longer rebuilding all damages (90 days tau)
-  reb180: Longer rebuilding all damages (180 days tau)
-  reb180q: Longer rebuilding all damages .25 damages (180 days tau)
-  reb15q: Very fast paced rebuilding .25 damages  (15 days tau)
-  reb90q: Longer rebuilding .25 damages (90 days tau)
-  reb365: Very long rebuilding (365 days tau)
-  reb545: Extremely long rebuilding (545 days tau)
+  reclin3M: Rapid recovery (capital recovered in 3 months)
+  reclin6M: Linear recovery in ~6 months
+  recS6M: S-shaped recovery in ~6 months
+  reclin1Y: Linear recovery in ~1 year
+  reclin1_5Y: Linear recovery in ~1_5 year
+  recS1Y: S-shaped recovery in ~1 year
+  recS1_5Y: S-shaped recovery in ~1_5 year
+  recS6M: S-shaped recovery in ~6 months
+  reb3M: 3 months rebuilding (90 days tau)
+  reb6M: 6 months rebuilding (180 days tau)
+  reb1Y: 1 year rebuilding (365 days tau)
+  reb1_5Y: 1,5 year rebuilding (545 days tau)
+  reb2Y: 2 years rebuilding (730 days tau)
 
 recovery_scenarios:
-  recfast:
+  reclin3M:
     - recovery
     - linear
-    - 14
-  reclin2:
-    - recovery
-    - linear
-    - 60
-  recS2:
-    - recovery
-    - convexe
-    - 60
-  reclin6:
+    - 90
+  reclin6M:
     - recovery
     - linear
     - 180
-  recS6:
+  recS6M:
     - recovery
     - convexe
     - 180
-  reb15:
-    - rebuilding
-    - 1
-    - 14
-  reb90:
+  reclin1Y:
+    - recovery
+    - linear
+    - 365
+  recS1Y:
+    - recovery
+    - convexe
+    - 365
+  reclin1_5Y:
+    - recovery
+    - linear
+    - 545
+  recS1_5Y:
+    - recovery
+    - convexe
+    - 545
+  reb3M:
     - rebuilding
     - 1
     - 90
-  reb15q:
-    - rebuilding
-    - 0.25
-    - 14
-  reb90q:
-    - rebuilding
-    - 0.25
-    - 90
-  reb180:
+  reb6M:
     - rebuilding
     - 1
     - 180
-  reb180q:
-    - rebuilding
-    - 0.25
-    - 180
-  reb365:
+  reb1Y:
     - rebuilding
     - 1
     - 365
-  reb545:
+  reb1_5Y:
     - rebuilding
     - 1
     - 545
+  reb2Y:
+    - rebuilding
+    - 1
+    - 730
