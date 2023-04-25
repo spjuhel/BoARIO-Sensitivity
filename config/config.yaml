@@ -120,6 +120,8 @@ recovery_scenarios_mapping:
   recS6: S-shaped recovery in ~6months
   reb15: Very fast paced rebuilding all damages (15 days tau)
   reb90: Longer rebuilding all damages (90 days tau)
+  reb180: Longer rebuilding all damages (180 days tau)
+  reb180q: Longer rebuilding all damages .25 damages (180 days tau)
   reb15q: Very fast paced rebuilding .25 damages  (15 days tau)
   reb90q: Longer rebuilding .25 damages (90 days tau)
   reb365: Very long rebuilding (365 days tau)
@@ -165,6 +167,10 @@ recovery_scenarios:
   reb180:
     - rebuilding
     - 1
+    - 180
+  reb180q:
+    - rebuilding
+    - 0.25
     - 180
   reb365:
     - rebuilding
