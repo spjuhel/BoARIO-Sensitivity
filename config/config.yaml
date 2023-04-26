@@ -44,7 +44,7 @@ plot config:
 
 focus:
   all_sim: ""
-  no_absurd: "cumsum_impact_class < 'absurd'"
+  no_absurd: "cumsum_impact_class >= 'absurd'"
 
 impacts_bins_name: {'crash': 'economy crashed',
  'L90': 'losses >90%',

@@ -178,12 +178,9 @@ def prepare_df_2(df, neg_bins, pos_bins):
     def yearly_pct_change_cumsum(x):
         return (x / 365).cumsum()
 
-    max_neg_bins = list(neg_bins.values())
+    max_neg_bins = neg_bins.values()
     max_neg_bins.append(np.inf)  #   # Define the bin edges
-    max_neg_labels = list(neg_bins.keys())  #   # Define the bin labels
-
-    max_neg_bins.reverse()
-    max_neg_labels.reverse()
+    max_neg_labels = neg_bins.keys()  #   # Define the bin labels
 
     max_pos_bins = list(pos_bins.values())
     max_pos_bins.append(
