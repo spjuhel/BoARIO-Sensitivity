@@ -9,10 +9,11 @@ BoARIO Sensivity Report
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :glob:
 
    sim-overview
    compare-process
-   results
+   results-pages/*
 
 Indices and tables
 ==================
