@@ -43,9 +43,9 @@ plot config:
     - svg
 
 focus:
-  all_sim: {}
-#  no_high_psi: {psi: "0.999"}
-#  minimal_1: {psi: ["0.999","0.5"], alpha_tau: "30"}
+  all_sim: ""
+  no_absurd: "cumsum_impact_class < 'absurd'"
+
 impacts_bins_name: {'crash': 'economy crashed',
  'L90': 'losses >90%',
  '90L70': 'losses in 70-90%',

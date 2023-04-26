@@ -37,7 +37,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 # Install exception handler
 sys.excepthook = handle_exception
 
-lines="""Results
+lines=f"""Results {snakemake.wildcards.focus}
 =======
 
 .. toctree::

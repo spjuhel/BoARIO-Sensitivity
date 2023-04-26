@@ -68,7 +68,7 @@ else:
 
 rule make_rst_report:
     input:
-        "report/source/results.rst",
+        expand("report/source/results-pages/{focus}-results.rst", focus=config["focus"].keys())
     output:
         touch("report/report_pushed")
     conda:
@@ -81,21 +81,20 @@ rule make_rst_report:
         git push;
         """
 
-
-rule make_all_rst_results:
+rule make_all_focus_results:
     input:
         local_rst=expand(
-            "report/source/local-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["recovery_sce"], faceting=["Experience~mrio"]
+            "report/source/local-{{focus}}-{selection_type}-{faceting}-results.rst", selection_type=["recovery_sce"], faceting=["Experience~mrio"]
         ),
         general_rst=expand(
-            "report/source/general-{focus}-{selection_type}-{faceting}-results.rst", focus=config["focus"].keys(), selection_type=["cumsum_impact_class"], faceting=["sectorXregion~Experience"]
+            "report/source/general-{{focus}}-{selection_type}-{faceting}-results.rst", selection_type=["cumsum_impact_class"], faceting=["sectorXregion~Experience"]
         ),
     params:
         variables=config["variables"],
     output:
-        "report/source/results.rst",
+        "report/source/results-pages/{focus}-results.rst",
     log:
-        "logs/make_rst_results_index.log",
+        "logs/make_rst_{focus}-results.log",
     conda:
         "envs/boario-sensi-report.yml"
     script:
@@ -138,7 +137,7 @@ rule make_rst_result:
 
 rule plot_grid:
     input:
-        plot_df="results/{scope}-plot_df-{focus}.parquet"
+        plot_df="results/{scope}-plot_df.parquet"
     output:
         expand(
             "{dirs}/{{scope}}/{{focus}}/{{selection_type}}~{{selection}}/{{faceting}}/{{variable}}_{{plot_type}}.{{ext}}",
@@ -163,16 +162,14 @@ checkpoint prep_plot_df:
     input:
         "results/common_aggreg.parquet",
     output:
-        "results/{scope}-plot_df-{focus}.parquet",
-    params:
-        drop_dict=lambda wildcards: config["focus"][wildcards.focus]
+        "results/{scope}-plot_df.parquet",
     log:
-        "logs/prep_{scope}-plot_df-{focus}.log",
+        "logs/prep_{scope}-plot_df.log",
     threads: 4
     resources:
         mem_mb=12000,
     benchmark:
-        "benchmarks/prep_{scope}-plot_df-{focus}.log"
+        "benchmarks/prep_{scope}-plot_df.log"
     conda:
         "envs/BoARIO-sensi.yml"
     script:

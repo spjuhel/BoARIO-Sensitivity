@@ -126,6 +126,8 @@ def plot_variable_grid(
 
 plot_df = pd.read_parquet(snakemake.input.plot_df)
 
+if snakemake.config["focus"][snakemake.wildcards.focus] != "":
+    plot_df.query(snakemake.config["focus"][snakemake.wildcards.focus], inplace=True)
 
 selection={snakemake.wildcards.selection_type:snakemake.wildcards.selection}
 variable=snakemake.wildcards.variable

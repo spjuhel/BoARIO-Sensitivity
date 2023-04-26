@@ -180,7 +180,11 @@ def prepare_df_2(df, neg_bins, pos_bins):
 
     max_neg_bins = list(neg_bins.values())
     max_neg_bins.append(np.inf)  #   # Define the bin edges
-    max_neg_labels = neg_bins.keys()  #   # Define the bin labels
+    max_neg_labels = list(neg_bins.keys())  #   # Define the bin labels
+
+    max_neg_bins.reverse()
+    max_neg_labels.reverse()
+
     max_pos_bins = list(pos_bins.values())
     max_pos_bins.append(
         np.inf
@@ -233,7 +237,7 @@ def prepare_df_2(df, neg_bins, pos_bins):
     return _df
 
 
-drop_dict = snakemake.params.get("drop_dict")
+drop_dict = None #snakemake.params.get("drop_dict")
 if snakemake.wildcards.scope == "general":
     res_df = prepare_df_general(snakemake.input[0], drop_dict=drop_dict)
 elif snakemake.wildcards.scope == "local":
