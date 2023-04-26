@@ -84,20 +84,24 @@ scope = snakemake.wildcards.scope
 selection_type = snakemake.wildcards.selection_type
 faceting = snakemake.wildcards.faceting
 plot_df = pd.read_parquet(snakemake.input.plot_df)
+
+if snakemake.config["focus"][snakemake.wildcards.focus] != "":
+    plot_df.query(snakemake.config["focus"][snakemake.wildcards.focus], inplace=True)
+
 selections = plot_df[selection_type].sort_values().unique()
 
-header_sec_reg = f"""*******************************************************************************
+header_sec_reg = f"""**************************************************************************************************************************************************************
 Comparing by resulting impact (sector,region facets) ({focus})
-*******************************************************************************
+**************************************************************************************************************************************************************
 
 Comparison of indirect impacts for each variable in a facet format
 with sectors as columns and regions as row. Regrouping plots by maximum size of indirect impact.
 
 """
 
-header_recov_local = f"""*******************************************************************************
+header_recov_local = f"""**************************************************************************************************************************************************************
 Comparing by params for the affected region (recover scenario facets) ({focus})
-*******************************************************************************
+**************************************************************************************************************************************************************
 
 Comparison of indirect impacts for each variable in a facet format
 based on recovery scenario. Regrouping plot by common parameters.
