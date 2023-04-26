@@ -122,7 +122,7 @@ def get_grids(wildcards):
 
 rule make_rst_result:
     input:
-        plot_df="results/{scope}-plot_df-{focus}.parquet",
+        plot_df="results/{scope}-plot_df.parquet",
         grids=get_grids,
     output:
         res_rst="report/source/{scope}-{focus}-{selection_type}-{faceting}-results.rst"
