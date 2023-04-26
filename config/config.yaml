@@ -43,7 +43,7 @@ plot config:
     - svg
 
 focus:
-  all_sim: ""
+  all_sim: "all"
   no_absurd: "cumsum_impact_class >= 'absurd'"
 
 impacts_bins_name: {'crash': 'economy crashed',

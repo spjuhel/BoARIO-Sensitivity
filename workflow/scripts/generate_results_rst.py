@@ -85,7 +85,7 @@ selection_type = snakemake.wildcards.selection_type
 faceting = snakemake.wildcards.faceting
 plot_df = pd.read_parquet(snakemake.input.plot_df)
 
-if snakemake.config["focus"][snakemake.wildcards.focus] != "":
+if snakemake.config["focus"][snakemake.wildcards.focus] != "all":
     plot_df.query(snakemake.config["focus"][snakemake.wildcards.focus], inplace=True)
 
 selections = plot_df[selection_type].sort_values().unique()
