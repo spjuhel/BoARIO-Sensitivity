@@ -38,7 +38,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 sys.excepthook = handle_exception
 
 lines=f"""Results {snakemake.wildcards.focus}
-=======
+=============================================
 
 .. toctree::
    :maxdepth: 2
