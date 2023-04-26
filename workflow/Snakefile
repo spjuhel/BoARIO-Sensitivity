@@ -105,6 +105,8 @@ def get_grids(wildcards):
     grids = []
     df_path=checkpoints.prep_plot_df.get(**wildcards).output[0]
     plot_df = pd.read_parquet(df_path)
+    if snakemake.config["focus"][snakemake.wildcards.focus] != "":
+        plot_df.query(snakemake.config["focus"][snakemake.wildcards.focus], inplace=True)
     selections = plot_df[wildcards.selection_type].sort_values().unique()
     grids += expand(
         "{dirs}/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_{plot_type}.{ext}",
