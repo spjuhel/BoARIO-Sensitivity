@@ -1,6 +1,6 @@
-**********************************************************
+*******************************************************************************
 Comparing by resulting impact (sector,region facets) (no_absurd)
-**********************************************************
+*******************************************************************************
 
 Comparison of indirect impacts for each variable in a facet format
 with sectors as columns and regions as row. Regrouping plots by maximum size of indirect impact.
