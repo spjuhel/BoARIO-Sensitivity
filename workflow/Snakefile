@@ -21,7 +21,7 @@ include: "rules/oecd_treatment.smk"
 wildcard_constraints:
     year="\d\d\d\d",
     aggregation="full_exio3compat|74_sectors",
-    scope="general|local"
+    scope="general|local",
     focus="all|no_absurd"
 
 EXIO3_MRIOT = expand(
