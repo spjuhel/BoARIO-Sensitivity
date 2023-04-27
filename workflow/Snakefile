@@ -22,7 +22,7 @@ wildcard_constraints:
     year="\d\d\d\d",
     aggregation="full_exio3compat|74_sectors",
     scope="general|local",
-    focus="all|no_absurd"
+    focus="all_sim|no_absurd"
 
 EXIO3_MRIOT = expand(
     "mrio-files/pkls/exiobase3/exiobase3_full_{year}_ixi.pkl", year=[2000, 2010]
@@ -77,7 +77,7 @@ rule make_rst_report:
     shell:
         """
         git add report/source;
-        git add report/images ;
+        git add report/images;
         git commit -m "update results from workflow";
         git push;
         """
