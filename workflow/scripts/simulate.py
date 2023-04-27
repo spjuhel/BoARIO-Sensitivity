@@ -100,7 +100,7 @@ def load_mrio(filename: str) -> pym.IOSystem:
 
 def get_flood_scenario(mrio_name, flood_scenario, smk_config):
     regex = re.compile(
-        r"^((?:oecd_v2021|euregio|exiobase3|eora26)_full)"
+        r"(?P<basename>(?:oecd_v2021|euregio|exiobase3|eora26)_full)_(?P<year>\d\d\d\d)"
     )  # the regular expression to match filenames
 
     match = regex.match(mrio_name)  # match the filename with the regular expression
@@ -108,16 +108,17 @@ def get_flood_scenario(mrio_name, flood_scenario, smk_config):
     if not match:
         raise ValueError(f"The file name {mrio_name} is not valid.")
 
-    mrio_basename = match.groups()[0]  # get the prefix and year from the matched groups
+    mrio_basename = match["basename"]  # get the prefix and year from the matched groups
+    mrio_year = int(match["year"])
     flood_scenarios = pd.read_csv(
         smk_config["flood_scenarios"],
-        index_col=[0, 1],
+        index_col=[0, 1, 2],
         converters={
             "regions_affected": ast.literal_eval,
             "productive_capital_impact_regional_distrib": ast.literal_eval,
         },
     )
-    scenar = flood_scenarios.loc[(mrio_basename, flood_scenario)]
+    scenar = flood_scenarios.loc[(mrio_basename, flood_scenario, mrio_year)]
     return scenar
 
 
@@ -139,10 +140,9 @@ def create_event(
     sce_tuple = recovery_scenario
 
     aff_regions = scenar.regions_affected
-    mrio = load_mrio(mrio_name)
 
-    productive_capital_impact = (mrio.x.T - mrio.Z.sum(axis=0)).groupby("region",axis=1).sum()[aff_regions] * scenar.productive_capital_impact
-    households_impact = (mrio.x.T - mrio.Z.sum(axis=0)).groupby("region",axis=1).sum()[aff_regions] * scenar.households_impact
+    productive_capital_impact = scenar.productive_capital_impact
+    households_impact = scenar.households_impact
 
     duration = scenar.duration
     productive_capital_impact_regional_distrib = scenar.productive_capital_impact_regional_distrib
