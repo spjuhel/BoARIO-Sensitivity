@@ -6,4 +6,4 @@ Results all_sim
    :caption: Contents:
 
    results-contents/local-all_sim-recovery_sce-Experience~mrio-results
-   general-all_sim-cumsum_impact_class-sectorXregion~Experience-results
+   results-contents/general-all_sim-cumsum_impact_class-sectorXregion~Experience-results
