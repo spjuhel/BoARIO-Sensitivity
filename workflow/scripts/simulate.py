@@ -137,10 +137,14 @@ def create_event(
         f"Creating event from : productive_capital_impact {scenar.productive_capital_impact} ; households_impact {scenar.households_impact} ; duration {scenar.duration} ; aff_sectors {aff_sectors} ; reb_sectors {rebuilding_sectors}"
     )
     sce_tuple = recovery_scenario
-    productive_capital_impact = int(scenar.productive_capital_impact)
-    households_impact = int(scenar.households_impact)
-    duration = scenar.duration
+
     aff_regions = scenar.regions_affected
+    mrio = load_mrio(mrio_name)
+
+    productive_capital_impact = (mrio.x.T - mrio.Z.sum(axis=0)).groupby("region",axis=1).sum()[aff_regions] * scenar.productive_capital_impact
+    households_impact = (mrio.x.T - mrio.Z.sum(axis=0)).groupby("region",axis=1).sum()[aff_regions] * scenar.households_impact
+
+    duration = scenar.duration
     productive_capital_impact_regional_distrib = scenar.productive_capital_impact_regional_distrib
     productive_capital_impact_sectoral_distrib_type = scenar.productive_capital_impact_sectoral_distrib_type
     if sce_tuple[0] == "recovery":
@@ -153,7 +157,7 @@ def create_event(
             aff_sectors=aff_sectors,
             productive_capital_impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
-            event_monetary_factor=10**6,
+            #event_monetary_factor=10**6,
         )
     elif sce_tuple[0] == "rebuilding":
         event = EventKapitalRebuild(
@@ -167,7 +171,7 @@ def create_event(
             productive_capital_impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             rebuilding_factor=sce_tuple[1],
-            event_monetary_factor=10**6,
+            #event_monetary_factor=10**6,
         )
     else:
         raise ValueError(
