@@ -43,13 +43,13 @@ def generate_plot_var(scope, focus, selection_type, selection, faceting, variabl
 Change from initial level
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/figs/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_classic.svg
+.. image:: ../../../images/figs/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_classic.svg
     :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
 
 Cumulative change (expressed as percentage of yearly total)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/figs/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_cumsum.svg
+.. image:: ../../../images/figs/{scope}/{focus}/{selection_type}~{selection}/{faceting}/{variable}_cumsum.svg
     :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
 
 """

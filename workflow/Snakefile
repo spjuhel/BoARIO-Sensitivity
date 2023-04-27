@@ -85,10 +85,10 @@ rule make_rst_report:
 rule make_all_focus_results:
     input:
         local_rst=expand(
-            "report/source/results-pages/local-{{focus}}-{selection_type}-{faceting}-results.rst", selection_type=["recovery_sce"], faceting=["Experience~mrio"]
+            "report/source/results-pages/results-contents/local-{{focus}}-{selection_type}-{faceting}-results.rst", selection_type=["recovery_sce"], faceting=["Experience~mrio"]
         ),
         general_rst=expand(
-            "report/source/results-pages/general-{{focus}}-{selection_type}-{faceting}-results.rst", selection_type=["cumsum_impact_class"], faceting=["sectorXregion~Experience"]
+            "report/source/results-pages/results-contents/general-{{focus}}-{selection_type}-{faceting}-results.rst", selection_type=["cumsum_impact_class"], faceting=["sectorXregion~Experience"]
         ),
     params:
         variables=config["variables"],
@@ -128,7 +128,7 @@ rule make_rst_result:
         plot_df="results/{scope}-plot_df.parquet",
         grids=get_grids,
     output:
-        res_rst="report/source/results-pages/{scope}-{focus}-{selection_type}-{faceting}-results.rst"
+        res_rst="report/source/results-pages/results-contents/{scope}-{focus}-{selection_type}-{faceting}-results.rst"
     params:
         variables=config["variables"],
     log:
