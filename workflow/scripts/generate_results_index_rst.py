@@ -44,7 +44,7 @@ lines=f"""Results {snakemake.wildcards.focus}
    :maxdepth: 2
    :caption: Contents:
 
-   """+"\n   results-contents/".join([pathlib.Path(f).stem for f in snakemake.input.local_rst])+"\n   "+"\n   ".join([pathlib.Path(f).stem for f in snakemake.input.general_rst])+"\n"
+   results-contents/"""+"\n   results-contents/".join([pathlib.Path(f).stem for f in snakemake.input.local_rst])+"\n   "+"\n   ".join([pathlib.Path(f).stem for f in snakemake.input.general_rst])+"\n"
 
 with open(snakemake.output[0], "w") as f:
     f.writelines(lines)
