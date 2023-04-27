@@ -6,4 +6,4 @@ Results no_absurd
    :caption: Contents:
 
    results-contents/local-no_absurd-recovery_sce-Experience~mrio-results
-   general-no_absurd-cumsum_impact_class-sectorXregion~Experience-results
+   results-contents/general-no_absurd-cumsum_impact_class-sectorXregion~Experience-results
