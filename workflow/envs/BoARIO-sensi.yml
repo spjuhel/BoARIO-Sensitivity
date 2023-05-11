@@ -79,7 +79,7 @@ dependencies:
   - xz=5.2.6=h166bdaf_0
   - zstd=1.5.2=h3eb15da_6
   - pip:
-    - "git+https://github.com/spjuhel/BoARIO.git@master-testing#egg=boario"
+    - "git+https://github.com/spjuhel/BoARIO.git@75a42d106d17ebce84ca6d4d34070da69cede5b3
     - certifi==2022.12.7
     - charset-normalizer==3.1.0
     - click==8.1.3
