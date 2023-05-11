@@ -149,26 +149,26 @@ def create_event(
     productive_capital_impact_sectoral_distrib_type = scenar.productive_capital_impact_sectoral_distrib_type
     if sce_tuple[0] == "recovery":
         event = EventKapitalRecover(
-            productive_capital_impact,
+            impact=productive_capital_impact,
             recovery_function=sce_tuple[1],
             recovery_time=sce_tuple[2],
             aff_regions=aff_regions,
-            productive_capital_impact_regional_distrib=productive_capital_impact_regional_distrib,
+            impact_regional_distrib=productive_capital_impact_regional_distrib,
             aff_sectors=aff_sectors,
-            productive_capital_impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
+            impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             #event_monetary_factor=10**6,
         )
     elif sce_tuple[0] == "rebuilding":
         event = EventKapitalRebuild(
-            productive_capital_impact=productive_capital_impact,
+            impact=productive_capital_impact,
             households_impact=households_impact,
             rebuilding_sectors=rebuilding_sectors,
             rebuild_tau=sce_tuple[2],
             aff_regions=aff_regions,
-            productive_capital_impact_regional_distrib=productive_capital_impact_regional_distrib,
+            impact_regional_distrib=productive_capital_impact_regional_distrib,
             aff_sectors=aff_sectors,
-            productive_capital_impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
+            impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             rebuilding_factor=sce_tuple[1],
             #event_monetary_factor=10**6,
