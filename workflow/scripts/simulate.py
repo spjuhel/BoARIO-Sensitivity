@@ -3,26 +3,22 @@ import sys
 import re
 import subprocess
 import pathlib
-import boario
-from boario.event import EventKapitalRebuild, EventKapitalRecover
-from boario.simulation import Simulation
-from boario.extended_models import ARIOPsiModel
 import pandas as pd
 import logging, traceback
 import pickle
 import pymrio as pym
+from boario import logger
 
-logging.basicConfig(
-    filename=snakemake.log[0],
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] - %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
+formatter = logging.Formatter('%(levelname)s - %(lineno)d : %(message)s')
+handler = logging.FileHandler(snakemake.log[0])
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
-boario.logger.addHandler(logging.StreamHandler())
 
-logger = boario.logger
-
+import boario
+from boario.event import EventKapitalRebuild, EventKapitalRecover
+from boario.simulation import Simulation
+from boario.extended_models import ARIOPsiModel
 
 def handle_exception(exc_type, exc_value, exc_traceback):
     if issubclass(exc_type, KeyboardInterrupt):
