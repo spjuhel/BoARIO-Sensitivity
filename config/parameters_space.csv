@@ -1,5 +1,36 @@
 mrio,order,psi,base_alpha,max_alpha,tau_alpha,sectors_scenario,recovery_scenario,flood_scenario
-eora26_full_2000,alt,0.8,1,1.25,90,default,reclin3M,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reclin6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reclin1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reclin1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reb3M,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reb6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reb1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reb1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,90,default,reb2Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reclin6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reclin1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reclin1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reb3M,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reb6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reb1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reb1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,180,default,reb2Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reclin6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reclin1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reclin1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reb3M,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reb6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reb1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reb1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,365,default,reb2Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reclin6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reclin1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reclin1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reb3M,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reb6M,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reb1Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reb1_5Y,germany21
+eora26_full_2000,alt,0.5,1,1.25,530,default,reb2Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,90,default,reclin6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,90,default,reclin1_5Y,germany21
@@ -8,7 +39,6 @@ eora26_full_2000,alt,0.8,1,1.25,90,default,reb6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,90,default,reb1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,90,default,reb2Y,germany21
-eora26_full_2000,alt,0.8,1,1.25,180,default,reclin3M,germany21
 eora26_full_2000,alt,0.8,1,1.25,180,default,reclin6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,180,default,reclin1_5Y,germany21
@@ -17,7 +47,6 @@ eora26_full_2000,alt,0.8,1,1.25,180,default,reb6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,180,default,reb1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,180,default,reb2Y,germany21
-eora26_full_2000,alt,0.8,1,1.25,365,default,reclin3M,germany21
 eora26_full_2000,alt,0.8,1,1.25,365,default,reclin6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,365,default,reclin1_5Y,germany21
@@ -26,7 +55,6 @@ eora26_full_2000,alt,0.8,1,1.25,365,default,reb6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,365,default,reb1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,365,default,reb2Y,germany21
-eora26_full_2000,alt,0.8,1,1.25,530,default,reclin3M,germany21
 eora26_full_2000,alt,0.8,1,1.25,530,default,reclin6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,530,default,reclin1_5Y,germany21
@@ -35,7 +63,6 @@ eora26_full_2000,alt,0.8,1,1.25,530,default,reb6M,germany21
 eora26_full_2000,alt,0.8,1,1.25,530,default,reb1Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.8,1,1.25,530,default,reb2Y,germany21
-eora26_full_2000,alt,0.85,1,1.25,90,default,reclin3M,germany21
 eora26_full_2000,alt,0.85,1,1.25,90,default,reclin6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,90,default,reclin1_5Y,germany21
@@ -44,7 +71,6 @@ eora26_full_2000,alt,0.85,1,1.25,90,default,reb6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,90,default,reb1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,90,default,reb2Y,germany21
-eora26_full_2000,alt,0.85,1,1.25,180,default,reclin3M,germany21
 eora26_full_2000,alt,0.85,1,1.25,180,default,reclin6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,180,default,reclin1_5Y,germany21
@@ -53,7 +79,6 @@ eora26_full_2000,alt,0.85,1,1.25,180,default,reb6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,180,default,reb1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,180,default,reb2Y,germany21
-eora26_full_2000,alt,0.85,1,1.25,365,default,reclin3M,germany21
 eora26_full_2000,alt,0.85,1,1.25,365,default,reclin6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,365,default,reclin1_5Y,germany21
@@ -62,7 +87,6 @@ eora26_full_2000,alt,0.85,1,1.25,365,default,reb6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,365,default,reb1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,365,default,reb2Y,germany21
-eora26_full_2000,alt,0.85,1,1.25,530,default,reclin3M,germany21
 eora26_full_2000,alt,0.85,1,1.25,530,default,reclin6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,530,default,reclin1_5Y,germany21
@@ -71,7 +95,6 @@ eora26_full_2000,alt,0.85,1,1.25,530,default,reb6M,germany21
 eora26_full_2000,alt,0.85,1,1.25,530,default,reb1Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.85,1,1.25,530,default,reb2Y,germany21
-eora26_full_2000,alt,0.9,1,1.25,90,default,reclin3M,germany21
 eora26_full_2000,alt,0.9,1,1.25,90,default,reclin6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,90,default,reclin1_5Y,germany21
@@ -80,7 +103,6 @@ eora26_full_2000,alt,0.9,1,1.25,90,default,reb6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,90,default,reb1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,90,default,reb2Y,germany21
-eora26_full_2000,alt,0.9,1,1.25,180,default,reclin3M,germany21
 eora26_full_2000,alt,0.9,1,1.25,180,default,reclin6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,180,default,reclin1_5Y,germany21
@@ -89,7 +111,6 @@ eora26_full_2000,alt,0.9,1,1.25,180,default,reb6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,180,default,reb1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,180,default,reb2Y,germany21
-eora26_full_2000,alt,0.9,1,1.25,365,default,reclin3M,germany21
 eora26_full_2000,alt,0.9,1,1.25,365,default,reclin6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,365,default,reclin1_5Y,germany21
@@ -98,7 +119,6 @@ eora26_full_2000,alt,0.9,1,1.25,365,default,reb6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,365,default,reb1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,365,default,reb2Y,germany21
-eora26_full_2000,alt,0.9,1,1.25,530,default,reclin3M,germany21
 eora26_full_2000,alt,0.9,1,1.25,530,default,reclin6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,530,default,reclin1_5Y,germany21
@@ -107,7 +127,6 @@ eora26_full_2000,alt,0.9,1,1.25,530,default,reb6M,germany21
 eora26_full_2000,alt,0.9,1,1.25,530,default,reb1Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.9,1,1.25,530,default,reb2Y,germany21
-eora26_full_2000,alt,0.95,1,1.25,90,default,reclin3M,germany21
 eora26_full_2000,alt,0.95,1,1.25,90,default,reclin6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,90,default,reclin1_5Y,germany21
@@ -116,7 +135,6 @@ eora26_full_2000,alt,0.95,1,1.25,90,default,reb6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,90,default,reb1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,90,default,reb2Y,germany21
-eora26_full_2000,alt,0.95,1,1.25,180,default,reclin3M,germany21
 eora26_full_2000,alt,0.95,1,1.25,180,default,reclin6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,180,default,reclin1_5Y,germany21
@@ -125,7 +143,6 @@ eora26_full_2000,alt,0.95,1,1.25,180,default,reb6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,180,default,reb1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,180,default,reb2Y,germany21
-eora26_full_2000,alt,0.95,1,1.25,365,default,reclin3M,germany21
 eora26_full_2000,alt,0.95,1,1.25,365,default,reclin6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,365,default,reclin1_5Y,germany21
@@ -134,7 +151,6 @@ eora26_full_2000,alt,0.95,1,1.25,365,default,reb6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,365,default,reb1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,365,default,reb2Y,germany21
-eora26_full_2000,alt,0.95,1,1.25,530,default,reclin3M,germany21
 eora26_full_2000,alt,0.95,1,1.25,530,default,reclin6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,530,default,reclin1_5Y,germany21
@@ -143,7 +159,6 @@ eora26_full_2000,alt,0.95,1,1.25,530,default,reb6M,germany21
 eora26_full_2000,alt,0.95,1,1.25,530,default,reb1Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.95,1,1.25,530,default,reb2Y,germany21
-eora26_full_2000,alt,0.97,1,1.25,90,default,reclin3M,germany21
 eora26_full_2000,alt,0.97,1,1.25,90,default,reclin6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,90,default,reclin1_5Y,germany21
@@ -152,7 +167,6 @@ eora26_full_2000,alt,0.97,1,1.25,90,default,reb6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,90,default,reb1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,90,default,reb2Y,germany21
-eora26_full_2000,alt,0.97,1,1.25,180,default,reclin3M,germany21
 eora26_full_2000,alt,0.97,1,1.25,180,default,reclin6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,180,default,reclin1_5Y,germany21
@@ -161,7 +175,6 @@ eora26_full_2000,alt,0.97,1,1.25,180,default,reb6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,180,default,reb1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,180,default,reb2Y,germany21
-eora26_full_2000,alt,0.97,1,1.25,365,default,reclin3M,germany21
 eora26_full_2000,alt,0.97,1,1.25,365,default,reclin6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,365,default,reclin1_5Y,germany21
@@ -170,7 +183,6 @@ eora26_full_2000,alt,0.97,1,1.25,365,default,reb6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,365,default,reb1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,365,default,reb2Y,germany21
-eora26_full_2000,alt,0.97,1,1.25,530,default,reclin3M,germany21
 eora26_full_2000,alt,0.97,1,1.25,530,default,reclin6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,530,default,reclin1_5Y,germany21
@@ -179,7 +191,38 @@ eora26_full_2000,alt,0.97,1,1.25,530,default,reb6M,germany21
 eora26_full_2000,alt,0.97,1,1.25,530,default,reb1Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2000,alt,0.97,1,1.25,530,default,reb2Y,germany21
-eora26_full_2010,alt,0.8,1,1.25,90,default,reclin3M,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reclin6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reclin1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reclin1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reb3M,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reb6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reb1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reb1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,90,default,reb2Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reclin6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reclin1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reclin1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reb3M,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reb6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reb1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reb1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,180,default,reb2Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reclin6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reclin1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reclin1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reb3M,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reb6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reb1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reb1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,365,default,reb2Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reclin6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reclin1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reclin1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reb3M,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reb6M,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reb1Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reb1_5Y,germany21
+eora26_full_2010,alt,0.5,1,1.25,530,default,reb2Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,90,default,reclin6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,90,default,reclin1_5Y,germany21
@@ -188,7 +231,6 @@ eora26_full_2010,alt,0.8,1,1.25,90,default,reb6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,90,default,reb1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,90,default,reb2Y,germany21
-eora26_full_2010,alt,0.8,1,1.25,180,default,reclin3M,germany21
 eora26_full_2010,alt,0.8,1,1.25,180,default,reclin6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,180,default,reclin1_5Y,germany21
@@ -197,7 +239,6 @@ eora26_full_2010,alt,0.8,1,1.25,180,default,reb6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,180,default,reb1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,180,default,reb2Y,germany21
-eora26_full_2010,alt,0.8,1,1.25,365,default,reclin3M,germany21
 eora26_full_2010,alt,0.8,1,1.25,365,default,reclin6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,365,default,reclin1_5Y,germany21
@@ -206,7 +247,6 @@ eora26_full_2010,alt,0.8,1,1.25,365,default,reb6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,365,default,reb1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,365,default,reb2Y,germany21
-eora26_full_2010,alt,0.8,1,1.25,530,default,reclin3M,germany21
 eora26_full_2010,alt,0.8,1,1.25,530,default,reclin6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,530,default,reclin1_5Y,germany21
@@ -215,7 +255,6 @@ eora26_full_2010,alt,0.8,1,1.25,530,default,reb6M,germany21
 eora26_full_2010,alt,0.8,1,1.25,530,default,reb1Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.8,1,1.25,530,default,reb2Y,germany21
-eora26_full_2010,alt,0.85,1,1.25,90,default,reclin3M,germany21
 eora26_full_2010,alt,0.85,1,1.25,90,default,reclin6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,90,default,reclin1_5Y,germany21
@@ -224,7 +263,6 @@ eora26_full_2010,alt,0.85,1,1.25,90,default,reb6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,90,default,reb1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,90,default,reb2Y,germany21
-eora26_full_2010,alt,0.85,1,1.25,180,default,reclin3M,germany21
 eora26_full_2010,alt,0.85,1,1.25,180,default,reclin6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,180,default,reclin1_5Y,germany21
@@ -233,7 +271,6 @@ eora26_full_2010,alt,0.85,1,1.25,180,default,reb6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,180,default,reb1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,180,default,reb2Y,germany21
-eora26_full_2010,alt,0.85,1,1.25,365,default,reclin3M,germany21
 eora26_full_2010,alt,0.85,1,1.25,365,default,reclin6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,365,default,reclin1_5Y,germany21
@@ -242,7 +279,6 @@ eora26_full_2010,alt,0.85,1,1.25,365,default,reb6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,365,default,reb1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,365,default,reb2Y,germany21
-eora26_full_2010,alt,0.85,1,1.25,530,default,reclin3M,germany21
 eora26_full_2010,alt,0.85,1,1.25,530,default,reclin6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,530,default,reclin1_5Y,germany21
@@ -251,7 +287,6 @@ eora26_full_2010,alt,0.85,1,1.25,530,default,reb6M,germany21
 eora26_full_2010,alt,0.85,1,1.25,530,default,reb1Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.85,1,1.25,530,default,reb2Y,germany21
-eora26_full_2010,alt,0.9,1,1.25,90,default,reclin3M,germany21
 eora26_full_2010,alt,0.9,1,1.25,90,default,reclin6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,90,default,reclin1_5Y,germany21
@@ -260,7 +295,6 @@ eora26_full_2010,alt,0.9,1,1.25,90,default,reb6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,90,default,reb1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,90,default,reb2Y,germany21
-eora26_full_2010,alt,0.9,1,1.25,180,default,reclin3M,germany21
 eora26_full_2010,alt,0.9,1,1.25,180,default,reclin6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,180,default,reclin1_5Y,germany21
@@ -269,7 +303,6 @@ eora26_full_2010,alt,0.9,1,1.25,180,default,reb6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,180,default,reb1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,180,default,reb2Y,germany21
-eora26_full_2010,alt,0.9,1,1.25,365,default,reclin3M,germany21
 eora26_full_2010,alt,0.9,1,1.25,365,default,reclin6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,365,default,reclin1_5Y,germany21
@@ -278,7 +311,6 @@ eora26_full_2010,alt,0.9,1,1.25,365,default,reb6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,365,default,reb1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,365,default,reb2Y,germany21
-eora26_full_2010,alt,0.9,1,1.25,530,default,reclin3M,germany21
 eora26_full_2010,alt,0.9,1,1.25,530,default,reclin6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,530,default,reclin1_5Y,germany21
@@ -287,7 +319,6 @@ eora26_full_2010,alt,0.9,1,1.25,530,default,reb6M,germany21
 eora26_full_2010,alt,0.9,1,1.25,530,default,reb1Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.9,1,1.25,530,default,reb2Y,germany21
-eora26_full_2010,alt,0.95,1,1.25,90,default,reclin3M,germany21
 eora26_full_2010,alt,0.95,1,1.25,90,default,reclin6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,90,default,reclin1_5Y,germany21
@@ -296,7 +327,6 @@ eora26_full_2010,alt,0.95,1,1.25,90,default,reb6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,90,default,reb1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,90,default,reb2Y,germany21
-eora26_full_2010,alt,0.95,1,1.25,180,default,reclin3M,germany21
 eora26_full_2010,alt,0.95,1,1.25,180,default,reclin6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,180,default,reclin1_5Y,germany21
@@ -305,7 +335,6 @@ eora26_full_2010,alt,0.95,1,1.25,180,default,reb6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,180,default,reb1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,180,default,reb2Y,germany21
-eora26_full_2010,alt,0.95,1,1.25,365,default,reclin3M,germany21
 eora26_full_2010,alt,0.95,1,1.25,365,default,reclin6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,365,default,reclin1_5Y,germany21
@@ -314,7 +343,6 @@ eora26_full_2010,alt,0.95,1,1.25,365,default,reb6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,365,default,reb1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,365,default,reb2Y,germany21
-eora26_full_2010,alt,0.95,1,1.25,530,default,reclin3M,germany21
 eora26_full_2010,alt,0.95,1,1.25,530,default,reclin6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,530,default,reclin1_5Y,germany21
@@ -323,7 +351,6 @@ eora26_full_2010,alt,0.95,1,1.25,530,default,reb6M,germany21
 eora26_full_2010,alt,0.95,1,1.25,530,default,reb1Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.95,1,1.25,530,default,reb2Y,germany21
-eora26_full_2010,alt,0.97,1,1.25,90,default,reclin3M,germany21
 eora26_full_2010,alt,0.97,1,1.25,90,default,reclin6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,90,default,reclin1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,90,default,reclin1_5Y,germany21
@@ -332,7 +359,6 @@ eora26_full_2010,alt,0.97,1,1.25,90,default,reb6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,90,default,reb1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,90,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,90,default,reb2Y,germany21
-eora26_full_2010,alt,0.97,1,1.25,180,default,reclin3M,germany21
 eora26_full_2010,alt,0.97,1,1.25,180,default,reclin6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,180,default,reclin1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,180,default,reclin1_5Y,germany21
@@ -341,7 +367,6 @@ eora26_full_2010,alt,0.97,1,1.25,180,default,reb6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,180,default,reb1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,180,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,180,default,reb2Y,germany21
-eora26_full_2010,alt,0.97,1,1.25,365,default,reclin3M,germany21
 eora26_full_2010,alt,0.97,1,1.25,365,default,reclin6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,365,default,reclin1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,365,default,reclin1_5Y,germany21
@@ -350,7 +375,6 @@ eora26_full_2010,alt,0.97,1,1.25,365,default,reb6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,365,default,reb1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,365,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,365,default,reb2Y,germany21
-eora26_full_2010,alt,0.97,1,1.25,530,default,reclin3M,germany21
 eora26_full_2010,alt,0.97,1,1.25,530,default,reclin6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,530,default,reclin1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,530,default,reclin1_5Y,germany21
@@ -359,7 +383,38 @@ eora26_full_2010,alt,0.97,1,1.25,530,default,reb6M,germany21
 eora26_full_2010,alt,0.97,1,1.25,530,default,reb1Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,530,default,reb1_5Y,germany21
 eora26_full_2010,alt,0.97,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reclin3M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reclin6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reclin1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reclin1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reb3M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reb6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reb1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reb1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,90,default,reb2Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reclin6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reclin1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reclin1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reb3M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reb6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reb1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reb1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,180,default,reb2Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reclin6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reclin1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reclin1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reb3M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reb6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reb1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reb1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,365,default,reb2Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reclin6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reclin1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reclin1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reb3M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reb6M,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reb1Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reb1_5Y,germany21
+exiobase3_full_2000_ixi,alt,0.5,1,1.25,530,default,reb2Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reclin1_5Y,germany21
@@ -368,7 +423,6 @@ exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reclin1_5Y,germany21
@@ -377,7 +431,6 @@ exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reclin1_5Y,germany21
@@ -386,7 +439,6 @@ exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reclin1_5Y,germany21
@@ -395,7 +447,6 @@ exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.8,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reclin1_5Y,germany21
@@ -404,7 +455,6 @@ exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reclin1_5Y,germany21
@@ -413,7 +463,6 @@ exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reclin1_5Y,germany21
@@ -422,7 +471,6 @@ exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reclin1_5Y,germany21
@@ -431,7 +479,6 @@ exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.85,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reclin1_5Y,germany21
@@ -440,7 +487,6 @@ exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reclin1_5Y,germany21
@@ -449,7 +495,6 @@ exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reclin1_5Y,germany21
@@ -458,7 +503,6 @@ exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reclin1_5Y,germany21
@@ -467,7 +511,6 @@ exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.9,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reclin1_5Y,germany21
@@ -476,7 +519,6 @@ exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reclin1_5Y,germany21
@@ -485,7 +527,6 @@ exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reclin1_5Y,germany21
@@ -494,7 +535,6 @@ exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reclin1_5Y,germany21
@@ -503,7 +543,6 @@ exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.95,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reclin1_5Y,germany21
@@ -512,7 +551,6 @@ exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reclin1_5Y,germany21
@@ -521,7 +559,6 @@ exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reclin1_5Y,germany21
@@ -530,7 +567,6 @@ exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reclin1_5Y,germany21
@@ -539,7 +575,38 @@ exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2000_ixi,alt,0.97,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reclin3M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reclin6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reclin1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reclin1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reb3M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reb6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reb1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reb1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,90,default,reb2Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reclin6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reclin1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reclin1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reb3M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reb6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reb1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reb1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,180,default,reb2Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reclin6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reclin1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reclin1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reb3M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reb6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reb1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reb1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,365,default,reb2Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reclin6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reclin1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reclin1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reb3M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reb6M,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reb1Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reb1_5Y,germany21
+exiobase3_full_2010_ixi,alt,0.5,1,1.25,530,default,reb2Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reclin1_5Y,germany21
@@ -548,7 +615,6 @@ exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reclin1_5Y,germany21
@@ -557,7 +623,6 @@ exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reclin1_5Y,germany21
@@ -566,7 +631,6 @@ exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reclin1_5Y,germany21
@@ -575,7 +639,6 @@ exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.8,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reclin1_5Y,germany21
@@ -584,7 +647,6 @@ exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reclin1_5Y,germany21
@@ -593,7 +655,6 @@ exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reclin1_5Y,germany21
@@ -602,7 +663,6 @@ exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reclin1_5Y,germany21
@@ -611,7 +671,6 @@ exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.85,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reclin1_5Y,germany21
@@ -620,7 +679,6 @@ exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reclin1_5Y,germany21
@@ -629,7 +687,6 @@ exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reclin1_5Y,germany21
@@ -638,7 +695,6 @@ exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reclin1_5Y,germany21
@@ -647,7 +703,6 @@ exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.9,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reclin1_5Y,germany21
@@ -656,7 +711,6 @@ exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reclin1_5Y,germany21
@@ -665,7 +719,6 @@ exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reclin1_5Y,germany21
@@ -674,7 +727,6 @@ exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reclin1_5Y,germany21
@@ -683,7 +735,6 @@ exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.95,1,1.25,530,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reclin1_5Y,germany21
@@ -692,7 +743,6 @@ exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,90,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reclin1_5Y,germany21
@@ -701,7 +751,6 @@ exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,180,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reclin1_5Y,germany21
@@ -710,7 +759,6 @@ exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,365,default,reb2Y,germany21
-exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reclin3M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reclin6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reclin1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reclin1_5Y,germany21
@@ -719,7 +767,38 @@ exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reb6M,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reb1Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reb1_5Y,germany21
 exiobase3_full_2010_ixi,alt,0.97,1,1.25,530,default,reb2Y,germany21
-euregio_full_2000,alt,0.8,1,1.25,90,default,reclin3M,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reclin6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reclin1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reclin1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reb3M,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reb6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reb1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reb1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,90,default,reb2Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reclin6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reclin1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reclin1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reb3M,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reb6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reb1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reb1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,180,default,reb2Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reclin6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reclin1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reclin1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reb3M,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reb6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reb1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reb1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,365,default,reb2Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reclin6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reclin1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reclin1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reb3M,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reb6M,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reb1Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reb1_5Y,germany21
+euregio_full_2000,alt,0.5,1,1.25,530,default,reb2Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,90,default,reclin6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,90,default,reclin1_5Y,germany21
@@ -728,7 +807,6 @@ euregio_full_2000,alt,0.8,1,1.25,90,default,reb6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,90,default,reb1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,90,default,reb2Y,germany21
-euregio_full_2000,alt,0.8,1,1.25,180,default,reclin3M,germany21
 euregio_full_2000,alt,0.8,1,1.25,180,default,reclin6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,180,default,reclin1_5Y,germany21
@@ -737,7 +815,6 @@ euregio_full_2000,alt,0.8,1,1.25,180,default,reb6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,180,default,reb1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,180,default,reb2Y,germany21
-euregio_full_2000,alt,0.8,1,1.25,365,default,reclin3M,germany21
 euregio_full_2000,alt,0.8,1,1.25,365,default,reclin6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,365,default,reclin1_5Y,germany21
@@ -746,7 +823,6 @@ euregio_full_2000,alt,0.8,1,1.25,365,default,reb6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,365,default,reb1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,365,default,reb2Y,germany21
-euregio_full_2000,alt,0.8,1,1.25,530,default,reclin3M,germany21
 euregio_full_2000,alt,0.8,1,1.25,530,default,reclin6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,530,default,reclin1_5Y,germany21
@@ -755,7 +831,6 @@ euregio_full_2000,alt,0.8,1,1.25,530,default,reb6M,germany21
 euregio_full_2000,alt,0.8,1,1.25,530,default,reb1Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.8,1,1.25,530,default,reb2Y,germany21
-euregio_full_2000,alt,0.85,1,1.25,90,default,reclin3M,germany21
 euregio_full_2000,alt,0.85,1,1.25,90,default,reclin6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,90,default,reclin1_5Y,germany21
@@ -764,7 +839,6 @@ euregio_full_2000,alt,0.85,1,1.25,90,default,reb6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,90,default,reb1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,90,default,reb2Y,germany21
-euregio_full_2000,alt,0.85,1,1.25,180,default,reclin3M,germany21
 euregio_full_2000,alt,0.85,1,1.25,180,default,reclin6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,180,default,reclin1_5Y,germany21
@@ -773,7 +847,6 @@ euregio_full_2000,alt,0.85,1,1.25,180,default,reb6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,180,default,reb1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,180,default,reb2Y,germany21
-euregio_full_2000,alt,0.85,1,1.25,365,default,reclin3M,germany21
 euregio_full_2000,alt,0.85,1,1.25,365,default,reclin6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,365,default,reclin1_5Y,germany21
@@ -782,7 +855,6 @@ euregio_full_2000,alt,0.85,1,1.25,365,default,reb6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,365,default,reb1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,365,default,reb2Y,germany21
-euregio_full_2000,alt,0.85,1,1.25,530,default,reclin3M,germany21
 euregio_full_2000,alt,0.85,1,1.25,530,default,reclin6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,530,default,reclin1_5Y,germany21
@@ -791,7 +863,6 @@ euregio_full_2000,alt,0.85,1,1.25,530,default,reb6M,germany21
 euregio_full_2000,alt,0.85,1,1.25,530,default,reb1Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.85,1,1.25,530,default,reb2Y,germany21
-euregio_full_2000,alt,0.9,1,1.25,90,default,reclin3M,germany21
 euregio_full_2000,alt,0.9,1,1.25,90,default,reclin6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,90,default,reclin1_5Y,germany21
@@ -800,7 +871,6 @@ euregio_full_2000,alt,0.9,1,1.25,90,default,reb6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,90,default,reb1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,90,default,reb2Y,germany21
-euregio_full_2000,alt,0.9,1,1.25,180,default,reclin3M,germany21
 euregio_full_2000,alt,0.9,1,1.25,180,default,reclin6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,180,default,reclin1_5Y,germany21
@@ -809,7 +879,6 @@ euregio_full_2000,alt,0.9,1,1.25,180,default,reb6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,180,default,reb1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,180,default,reb2Y,germany21
-euregio_full_2000,alt,0.9,1,1.25,365,default,reclin3M,germany21
 euregio_full_2000,alt,0.9,1,1.25,365,default,reclin6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,365,default,reclin1_5Y,germany21
@@ -818,7 +887,6 @@ euregio_full_2000,alt,0.9,1,1.25,365,default,reb6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,365,default,reb1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,365,default,reb2Y,germany21
-euregio_full_2000,alt,0.9,1,1.25,530,default,reclin3M,germany21
 euregio_full_2000,alt,0.9,1,1.25,530,default,reclin6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,530,default,reclin1_5Y,germany21
@@ -827,7 +895,6 @@ euregio_full_2000,alt,0.9,1,1.25,530,default,reb6M,germany21
 euregio_full_2000,alt,0.9,1,1.25,530,default,reb1Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.9,1,1.25,530,default,reb2Y,germany21
-euregio_full_2000,alt,0.95,1,1.25,90,default,reclin3M,germany21
 euregio_full_2000,alt,0.95,1,1.25,90,default,reclin6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,90,default,reclin1_5Y,germany21
@@ -836,7 +903,6 @@ euregio_full_2000,alt,0.95,1,1.25,90,default,reb6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,90,default,reb1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,90,default,reb2Y,germany21
-euregio_full_2000,alt,0.95,1,1.25,180,default,reclin3M,germany21
 euregio_full_2000,alt,0.95,1,1.25,180,default,reclin6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,180,default,reclin1_5Y,germany21
@@ -845,7 +911,6 @@ euregio_full_2000,alt,0.95,1,1.25,180,default,reb6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,180,default,reb1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,180,default,reb2Y,germany21
-euregio_full_2000,alt,0.95,1,1.25,365,default,reclin3M,germany21
 euregio_full_2000,alt,0.95,1,1.25,365,default,reclin6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,365,default,reclin1_5Y,germany21
@@ -854,7 +919,6 @@ euregio_full_2000,alt,0.95,1,1.25,365,default,reb6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,365,default,reb1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,365,default,reb2Y,germany21
-euregio_full_2000,alt,0.95,1,1.25,530,default,reclin3M,germany21
 euregio_full_2000,alt,0.95,1,1.25,530,default,reclin6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,530,default,reclin1_5Y,germany21
@@ -863,7 +927,6 @@ euregio_full_2000,alt,0.95,1,1.25,530,default,reb6M,germany21
 euregio_full_2000,alt,0.95,1,1.25,530,default,reb1Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.95,1,1.25,530,default,reb2Y,germany21
-euregio_full_2000,alt,0.97,1,1.25,90,default,reclin3M,germany21
 euregio_full_2000,alt,0.97,1,1.25,90,default,reclin6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,90,default,reclin1_5Y,germany21
@@ -872,7 +935,6 @@ euregio_full_2000,alt,0.97,1,1.25,90,default,reb6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,90,default,reb1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,90,default,reb2Y,germany21
-euregio_full_2000,alt,0.97,1,1.25,180,default,reclin3M,germany21
 euregio_full_2000,alt,0.97,1,1.25,180,default,reclin6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,180,default,reclin1_5Y,germany21
@@ -881,7 +943,6 @@ euregio_full_2000,alt,0.97,1,1.25,180,default,reb6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,180,default,reb1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,180,default,reb2Y,germany21
-euregio_full_2000,alt,0.97,1,1.25,365,default,reclin3M,germany21
 euregio_full_2000,alt,0.97,1,1.25,365,default,reclin6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,365,default,reclin1_5Y,germany21
@@ -890,7 +951,6 @@ euregio_full_2000,alt,0.97,1,1.25,365,default,reb6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,365,default,reb1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,365,default,reb2Y,germany21
-euregio_full_2000,alt,0.97,1,1.25,530,default,reclin3M,germany21
 euregio_full_2000,alt,0.97,1,1.25,530,default,reclin6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,530,default,reclin1_5Y,germany21
@@ -899,7 +959,38 @@ euregio_full_2000,alt,0.97,1,1.25,530,default,reb6M,germany21
 euregio_full_2000,alt,0.97,1,1.25,530,default,reb1Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2000,alt,0.97,1,1.25,530,default,reb2Y,germany21
-euregio_full_2010,alt,0.8,1,1.25,90,default,reclin3M,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reclin6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reclin1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reclin1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reb3M,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reb6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reb1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reb1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,90,default,reb2Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reclin6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reclin1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reclin1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reb3M,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reb6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reb1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reb1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,180,default,reb2Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reclin6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reclin1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reclin1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reb3M,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reb6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reb1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reb1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,365,default,reb2Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reclin6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reclin1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reclin1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reb3M,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reb6M,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reb1Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reb1_5Y,germany21
+euregio_full_2010,alt,0.5,1,1.25,530,default,reb2Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,90,default,reclin6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,90,default,reclin1_5Y,germany21
@@ -908,7 +999,6 @@ euregio_full_2010,alt,0.8,1,1.25,90,default,reb6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,90,default,reb1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,90,default,reb2Y,germany21
-euregio_full_2010,alt,0.8,1,1.25,180,default,reclin3M,germany21
 euregio_full_2010,alt,0.8,1,1.25,180,default,reclin6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,180,default,reclin1_5Y,germany21
@@ -917,7 +1007,6 @@ euregio_full_2010,alt,0.8,1,1.25,180,default,reb6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,180,default,reb1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,180,default,reb2Y,germany21
-euregio_full_2010,alt,0.8,1,1.25,365,default,reclin3M,germany21
 euregio_full_2010,alt,0.8,1,1.25,365,default,reclin6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,365,default,reclin1_5Y,germany21
@@ -926,7 +1015,6 @@ euregio_full_2010,alt,0.8,1,1.25,365,default,reb6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,365,default,reb1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,365,default,reb2Y,germany21
-euregio_full_2010,alt,0.8,1,1.25,530,default,reclin3M,germany21
 euregio_full_2010,alt,0.8,1,1.25,530,default,reclin6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,530,default,reclin1_5Y,germany21
@@ -935,7 +1023,6 @@ euregio_full_2010,alt,0.8,1,1.25,530,default,reb6M,germany21
 euregio_full_2010,alt,0.8,1,1.25,530,default,reb1Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.8,1,1.25,530,default,reb2Y,germany21
-euregio_full_2010,alt,0.85,1,1.25,90,default,reclin3M,germany21
 euregio_full_2010,alt,0.85,1,1.25,90,default,reclin6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,90,default,reclin1_5Y,germany21
@@ -944,7 +1031,6 @@ euregio_full_2010,alt,0.85,1,1.25,90,default,reb6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,90,default,reb1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,90,default,reb2Y,germany21
-euregio_full_2010,alt,0.85,1,1.25,180,default,reclin3M,germany21
 euregio_full_2010,alt,0.85,1,1.25,180,default,reclin6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,180,default,reclin1_5Y,germany21
@@ -953,7 +1039,6 @@ euregio_full_2010,alt,0.85,1,1.25,180,default,reb6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,180,default,reb1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,180,default,reb2Y,germany21
-euregio_full_2010,alt,0.85,1,1.25,365,default,reclin3M,germany21
 euregio_full_2010,alt,0.85,1,1.25,365,default,reclin6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,365,default,reclin1_5Y,germany21
@@ -962,7 +1047,6 @@ euregio_full_2010,alt,0.85,1,1.25,365,default,reb6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,365,default,reb1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,365,default,reb2Y,germany21
-euregio_full_2010,alt,0.85,1,1.25,530,default,reclin3M,germany21
 euregio_full_2010,alt,0.85,1,1.25,530,default,reclin6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,530,default,reclin1_5Y,germany21
@@ -971,7 +1055,6 @@ euregio_full_2010,alt,0.85,1,1.25,530,default,reb6M,germany21
 euregio_full_2010,alt,0.85,1,1.25,530,default,reb1Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.85,1,1.25,530,default,reb2Y,germany21
-euregio_full_2010,alt,0.9,1,1.25,90,default,reclin3M,germany21
 euregio_full_2010,alt,0.9,1,1.25,90,default,reclin6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,90,default,reclin1_5Y,germany21
@@ -980,7 +1063,6 @@ euregio_full_2010,alt,0.9,1,1.25,90,default,reb6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,90,default,reb1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,90,default,reb2Y,germany21
-euregio_full_2010,alt,0.9,1,1.25,180,default,reclin3M,germany21
 euregio_full_2010,alt,0.9,1,1.25,180,default,reclin6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,180,default,reclin1_5Y,germany21
@@ -989,7 +1071,6 @@ euregio_full_2010,alt,0.9,1,1.25,180,default,reb6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,180,default,reb1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,180,default,reb2Y,germany21
-euregio_full_2010,alt,0.9,1,1.25,365,default,reclin3M,germany21
 euregio_full_2010,alt,0.9,1,1.25,365,default,reclin6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,365,default,reclin1_5Y,germany21
@@ -998,7 +1079,6 @@ euregio_full_2010,alt,0.9,1,1.25,365,default,reb6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,365,default,reb1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,365,default,reb2Y,germany21
-euregio_full_2010,alt,0.9,1,1.25,530,default,reclin3M,germany21
 euregio_full_2010,alt,0.9,1,1.25,530,default,reclin6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,530,default,reclin1_5Y,germany21
@@ -1007,7 +1087,6 @@ euregio_full_2010,alt,0.9,1,1.25,530,default,reb6M,germany21
 euregio_full_2010,alt,0.9,1,1.25,530,default,reb1Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.9,1,1.25,530,default,reb2Y,germany21
-euregio_full_2010,alt,0.95,1,1.25,90,default,reclin3M,germany21
 euregio_full_2010,alt,0.95,1,1.25,90,default,reclin6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,90,default,reclin1_5Y,germany21
@@ -1016,7 +1095,6 @@ euregio_full_2010,alt,0.95,1,1.25,90,default,reb6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,90,default,reb1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,90,default,reb2Y,germany21
-euregio_full_2010,alt,0.95,1,1.25,180,default,reclin3M,germany21
 euregio_full_2010,alt,0.95,1,1.25,180,default,reclin6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,180,default,reclin1_5Y,germany21
@@ -1025,7 +1103,6 @@ euregio_full_2010,alt,0.95,1,1.25,180,default,reb6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,180,default,reb1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,180,default,reb2Y,germany21
-euregio_full_2010,alt,0.95,1,1.25,365,default,reclin3M,germany21
 euregio_full_2010,alt,0.95,1,1.25,365,default,reclin6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,365,default,reclin1_5Y,germany21
@@ -1034,7 +1111,6 @@ euregio_full_2010,alt,0.95,1,1.25,365,default,reb6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,365,default,reb1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,365,default,reb2Y,germany21
-euregio_full_2010,alt,0.95,1,1.25,530,default,reclin3M,germany21
 euregio_full_2010,alt,0.95,1,1.25,530,default,reclin6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,530,default,reclin1_5Y,germany21
@@ -1043,7 +1119,6 @@ euregio_full_2010,alt,0.95,1,1.25,530,default,reb6M,germany21
 euregio_full_2010,alt,0.95,1,1.25,530,default,reb1Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,530,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.95,1,1.25,530,default,reb2Y,germany21
-euregio_full_2010,alt,0.97,1,1.25,90,default,reclin3M,germany21
 euregio_full_2010,alt,0.97,1,1.25,90,default,reclin6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,90,default,reclin1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,90,default,reclin1_5Y,germany21
@@ -1052,7 +1127,6 @@ euregio_full_2010,alt,0.97,1,1.25,90,default,reb6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,90,default,reb1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,90,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,90,default,reb2Y,germany21
-euregio_full_2010,alt,0.97,1,1.25,180,default,reclin3M,germany21
 euregio_full_2010,alt,0.97,1,1.25,180,default,reclin6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,180,default,reclin1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,180,default,reclin1_5Y,germany21
@@ -1061,7 +1135,6 @@ euregio_full_2010,alt,0.97,1,1.25,180,default,reb6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,180,default,reb1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,180,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,180,default,reb2Y,germany21
-euregio_full_2010,alt,0.97,1,1.25,365,default,reclin3M,germany21
 euregio_full_2010,alt,0.97,1,1.25,365,default,reclin6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,365,default,reclin1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,365,default,reclin1_5Y,germany21
@@ -1070,7 +1143,6 @@ euregio_full_2010,alt,0.97,1,1.25,365,default,reb6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,365,default,reb1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,365,default,reb1_5Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,365,default,reb2Y,germany21
-euregio_full_2010,alt,0.97,1,1.25,530,default,reclin3M,germany21
 euregio_full_2010,alt,0.97,1,1.25,530,default,reclin6M,germany21
 euregio_full_2010,alt,0.97,1,1.25,530,default,reclin1Y,germany21
 euregio_full_2010,alt,0.97,1,1.25,530,default,reclin1_5Y,germany21
