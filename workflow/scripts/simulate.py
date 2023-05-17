@@ -151,7 +151,7 @@ def create_event(
             regions=aff_regions,
             impact_regional_distrib=productive_capital_impact_regional_distrib,
             sectors=aff_sectors,
-            impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
+            impact_sectoral_distrib=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             #event_monetary_factor=10**6,
         )
@@ -164,7 +164,7 @@ def create_event(
             regions=aff_regions,
             impact_regional_distrib=productive_capital_impact_regional_distrib,
             sectors=aff_sectors,
-            impact_sectoral_distrib_type=productive_capital_impact_sectoral_distrib_type,
+            impact_sectoral_distrib=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
             rebuilding_factor=sce_tuple[1],
             #event_monetary_factor=10**6,
