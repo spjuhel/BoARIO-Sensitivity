@@ -153,7 +153,7 @@ rule plot_grid:
         "logs/plot_results-{scope}-{focus}-{selection_type}-{selection}-{faceting}-{variable}-{plot_type}_{ext}.log",
     threads: 4
     resources:
-        mem_mb=8000
+        mem_mb=16000
     benchmark:
         "benchmarks/plot_results-{scope}-{focus}-{selection_type}-{selection}-{faceting}-{variable}-{plot_type}_{ext}.log"
     conda:
