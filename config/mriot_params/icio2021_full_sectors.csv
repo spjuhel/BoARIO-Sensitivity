@@ -1,0 +1,40 @@
+ICIO2021_reworked sectors name,affected,rebuilding_factor,inventory_size,productive_capital_to_va_ratio,inventory_tau
+Accommodation and food service activities,True,0.0,90.0,1.2,60.0
+Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use,True,0.0,90.0,1.0,60.0
+Administrative and support services,True,0.0,90.0,4.0,60.0
+"Agriculture, hunting, forestry",True,0.0017,90.0,2.7714285714285714,60.0
+Air transport,False,0.0,90.0,3.0,60.0
+"Arts, entertainment and recreation",True,0.0,inf,1.0,60.0
+Basic metals,True,0.0,90.0,2.5384615384615383,60.0
+Chemical and chemical products,True,0.0,90.0,3.0,60.0
+Coke and refined petroleum products,True,0.0,90.0,3.0,60.0
+"Computer, electronic and optical equipment",True,0.025,90.0,1.5,60.0
+Construction,True,0.55,90.0,1.25,60.0
+Education,True,0.0,90.0,2.0,60.0
+Electrical equipment,True,0.1,90.0,1.5,60.0
+"Electricity, gas, steam and air conditioning supply",True,0.0,90.0,2.875,60.0
+Fabricated metal products,True,0.0,90.0,2.0,60.0
+Financial and insurance activities,True,0.03,inf,5.45,60.0
+Fishing and aquaculture,False,0.0,90.0,2.9,60.0
+"Food products, beverages and tobacco",True,0.0,90.0,1.8999999999999997,60.0
+Human health and social work activities,True,0.0,90.0,2.0,60.0
+IT and other information services,True,0.0,90.0,4.0,60.0
+Land transport and transport via pipelines,True,0.0,90.0,2.625,60.0
+"Machinery and equipment, nec ",True,0.01,90.0,1.5,60.0
+Manufacturing nec; repair and installation of machinery and equipment,True,0.062,90.0,2.25,60.0
+Mining and quarrying,True,0.0,90.0,5.1,60.0
+"Motor vehicles, trailers and semi-trailers",True,0.04,90.0,3.0,60.0
+Other non-metallic mineral products,True,0.001,90.0,2.0,60.0
+Other service activities,True,0.0,inf,1.75,60.0
+Other transport equipment,True,0.01,90.0,3.0,60.0
+Paper products and printing,True,0.0,90.0,1.75,60.0
+Post and telecommunications,True,0.0,90.0,2.4,60.0
+"Professional, scientific and technical activities",True,0.0,90.0,4.0,60.0
+Public administration and defence; compulsory social security,True,0.0003,90.0,2.0,60.0
+Real estate activities,True,0.0,inf,5.45,60.0
+Rubber and plastics products,True,0.0,90.0,2.3333333333333335,60.0
+"Textiles, textile products, leather and footwear",True,0.015,90.0,1.3999999999999997,60.0
+"Water supply; sewerage, waste management and remediation activities",True,0.0,90.0,2.15,60.0
+Water transport,True,0.0,90.0,1.5,60.0
+Wholesale and retail trade; repair of motor vehicles,True,0.10500000000000001,90.0,0.725,60.0
+Wood and products of wood and cork,True,0.05,90.0,1.7,60.0

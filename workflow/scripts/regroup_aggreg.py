@@ -4,6 +4,11 @@ import pandas as pd
 import re
 import collections
 
+import sys
+sys.path.append('../others')
+
+import others.regex_patterns as regex_patterns
+
 logging.basicConfig(
     filename=snakemake.log[0],
     level=logging.INFO,
@@ -89,10 +94,10 @@ def aggreg_df(df, mrio_name):
     _df = df.copy()
     regions_aggreg = load_regions_aggreg(mrio_name)
     _df.rename(regions_aggreg["new region"].to_dict(), axis=1, level=0, inplace=True)
-    _df = _df.groupby(["region", "sector"], axis=1).sum()
+    _df = _df.T.groupby(["region", "sector"]).sum().T
     sectors_aggreg = load_sectors_aggreg(mrio_name)
     _df.rename(sectors_aggreg["new sector"].to_dict(), axis=1, level=1, inplace=True)
-    _df = _df.groupby(["region", "sector"], axis=1).sum()
+    _df = _df.T.groupby(["region", "sector"]).sum().T
     return _df
 
 
@@ -103,9 +108,7 @@ def common_monetary_factor(df, mrio_basename):
 
 
 def create_result_dict(inputs):
-    xp_regex = re.compile(
-        r"results/simulations/mrio~(?P<mrio_basename>[\w]+)_(?P<year>\d\d\d\d)(?:_ixi)?/sectors_scenario~(?P<sectors_scenario>[^/]+)/recovery_scenario~(?P<recovery_scenario>[^/]+)/flood_scenario~(?P<flood_scenario>[^/]+)/order~(?P<order>[^/]+)_psi~(?P<psi>[^/]+)_base_alpha~(?P<base_alpha>[^/_]+)_max_alpha~(?P<max_alpha>[^/_]+)_tau_alpha~(?P<tau_alpha>[^/]+)"
-    )
+    xp_regex = regex_patterns.SIMULATION_PATH_REGEX
     res_dict = {}
     for key, val in inputs.items():
         for xp_file in val:
@@ -118,7 +121,8 @@ def create_result_dict(inputs):
                     (
                         key,
                         match.group("mrio_basename"),
-                        match.group("year"),
+                        match.group("mrio_year"),
+                        match.group("mrio_aggreg"),
                         match.group("sectors_scenario"),
                         match.group("recovery_scenario"),
                         match.group("flood_scenario"),
@@ -145,8 +149,9 @@ pd.concat(
     keys=res.keys(),
     names=[
         "variable",
-        "mrio",
-        "mrio year",
+        "mrio_basename",
+        "mrio_year",
+        "mrio_aggreg",
         "sectors_sce",
         "recovery_sce",
         "flood_sce",

@@ -1,7 +1,13 @@
 ,MRIOT,Regions affected,impact,monetary unit,duration
-0,exiobase3_full_2000,['DE'],19519.0,M€_2000,14
-1,eora26_full_2000,['DEU'],18077.0,M$_2000,14
-2,euregio_full_2000,"['DE21', 'DE22', 'DE23', 'DE24', 'DE25', 'DE26', 'DE27', 'DEA1', 'DEA2', 'DEA3', 'DEA4', 'DEA5', 'DEB1', 'DEB2', 'DEB3', 'DED1', 'DED2', 'DED3']",18138.0,M$_2000,14
-3,exiobase3_full_2010,['DE'],23769.0,M€_2010,14
-4,eora26_full_2010,['DEU'],32191.0,M$_2010,14
-5,euregio_full_2010,"['DE21', 'DE22', 'DE23', 'DE24', 'DE25', 'DE26', 'DE27', 'DEA1', 'DEA2', 'DEA3', 'DEA4', 'DEA5', 'DEB1', 'DEB2', 'DEB3', 'DED1', 'DED2', 'DED3']",22316.0,M$_2010,14
+0,exiobase3_ixi_2000,['DE'],18340.0,M€_2000,14
+1,eora26_2000,['DEU'],18077.0,M$_2000,14
+2,euregio_2000,"['DE21', 'DE22', 'DE23', 'DE24', 'DE25', 'DE26', 'DE27', 'DEA1', 'DEA2', 'DEA3', 'DEA4', 'DEA5', 'DEB1', 'DEB2', 'DEB3', 'DED1', 'DED2', 'DED3']",18138.0,M$_2000,14
+3,exiobase3_ixi_2000,['JP'],193767.0,M€_2010,14
+4,eora26_2000,['JPN'],216341.0,M$_2010,14
+5,euregio_2000,['JPN'],234449.0,M$_2010,14
+6,exiobase3_ixi_2010,['DE'],23769.0,M€_2000,14
+7,eora26_2010,['DEU'],32191.0,M$_2000,14
+8,euregio_2010,"['DE21', 'DE22', 'DE23', 'DE24', 'DE25', 'DE26', 'DE27', 'DEA1', 'DEA2', 'DEA3', 'DEA4', 'DEA5', 'DEB1', 'DEB2', 'DEB3', 'DED1', 'DED2', 'DED3']",22316.0,M$_2000,14
+9,exiobase3_ixi_2010,['JP'],199986.0,M€_2010,14
+10,eora26_2010,['JPN'],263889.0,M$_2010,14
+11,euregio_2010,['JPN'],189877.0,M$_2010,14

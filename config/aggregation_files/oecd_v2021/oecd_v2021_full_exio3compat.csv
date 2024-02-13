@@ -1,0 +1,46 @@
+Original Industry,Original mrio code,Original ISIC Rev.4,to_group_id,new sector name
+"Agriculture, hunting, forestry",D01T02,"01, 02",1,"Agriculture, hunting, forestry"
+Fishing and aquaculture,D03,03,2,Fishing and aquaculture
+"Mining and quarrying, energy producing products",D05T06,"05, 06",3,Mining and quarrying
+"Mining and quarrying, non-energy producing products",D07T08,"07, 08",3,Mining and quarrying
+Mining support service activities,D09,09,3,Mining and quarrying
+"Food products, beverages and tobacco",D10T12,"10, 11, 12",4,"Food products, beverages and tobacco"
+"Textiles, textile products, leather and footwear",D13T15,"13, 14, 15",5,"Textiles, textile products, leather and footwear"
+Wood and products of wood and cork,D16,16,6,Wood and products of wood and cork
+Paper products and printing,D17T18,"17, 18",7,Paper products and printing
+Coke and refined petroleum products,D19,19,8,Coke and refined petroleum products
+Chemical and chemical products,D20,20,9,Chemical and chemical products
+"Pharmaceuticals, medicinal chemical and botanical products",D21,21,9,Chemical and chemical products
+Rubber and plastics products,D22,22,10,Rubber and plastics products
+Other non-metallic mineral products,D23,23,11,Other non-metallic mineral products
+Basic metals,D24,24,12,Basic metals
+Fabricated metal products,D25,25,13,Fabricated metal products
+"Computer, electronic and optical equipment",D26,26,14,"Computer, electronic and optical equipment"
+Electrical equipment,D27,27,15,Electrical equipment
+"Machinery and equipment, nec ",D28,28,16,"Machinery and equipment, nec "
+"Motor vehicles, trailers and semi-trailers",D29,29,17,"Motor vehicles, trailers and semi-trailers"
+Other transport equipment,D30,30,18,Other transport equipment
+Manufacturing nec; repair and installation of machinery and equipment,D31T33,"31, 32, 33",19,Manufacturing nec; repair and installation of machinery and equipment
+"Electricity, gas, steam and air conditioning supply",D35,35,20,"Electricity, gas, steam and air conditioning supply"
+"Water supply; sewerage, waste management and remediation activities",D36T39,"36, 37, 38, 39",21,"Water supply; sewerage, waste management and remediation activities"
+Construction,D41T43,"41, 42, 43",22,Construction
+Wholesale and retail trade; repair of motor vehicles,D45T47,"45, 46, 47",23,Wholesale and retail trade; repair of motor vehicles
+Land transport and transport via pipelines,D49,49,24,Land transport and transport via pipelines
+Water transport,D50,50,25,Water transport
+Air transport,D51,51,26,Air transport
+Warehousing and support activities for transportation,D52,52,27,Warehousing and support activities for transportation
+Postal and courier activities,D53,53,28,Post and telecommunications
+Accommodation and food service activities,D55T56,"55, 56",29,Accommodation and food service activities
+"Publishing, audiovisual and broadcasting activities",D58T60,"58, 59, 60",28,Post and telecommunications
+Telecommunications,D61,61,28,Post and telecommunications
+IT and other information services,D62T63,"62, 63",30,IT and other information services
+Financial and insurance activities,D64T66,"64, 65, 66",31,Financial and insurance activities
+Real estate activities,D68,68,32,Real estate activities
+"Professional, scientific and technical activities",D69T75,69 to 75,33,"Professional, scientific and technical activities"
+Administrative and support services,D77T82,77 to 82,34,Administrative and support services
+Public administration and defence; compulsory social security,D84,84,35,Public administration and defence; compulsory social security
+Education,D85,85,36,Education
+Human health and social work activities,D86T88,"86, 87, 88",37,Human health and social work activities
+"Arts, entertainment and recreation",D90T93,"90, 91, 92, 93",38,"Arts, entertainment and recreation"
+Other service activities,D94T96,"94,95, 96",39,Other service activities
+Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use,D97T98,"97, 98",40,Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use

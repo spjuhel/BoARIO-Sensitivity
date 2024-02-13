@@ -48,7 +48,7 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
 
     # Drop the levels that should be dropped
     logger.info(
-        f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio','variable'] )] }"
+        f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio_basename', 'mrio_aggreg', 'mrio_year', 'variable', 'psi', 'alpha_tau']['mrio','variable'] )] }"
     )
     df = df.droplevel(
         level=[
@@ -57,7 +57,7 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
             if (
                 mask
                 and not df.index.levels[i].name
-                in ["mrio", "variable", "psi", "alpha_tau"]
+                in ["mrio_basename", "mrio_aggreg", "mrio_year", "variable", "psi", "alpha_tau"]
             )
         ]
     )
@@ -93,10 +93,10 @@ def prepare_df_general(inpt, drop_dict=None, drop_unused=True):
     """
     res_df = pd.read_parquet(inpt)
     logger.info("Melting")
-    res_df = res_df.melt(ignore_index=False).reset_index(level=["mrio", "mrio year"])
+    res_df = res_df.melt(ignore_index=False).reset_index(level=["mrio_basename", "mrio_year", "mrio_aggreg"])
     logger.info("Joining mrio with year")
-    res_df["mrio"] = res_df[["mrio", "mrio year"]].agg("_".join, axis=1)
-    res_df.drop("mrio year", axis=1, inplace=True)
+    res_df["mrio"] = res_df[["mrio_basename", "mrio_year", "mrio_aggreg"]].agg("_".join, axis=1)
+    res_df.drop(["mrio_basename", "mrio_year", "mrio_aggreg"], axis=1, inplace=True)
     res_df.set_index("mrio", append=True, inplace=True)
 
     if drop_dict:
@@ -148,8 +148,8 @@ def prepare_df_local_analysis(inpt, region, drop_dict=None):
     res_df.name = "value"
     res_df = res_df.reset_index()
 
-    res_df["mrio"] = res_df[["mrio", "mrio year"]].agg("_".join, axis=1)
-    res_df.drop("mrio year", axis=1, inplace=True)
+    res_df["mrio"] = res_df[["mrio_basename", "mrio_year", "mrio_aggreg"]].agg("_".join, axis=1)
+    res_df.drop(["mrio_basename", "mrio_year", "mrio_aggreg"], axis=1, inplace=True)
     res_df.set_index("mrio", inplace=True)
 
     if drop_dict:
@@ -197,28 +197,28 @@ def prepare_df_2(df, neg_bins, pos_bins):
     # _df.reset_index(inplace=True)
     # _df.set_index("step", inplace=True)
     # display(_df)
-    _df["value_pct"] = _df.groupby(cols_to_groupby, axis=0, group_keys=False)[
+    _df["value_pct"] = _df.groupby(cols_to_groupby, group_keys=False)[
         "value"
     ].apply(pct_change)
-    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby, axis=0, group_keys=False)[
+    _df["value_cumsum_pct"] = _df.groupby(cols_to_groupby, group_keys=False)[
         "value_pct"
     ].apply(yearly_pct_change_cumsum)
     _df["max_neg_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
-        min
+        "min"
     )
     _df["max_neg_impact_class"] = _df.groupby("Experience")[
         ["max_neg_impact_value_pct"]
     ].transform(lambda x: pd.cut(x, bins=max_neg_bins, labels=max_neg_labels))
 
     _df["max_pos_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
-        max
+        "max"
     )
     _df["max_pos_impact_class"] = _df.groupby("Experience")[
         ["max_pos_impact_value_pct"]
     ].transform(lambda x: pd.cut(x, bins=max_pos_bins, labels=max_pos_labels))
 
     _df["mean_impact_value_pct"] = _df.groupby("Experience")["value_pct"].transform(
-        np.mean
+        "mean"
     )
     _df["mean_impact_class"] = _df.groupby("Experience")[
         ["mean_impact_value_pct"]

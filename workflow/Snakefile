@@ -2,47 +2,54 @@
 # Please follow the best practices:
 # https://snakemake.readthedocs.io/en/stable/snakefiles/best_practices.html,
 # in particular regarding the standardized folder structure mentioned there.
+conda:
+    "envs/global.yaml"
+
+from snakemake.utils import min_version
+from snakemake.utils import Paramspace
+import others.regex_patterns as regex_patterns
+import pandas as pd
+
+min_version("8.0.0")
+
+#### Config file ####
 configfile: "config/config.yaml"
 
 
-from snakemake.utils import Paramspace
-import pandas as pd
+#### report [WIP] ####
+# report : "report/workflow.rst"
 
+module mriot:
+    snakefile:
+        # here, it is also possible to provide a plain raw URL like "https://github.com/snakemake-workflows/dna-seq-gatk-variant-calling/raw/v2.0.1/workflow/Snakefile"
+        github("spjuhel/BoARIO-MRIOT-Tools", path="workflow/Snakefile", branch="main")
+    config:
+        config["data-mriot"]
+    prefix:
+        config["data-mriot"]["prefix"]
 
-include: "rules/exio3_treatment.smk"
-include: "rules/euregio_treatment.smk"
-include: "rules/eora26_treatment.smk"
-include: "rules/oecd_treatment.smk"
+use rule * from mriot exclude all_mriot
 
-
-# include: "rule/plotting.smk"
-
-
+#### wildcard constraints ####
 wildcard_constraints:
-    year="\d\d\d\d",
-    aggregation="full_exio3compat|74_sectors",
-    scope="general|local",
-    focus="all_sim|no_absurd"
+    year=r"\d\d\d\d",
+    aggregation=r"full_exio3compat|74_sectors",
+    scope=r"general|local",
+    focus=r"all_sim|no_absurd"
 
-EXIO3_MRIOT = expand(
-    "mrio-files/pkls/exiobase3/exiobase3_full_{year}_ixi.pkl", year=[2000, 2010]
-)
-ALL_MRIOT = (
-    expand(
-        "mrio-files/pkls/{mrio_type}/{mrio_type}_full_{year}.pkl",
-        mrio_type=["euregio", "eora26", "oecd_v2021"],
+ALL_MRIOT = expand(
+        "{mriot_data}{parsed}/{mrio_type}/{mrio_type}_{year}_full.pkl",
+        mriot_data=config["data-mriot"]["prefix"],
+        parsed=config["data-mriot"]["parsed_mriot_dir"],
+        mrio_type=["exiobase3_ixi","euregio", "icio2021"],
         year=[2000, 2010],
     )
-    + EXIO3_MRIOT
-)
 
 localrules: make_rst_report
-
 
 rule all_mriot:
     input:
         ALL_MRIOT,
-
 
 if config["testing"]:
     paramspace = Paramspace(
@@ -220,16 +227,14 @@ rule all_parquets:
 def get_simulation_inputs(wildcards):
     mrio_name = wildcards.mrio
     sectors_scenario = wildcards.sectors_scenario
-    filepath = "mrio-files/pkls/"  # the path to the pickle files
-    regex = re.compile(
-        r"^(oecd_v2021|euregio|exiobase3|eora26)_full_(\d{4})"
-    )  # the regular expression to match filenames
+    filepath = config['data-mriot']['prefix']+config['data-mriot']['parsed_mriot_dir']# the path to the pickle files
+    regex = regex_patterns.MRIOT_FULLNAME_REGEX
     match = regex.match(mrio_name)  # match the filename with the regular expression
     if not match:
         raise ValueError(f"The file name {mrio_name} is not valid.")
-    prefix, year = match.groups()  # get the prefix and year from the matched groups
-    fullpath = filepath + prefix + "/" + mrio_name + ".pkl"  # create the full file path
-    sectors_config_path = config["sectors_scenarios"][prefix + "_full"][
+    mriot_prefix, year = match.groups()  # get the prefix and year from the matched groups
+    fullpath = filepath + "/" + mriot_prefix + "/" + mrio_name + ".pkl"  # create the full file path
+    sectors_config_path = config["sectors_scenarios"][mriot_prefix + "_full"][
         sectors_scenario
     ]
     return {"mrio": fullpath, "sectors_config": sectors_config_path}

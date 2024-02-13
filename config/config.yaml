@@ -1,4 +1,12 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
+data-mriot:
+  prefix: "mriot_data/"
+  downloaded_mriot_dir: "downloaded"
+  parsed_mriot_dir: "parsed"
+  aggregated_mriot_dir: "aggregated"
+  aggregation_csv_dir: "config/aggregation_files"
+  mriot_params_dir: "config/mriot_params"
+
 samples: config/samples.csv
 flood_scenarios: config/flood_scenarios.csv
 parameters space test: config/parameters_space_test.csv
@@ -6,17 +14,17 @@ parameters space: config/parameters_space.csv
 sectors_common_aggreg: config/sectors_common_aggreg.ods
 regions_common_aggreg: config/regions_common_aggreg.ods
 
-testing: False
+testing: True
 
 flood scenario params:
   local region: "DEU"
 
-sim_length: 730
+sim_length: 100
 monetary_factor:
-  exiobase3_full: 1000000
-  oecd_v2021_full: 1000000
-  euregio_full: 1000000
-  eora26_full:  1000
+  exiobase3_ixi: 1000000
+  icio2021: 1000000
+  euregio: 1000000
+  eora26:  1000
 
 register_stocks: False
 
@@ -86,12 +94,12 @@ gains_bins: {'no gains': -.inf,
  'G25': 25}
 
 sectors_scenarios:
-  exiobase3_full:
+  exiobase3_ixi_full:
     default:
-      config/exiobase3_full_sectors.csv
-  oecd_v2021_full:
+      config/exiobase3_ixi_full_sectors.csv
+  icio2021_full:
     default:
-      config/oecd_v2021_full_sectors.csv
+      config/icio2021_full_sectors.csv
   euregio_full:
     default:
       config/euregio_full_sectors.csv

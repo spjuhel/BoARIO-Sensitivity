@@ -3,7 +3,7 @@ import pandas as pd
 mrio_dict = {
     "eora26": "Eora sectors",
     "euregio": "Euregio sectors",
-    "oecd_v2021": "ICIO2021_reworked sectors name",
+    "icio2021": "ICIO2021_reworked sectors name",
 }
 
 colname = mrio_dict[snakemake.params.mrio_type]

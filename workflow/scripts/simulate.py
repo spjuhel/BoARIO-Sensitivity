@@ -9,6 +9,9 @@ import pickle
 import pymrio as pym
 from boario import logger
 
+import sys
+sys.path.append('../others')
+
 formatter = logging.Formatter('%(levelname)s - %(lineno)d : %(message)s')
 handler = logging.FileHandler(snakemake.log[0])
 handler.setFormatter(formatter)
@@ -19,6 +22,8 @@ import boario
 from boario.event import EventKapitalRebuild, EventKapitalRecover
 from boario.simulation import Simulation
 from boario.extended_models import ARIOPsiModel
+
+import others.regex_patterns as regex_patterns
 
 def handle_exception(exc_type, exc_value, exc_traceback):
     if issubclass(exc_type, KeyboardInterrupt):
@@ -60,7 +65,7 @@ def load_mrio(filename: str) -> pym.IOSystem:
     Args:
         filename: A string representing the name of the file to load (without the .pkl extension).
                   Valid file names follow the format <prefix>_full_<year>, where <prefix> is one of
-                  'oecd_v2021', 'euregio', 'exiobase3', or 'eora26', and <year> is a four-digit year
+                  'icio2021', 'euregio', 'exiobase3', or 'eora26', and <year> is a four-digit year
                   such as '2000' or '2010'.
 
     Returns:
@@ -71,18 +76,16 @@ def load_mrio(filename: str) -> pym.IOSystem:
 
     """
     filepath = "./mrio-files/pkls/"  # the path to the pickle files
-    regex = re.compile(
-        r"^(oecd_v2021|euregio|exiobase3|eora26)_full_(\d{4})"
-    )  # the regular expression to match filenames
+    regex = regex_patterns.MRIOT_FULLNAME_REGEX
 
     match = regex.match(filename)  # match the filename with the regular expression
 
     if not match:
         raise ValueError(f"The file name {filename} is not valid.")
 
-    prefix, year = match.groups()  # get the prefix and year from the matched groups
+    mrio_basename, mrio_year, mrio_aggreg = match.groups()  # get the mrio_basename and mrio_year from the matched groups
 
-    fullpath = filepath + prefix + "/" + filename + ".pkl"  # create the full file path
+    fullpath = filepath + mrio_basename + "/" + filename + ".pkl"  # create the full file path
 
     logger.info(f"Loading {filename} mrio")
     with open(fullpath, "rb") as f:
@@ -95,17 +98,14 @@ def load_mrio(filename: str) -> pym.IOSystem:
 
 
 def get_flood_scenario(mrio_name, flood_scenario, smk_config):
-    regex = re.compile(
-        r"(?P<basename>(?:oecd_v2021|euregio|exiobase3|eora26)_full)_(?P<year>\d\d\d\d)"
-    )  # the regular expression to match filenames
-
+    regex = regex_patterns.MRIOT_FULLNAME_REGEX
     match = regex.match(mrio_name)  # match the filename with the regular expression
 
     if not match:
         raise ValueError(f"The file name {mrio_name} is not valid.")
 
-    mrio_basename = match["basename"]  # get the prefix and year from the matched groups
-    mrio_year = int(match["year"])
+    mrio_basename = match["mrio_basename"]  # get the mrio_basename and mrio_year from the matched groups
+    mrio_year = int(match["mrio_year"])
     flood_scenarios = pd.read_csv(
         smk_config["flood_scenarios"],
         index_col=[0, 1, 2],
@@ -178,7 +178,8 @@ def create_event(
 
 
 def run(
-    mrio_name,
+        mriot_file,
+        mrio_name,
     order_type,
     psi_param,
     tau_alpha,
@@ -193,7 +194,9 @@ def run(
     register_stocks,
     sectors_df,
 ):
-    mrio = load_mrio(mrio_name)
+
+    with open(mriot_file,"rb") as f:
+        mrio = pickle.load(f)
 
     model = ARIOPsiModel(
         pym_mrio=mrio,
@@ -273,20 +276,20 @@ logger.info(
 )
 logger.info("BoARIO's location is : {}".format(boario.__path__))
 
-mrio_regex = re.compile(
-    r"^((?:oecd_v2021|euregio|exiobase3|eora26)_full)_(\d{4})"
-)  # the regular expression to match filenames
+mrio_regex = regex_patterns.MRIOT_FULLNAME_REGEX
 
 mrio_match = mrio_regex.match(simulation_params["mrio"])
 if not mrio_match:
     raise ValueError(f"The file name {simulation_params['mrio']} is not valid.")
 (
     mrio_basename,
-    year,
-) = mrio_match.groups()  # get the prefix and year from the matched groups
+    mrio_year,
+    mrio_aggreg
+) = mrio_match.groups()  # get the mrio_basename and mrio_year from the matched groups
 
 
 run(
+    mriot_file=snakemake.input.mrio,
     mrio_name=simulation_params["mrio"],
     order_type=simulation_params["order"],
     psi_param=simulation_params["psi"],
