@@ -1,4 +1,5 @@
 results/**
+mriot_data/**
 resources/**
 logs/**
 .snakemake
@@ -11,3 +12,4 @@ mrio-files/**
 .mypy_cache
 config/parameters_space_building.ods
 stats.json
+__pycache__
