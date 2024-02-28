@@ -8,5 +8,4 @@ dependencies:
   - pandas
   - pymrio
   - seaborn
-  - pip:
-    - boario
+  - boario

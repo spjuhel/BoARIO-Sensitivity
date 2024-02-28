@@ -1,4 +1,9 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
+testing: True
+
+flood scenario params:
+  local region: "DEU"
+
 data-mriot:
   prefix: "mriot_data/"
   downloaded_mriot_dir: "downloaded"
@@ -7,17 +12,25 @@ data-mriot:
   aggregation_csv_dir: "config/aggregation_files"
   mriot_params_dir: "config/mriot_params"
 
-samples: config/samples.csv
 flood_scenarios: config/flood_scenarios.csv
 parameters space test: config/parameters_space_test.csv
 parameters space: config/parameters_space.csv
 sectors_common_aggreg: config/sectors_common_aggreg.ods
 regions_common_aggreg: config/regions_common_aggreg.ods
 
-testing: True
-
-flood scenario params:
-  local region: "DEU"
+sectors_scenarios:
+  exiobase3_ixi_full:
+    default:
+      config/mriot_params/exiobase3_ixi_full_sectors.csv
+  icio2021_full:
+    default:
+      config/mriot_params/icio2021_full_sectors.csv
+  euregio_full:
+    default:
+      config/mriot_params/euregio_full_sectors.csv
+  eora26_full:
+    default:
+      config/mriot_params/eora26_full_sectors.csv
 
 sim_length: 100
 monetary_factor:
@@ -93,19 +106,6 @@ gains_bins: {'no gains': -.inf,
  '20G25': 20,
  'G25': 25}
 
-sectors_scenarios:
-  exiobase3_ixi_full:
-    default:
-      config/exiobase3_ixi_full_sectors.csv
-  icio2021_full:
-    default:
-      config/icio2021_full_sectors.csv
-  euregio_full:
-    default:
-      config/euregio_full_sectors.csv
-  eora26_full:
-    default:
-      config/eora26_full_sectors.csv
 
 recovery_scenarios_mapping:
   reclin3M: Rapid recovery (capital recovered in 3 months)
