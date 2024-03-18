@@ -180,7 +180,7 @@ rule plot_grid:
         "logs/plot_results-{scope}-{focus}-{selection_type}-{selection}-{faceting}-{variable}-{plot_type}_{ext}.log",
     threads: 4
     resources:
-        mem_per_cpu=4000,
+        mem_mb_per_cpu=4000,
     benchmark:
         "benchmarks/plot_results-{scope}-{focus}-{selection_type}-{selection}-{faceting}-{variable}-{plot_type}_{ext}.log"
     conda:
@@ -198,7 +198,7 @@ checkpoint prep_plot_df:
         "logs/prep_{scope}-plot_df.log",
     threads: 4
     resources:
-        mem_per_cpu=3000,
+        mem_mb_per_cpu=3000,
     benchmark:
         "benchmarks/prep_{scope}-plot_df.log"
     conda:
@@ -304,7 +304,7 @@ rule simulate:
     benchmark:
         f"benchmarks/simulations/{paramspace.wildcard_pattern}.log"
     resources:
-        mem_per_cpu=6000,
+        mem_mb_per_cpu=6000,
     conda:
         "envs/BoARIO-sensi.yml"
     script:
