@@ -304,7 +304,7 @@ rule simulate:
     benchmark:
         f"benchmarks/simulations/{paramspace.wildcard_pattern}.log"
     resources:
-        mem_per_cpu=3000,
+        mem_per_cpu=6000,
     conda:
         "envs/BoARIO-sensi.yml"
     script:
