@@ -1,5 +1,5 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
-testing: True
+testing: False
 
 flood scenario params:
   local region: "DEU"
@@ -113,6 +113,7 @@ recovery_scenarios_mapping:
   recS6M: S-shaped recovery in ~6 months
   reclin1Y: Linear recovery in ~1 year
   reclin1_5Y: Linear recovery in ~1_5 year
+  reclin2y: Linear recovery in ~2 years
   recS1Y: S-shaped recovery in ~1 year
   recS1_5Y: S-shaped recovery in ~1_5 year
   recS6M: S-shaped recovery in ~6 months
@@ -139,6 +140,10 @@ recovery_scenarios:
     - recovery
     - linear
     - 365
+  reclin2Y:
+    - recovery
+    - linear
+    - 730
   recS1Y:
     - recovery
     - convexe
