@@ -24,7 +24,7 @@ configfile: "config/config.yaml"
 module mriot:
     snakefile:
         # here, it is also possible to provide a plain raw URL like "https://github.com/snakemake-workflows/dna-seq-gatk-variant-calling/raw/v2.0.1/workflow/Snakefile"
-        github("spjuhel/BoARIO-MRIOT-Tools", path="workflow/Snakefile", branch="main")
+        "/cluster/home/sjuhel/repos/BoARIO-MRIOT-Tools/workflow/Snakefile"
     config:
         config["data-mriot"]
     prefix:

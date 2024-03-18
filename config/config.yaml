@@ -1,5 +1,5 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
-testing: False
+testing: True
 
 flood scenario params:
   local region: "DEU"
