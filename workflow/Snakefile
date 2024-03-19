@@ -300,11 +300,12 @@ rule simulate:
         sim_length=config["sim_length"],
     log:
         f"logs/simulations/{paramspace.wildcard_pattern}.log",
-    threads: 4
+    threads: 8
     benchmark:
         f"benchmarks/simulations/{paramspace.wildcard_pattern}.log"
     resources:
-        mem_mb_per_cpu=4000,
+        mem_mb_per_cpu=3000,
+        runtime=120,
     conda:
         "envs/BoARIO-sensi.yml"
     script:
