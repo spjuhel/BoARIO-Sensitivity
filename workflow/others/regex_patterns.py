@@ -1,7 +1,7 @@
 import re
 
 ORDER_TYPE_REGEX = r"(?P<order>alt|noalt)"
-PSI_REGEX = r"(?P<psi>1|0\.\d+)"
+PSI_REGEX = r"(?P<psi>(?:1|0)\.\d+)"
 BASE_ALPHA_REGEX = r"(?P<base_alpha>\d(?:\.\d+)?)"
 MAX_ALPHA_REGEX = r"(?P<max_alpha>\d(?:\.\d+)?)"
 TAU_ALPHA_REGEX = r"(?P<tau_alpha>\d+)"
