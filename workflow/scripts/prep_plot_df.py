@@ -48,7 +48,7 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
 
     # Drop the levels that should be dropped
     logger.info(
-        f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio_basename', 'mrio_aggreg', 'mrio_year', 'variable', 'psi', 'alpha_tau']['mrio','variable'] )] }"
+        f"Will drop these levels: { [df.index.levels[i].name for i, mask in enumerate(masks) if (mask and not df.index.levels[i].name in ['mrio_basename', 'mrio_aggreg', 'mrio_year', 'variable', 'psi', 'alpha_tau','mrio','variable'] )] }"
     )
     df = df.droplevel(
         level=[
@@ -57,7 +57,7 @@ def drop_levels_with_identical_values(df: pd.DataFrame) -> pd.DataFrame:
             if (
                 mask
                 and not df.index.levels[i].name
-                in ["mrio_basename", "mrio_aggreg", "mrio_year", "variable", "psi", "alpha_tau"]
+                in ["mrio_basename", "mrio_aggreg", "mrio_year", "variable", "psi", "alpha_tau", "mrio", "variable"]
             )
         ]
     )
