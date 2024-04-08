@@ -138,6 +138,44 @@ Cumulative change (expressed as percentage of yearly total)
     :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
 
 
+Simulation regrouped such that recovery_sce==reclin2Y :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Variable is: production_realised
+---------------------------------------
+
+Change from initial level
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../images/figs/local/all_sim/recovery_sce~reclin2Y/Experience~mrio/production_realised_classic.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
+
+Cumulative change (expressed as percentage of yearly total)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../images/figs/local/all_sim/recovery_sce~reclin2Y/Experience~mrio/production_realised_cumsum.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
+
+
+Simulation regrouped such that recovery_sce==reclin3M :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Variable is: production_realised
+---------------------------------------
+
+Change from initial level
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../images/figs/local/all_sim/recovery_sce~reclin3M/Experience~mrio/production_realised_classic.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
+
+Cumulative change (expressed as percentage of yearly total)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../images/figs/local/all_sim/recovery_sce~reclin3M/Experience~mrio/production_realised_cumsum.svg
+    :alt: No data to plot (possibly because no simulation correspond to this scope/selection)
+
+
 Simulation regrouped such that recovery_sce==reclin6M :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
