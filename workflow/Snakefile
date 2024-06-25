@@ -262,7 +262,7 @@ def get_simulation_inputs(wildcards):
 
     parsed=config["data-mriot"]["parsed_mriot_dir"],
     sectors_config_path = (
-        config["data-mriot"]["mriot_params_dir"] +
+        config["data-mriot"]["prefix"] + config["data-mriot"]["mriot_params_dir"] +
         "/" + mriot_prefix + "_" +
         config["sectors_scenarios"][sectors_scenario] +
         ".csv")
