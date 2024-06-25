@@ -32,7 +32,7 @@ sectors_scenarios:
     default:
       config/mriot_params/eora26_full_sectors.csv
 
-sim_length: 100
+sim_length: 1095
 monetary_factor:
   exiobase3_ixi: 1000000
   icio2021: 1000000
