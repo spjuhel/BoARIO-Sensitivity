@@ -50,7 +50,6 @@ ALL_MRIOT = expand(
     year=[2000, 2010],
 )
 
-
 localrules:
     make_rst_report,
 
@@ -58,7 +57,6 @@ localrules:
 rule all_mriot:
     input:
         ALL_MRIOT,
-
 
 if config["testing"]:
     paramspace = Paramspace(
@@ -221,8 +219,8 @@ def regroup_input(wildcards):
 rule regroup_parquet_to_common_aggreg:
     input:
         unpack(regroup_input),
-        sectors_aggreg_ods=config["sectors_common_aggreg"],
-        regions_aggreg_ods=config["regions_common_aggreg"],
+        sectors_aggreg_ods=config["data-mriot"]["prefix"] + config["data-mriot"]["aggregation_csv_dir"] + config["sectors_common_aggreg"],
+        region_aggreg_ods=config["data-mriot"]["prefix"] + config["data-mriot"]["aggregation_csv_dir"] + config["regions_common_aggreg"],
     output:
         "results/common_aggreg.parquet",
     log:
@@ -261,9 +259,13 @@ def get_simulation_inputs(wildcards):
     fullpath = (
         filepath + "/" + mriot_prefix + "/" + mrio_name + ".pkl"
     )  # create the full file path
-    sectors_config_path = config["sectors_scenarios"][mriot_prefix + "_full"][
-        sectors_scenario
-    ]
+
+    parsed=config["data-mriot"]["parsed_mriot_dir"],
+    sectors_config_path = (
+        config["data-mriot"]["mriot_params_dir"] +
+        "/" + mriot_prefix + "_" +
+        config["sectors_scenarios"][sector_scenario] +
+        ".csv")
     return {"mrio": fullpath, "sectors_config": sectors_config_path}
 
 
