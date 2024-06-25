@@ -219,8 +219,8 @@ def regroup_input(wildcards):
 rule regroup_parquet_to_common_aggreg:
     input:
         unpack(regroup_input),
-        sectors_aggreg_ods=config["data-mriot"]["prefix"] + config["data-mriot"]["aggregation_csv_dir"] + config["sectors_common_aggreg"],
-        region_aggreg_ods=config["data-mriot"]["prefix"] + config["data-mriot"]["aggregation_csv_dir"] + config["regions_common_aggreg"],
+        sectors_aggreg_ods=config["data-mriot"]["prefix"] + config["data-mriot"]["aggregation_csv_dir"] + "/" + config["sectors_common_aggreg"],
+        region_aggreg_ods=config["data-mriot"]["prefix"] + config["data-mriot"]["aggregation_csv_dir"] + "/" + config["regions_common_aggreg"],
     output:
         "results/common_aggreg.parquet",
     log:
