@@ -15,8 +15,8 @@ data-mriot:
 flood_scenarios: config/flood_scenarios.csv
 parameters space test: config/parameters_space_test.csv
 parameters space: config/parameters_space.csv
-sectors_common_aggreg: config/sectors_common_aggreg.ods
-regions_common_aggreg: config/regions_common_aggreg.ods
+sectors_common_aggreg: config/aggregation_files/sectors_common_aggreg.ods
+regions_common_aggreg: config/aggregation_files/regions_common_aggreg.ods
 
 sectors_scenarios:
   exiobase3_ixi_full:
