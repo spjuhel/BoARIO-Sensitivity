@@ -40,7 +40,7 @@ sys.excepthook = handle_exception
 
 sectors_common_aggreg = {
     sheet_name: pd.read_excel(
-        snakemake.config["sectors_common_aggreg"], sheet_name=sheet_name, index_col=0
+        snakemake.input["sectors_aggreg_ods"], sheet_name=sheet_name, index_col=0
     )
     for sheet_name in [
         "eora26_without_reexport_to_common_aggreg",
@@ -52,7 +52,7 @@ sectors_common_aggreg = {
 
 regions_common_aggreg = {
     sheet_name: pd.read_excel(
-        snakemake.config["regions_common_aggreg"], sheet_name=sheet_name, index_col=0
+        snakemake.input["region_aggreg_ods"], sheet_name=sheet_name, index_col=0
     )
     for sheet_name in [
         "eora26_without_reexport_to_common_aggreg",
