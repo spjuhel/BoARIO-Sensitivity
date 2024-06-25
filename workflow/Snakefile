@@ -264,7 +264,7 @@ def get_simulation_inputs(wildcards):
     sectors_config_path = (
         config["data-mriot"]["mriot_params_dir"] +
         "/" + mriot_prefix + "_" +
-        config["sectors_scenarios"][sector_scenario] +
+        config["sectors_scenarios"][sectors_scenario] +
         ".csv")
     return {"mrio": fullpath, "sectors_config": sectors_config_path}
 
