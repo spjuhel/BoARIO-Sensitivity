@@ -46,10 +46,15 @@ ALL_MRIOT = expand(
     "{mriot_data}{parsed}/{mrio_type}/{mrio_type}_{year}_full.pkl",
     mriot_data=config["data-mriot"]["prefix"],
     parsed=config["data-mriot"]["parsed_mriot_dir"],
-    mrio_type=["exiobase3_ixi", "euregio", "icio2021"],
+    mrio_type=["exiobase3_ixi", "euregio", "eora26"],
+    year=[2000, 2010],
+) + expand(
+    "{mriot_data}{aggregated}/{mrio_type}/{mrio_type}_{year}_common_aggreg.pkl",
+    mriot_data=config["data-mriot"]["prefix"],
+    aggregated=config["data-mriot"]["aggregated_mriot_dir"],
+    mrio_type=["exiobase3_ixi", "euregio", "eora26"],
     year=[2000, 2010],
 )
-
 localrules:
     make_rst_report,
 
