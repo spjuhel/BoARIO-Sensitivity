@@ -1,5 +1,5 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
-testing: False
+testing: True
 
 flood scenario params:
   local region: "DEU"
@@ -22,7 +22,7 @@ sectors_scenarios:
     default:
       full_sectors
 
-sim_length: 100
+sim_length: 1095
 monetary_factor:
   exiobase3_ixi: 1000000
   icio2021: 1000000
