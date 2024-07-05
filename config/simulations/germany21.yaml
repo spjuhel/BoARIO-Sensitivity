@@ -1,0 +1,55 @@
+mriot:
+  - exiobase3_ixi
+  - eora26
+  - euregio
+
+mriot_year:
+  - 2000
+  - 2010
+
+mriot_aggreg:
+  - full_sectors_full_regions
+  - common_sectors_common_regions
+  - common_sectors_full_regions
+
+order:
+  - alt
+
+psi:
+  - 0.5
+  - 0.8
+  - 0.85
+  - 0.90
+  - 0.95
+  - 0.97
+  - 1.0
+
+base_alpha:
+  - 1
+
+max_alpha:
+  - 1.25
+
+tau_alpha:
+  - 1
+  - 90
+  - 180
+  - 365
+  - 730
+
+sectors_scenario:
+  - default
+
+recovery_scenario:
+  - reclin
+  - reb
+
+recovery_tau:
+  - 90
+  - 180
+  - 365
+  - 545
+  - 730
+
+flood_scenario:
+  - germany21

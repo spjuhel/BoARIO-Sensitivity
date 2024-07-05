@@ -8,26 +8,21 @@ data-mriot:
   prefix: "mriot_data/"
   downloaded_mriot_dir: "downloaded"
   parsed_mriot_dir: "parsed"
-  aggregated_mriot_dir: "aggregated"
-  aggregation_csv_dir: "config/aggregation_files"
+  aggregated_mriot_dir: "parsed"
   mriot_params_dir: "config/mriot_params"
 
-flood_scenarios: config/flood_scenarios.csv
-parameters space test: config/parameters_space_test.csv
-parameters space: config/parameters_space.csv
-sectors_common_aggreg: sectors_common_aggreg.ods
-regions_common_aggreg: regions_common_aggreg.ods
+  common_aggreg: "common_sectors_common_regions"
+  mriot_base_aggreg:
+    exiobase3_ixi : "full_sectors_full_regions"
+    exiobase3_pxp : "full_sectors_full_regions"
+    eora26: "full_no_reexport_sectors_full_regions"
+    euregio: "full_sectors_full_regions"
 
-sectors_scenarios:
-    default:
-      full_sectors
+flood scenario: flood_scenarios/germany21.yaml
+simulation space test: simulations/test.yaml
+simulation space: simulations/germany21.yaml
 
 sim_length: 1095
-monetary_factor:
-  exiobase3_ixi: 1000000
-  icio2021: 1000000
-  euregio: 1000000
-  eora26:  1000
 
 register_stocks: False
 
@@ -95,74 +90,3 @@ gains_bins: {'no gains': -.inf,
  '15G20': 15,
  '20G25': 20,
  'G25': 25}
-
-
-recovery_scenarios_mapping:
-  reclin3M: Rapid recovery (capital recovered in 3 months)
-  reclin6M: Linear recovery in ~6 months
-  recS6M: S-shaped recovery in ~6 months
-  reclin1Y: Linear recovery in ~1 year
-  reclin1_5Y: Linear recovery in ~1_5 year
-  reclin2y: Linear recovery in ~2 years
-  recS1Y: S-shaped recovery in ~1 year
-  recS1_5Y: S-shaped recovery in ~1_5 year
-  recS6M: S-shaped recovery in ~6 months
-  reb3M: 3 months rebuilding (90 days tau)
-  reb6M: 6 months rebuilding (180 days tau)
-  reb1Y: 1 year rebuilding (365 days tau)
-  reb1_5Y: 1,5 year rebuilding (545 days tau)
-  reb2Y: 2 years rebuilding (730 days tau)
-
-recovery_scenarios:
-  reclin3M:
-    - recovery
-    - linear
-    - 90
-  reclin6M:
-    - recovery
-    - linear
-    - 180
-  recS6M:
-    - recovery
-    - convexe
-    - 180
-  reclin1Y:
-    - recovery
-    - linear
-    - 365
-  reclin2Y:
-    - recovery
-    - linear
-    - 730
-  recS1Y:
-    - recovery
-    - convexe
-    - 365
-  reclin1_5Y:
-    - recovery
-    - linear
-    - 545
-  recS1_5Y:
-    - recovery
-    - convexe
-    - 545
-  reb3M:
-    - rebuilding
-    - 1
-    - 90
-  reb6M:
-    - rebuilding
-    - 1
-    - 180
-  reb1Y:
-    - rebuilding
-    - 1
-    - 365
-  reb1_5Y:
-    - rebuilding
-    - 1
-    - 545
-  reb2Y:
-    - rebuilding
-    - 1
-    - 730

@@ -1,13 +1,14 @@
-import sys, os
+import sys
 import logging, traceback
 import pandas as pd
-import re
-import collections
 
 import sys
-sys.path.append('../others')
+
+sys.path.append("../others")
 
 import others.regex_patterns as regex_patterns
+
+from importlib import resources
 
 logging.basicConfig(
     filename=snakemake.log[0],
@@ -38,66 +39,52 @@ def handle_exception(exc_type, exc_value, exc_traceback):
 # Install exception handler
 sys.excepthook = handle_exception
 
-sectors_common_aggreg = {
-    sheet_name: pd.read_excel(
-        snakemake.input["sectors_aggreg_ods"], sheet_name=sheet_name, index_col=0
-    )
-    for sheet_name in [
-        "eora26_without_reexport_to_common_aggreg",
-        "euregio_to_common_aggreg",
-        "exiobase_full_to_common_aggreg",
-        "icio2021_reworked_to_common_aggreg",
-    ]
+if snakemake.params["sectors_aggreg_ods"] is not None:
+    sectors_aggregation_dict = {
+        sheet_name: pd.read_excel(
+            snakemake.params["sectors_aggreg_ods"], sheet_name=sheet_name, index_col=0
+            )
+            for sheet_name in snakemake.params["sheet_names"]["sectors"].values()
+}
+else:
+    with resources.path("boario_tools.data.aggregation_files","sectors_common_aggreg.ods") as agg_path:
+        sectors_aggregation_dict = {
+            sheet_name: pd.read_excel(
+                agg_path, sheet_name=sheet_name, index_col=0
+            )
+            for sheet_name in snakemake.params["sheet_names"]["sectors"].values()
 }
 
-regions_common_aggreg = {
-    sheet_name: pd.read_excel(
-        snakemake.input["region_aggreg_ods"], sheet_name=sheet_name, index_col=0
-    )
-    for sheet_name in [
-        "eora26_without_reexport_to_common_aggreg",
-        "euregio_to_common_aggreg",
-        "exiobase_full_to_common_aggreg",
-        "icio2021_reworked_to_common_aggreg",
-    ]
+if snakemake.params["regions_aggreg_ods"] is not None:
+    regions_aggregation_dict = {
+        sheet_name: pd.read_excel(
+            snakemake.params["regions_aggreg_ods"], sheet_name=sheet_name, index_col=0
+            )
+            for sheet_name in snakemake.params["sheet_names"]["regions"].values()
+}
+else:
+    with resources.path("boario_tools.data.aggregation_files","regions_common_aggreg.ods") as agg_path:
+        regions_aggregation_dict = {
+            sheet_name: pd.read_excel(
+                agg_path, sheet_name=sheet_name, index_col=0
+            )
+            for sheet_name in snakemake.params["sheet_names"]["regions"].values()
 }
 
 
-def load_regions_aggreg(mrio_name):
-    if "eora26" in mrio_name:
-        return regions_common_aggreg["eora26_without_reexport_to_common_aggreg"]
-    elif "euregio" in mrio_name:
-        return regions_common_aggreg["euregio_to_common_aggreg"]
-    elif "exiobase" in mrio_name:
-        return regions_common_aggreg["exiobase_full_to_common_aggreg"]
-    elif "oecd" in mrio_name:
-        return regions_common_aggreg["icio2021_reworked_to_common_aggreg"]
-    else:
-        raise ValueError(f"Invalid MRIO name: {mrio_name}")
+def aggreg_df(df, mrio_name, orig_sec_agg, orig_reg_agg):
 
-
-def load_sectors_aggreg(mrio_name):
-    if "eora26" in mrio_name:
-        return sectors_common_aggreg["eora26_without_reexport_to_common_aggreg"]
-    elif "euregio" in mrio_name:
-        return sectors_common_aggreg["euregio_to_common_aggreg"]
-    elif "exiobase" in mrio_name:
-        return sectors_common_aggreg["exiobase_full_to_common_aggreg"]
-    elif "oecd" in mrio_name:
-        return sectors_common_aggreg["icio2021_reworked_to_common_aggreg"]
-    else:
-        raise ValueError(f"Invalid MRIO name: {mrio_name}")
-
-
-def aggreg_df(df, mrio_name):
-    regions_aggreg = load_regions_aggreg(mrio_name)
     _df = df.copy()
-    regions_aggreg = load_regions_aggreg(mrio_name)
-    _df.rename(regions_aggreg["new region"].to_dict(), axis=1, level=0, inplace=True)
-    _df = _df.T.groupby(["region", "sector"]).sum().T
-    sectors_aggreg = load_sectors_aggreg(mrio_name)
-    _df.rename(sectors_aggreg["new sector"].to_dict(), axis=1, level=1, inplace=True)
-    _df = _df.T.groupby(["region", "sector"]).sum().T
+    if orig_reg_agg != "common_regions":
+        regions_aggreg = regions_aggregation_dict[snakemake.params["sheet_names"]["regions"][mrio_name]]
+        _df.rename(regions_aggreg["new region"].to_dict(), axis=1, level=0, inplace=True)
+        _df = _df.T.groupby(["region", "sector"]).sum().T
+
+    if orig_sec_agg != "common_sectors":
+        sectors_aggreg = sectors_aggregation_dict[snakemake.params["sheet_names"]["sectors"][mrio_name]]
+        _df.rename(sectors_aggreg["new sector"].to_dict(), axis=1, level=1, inplace=True)
+        _df = _df.T.groupby(["region", "sector"]).sum().T
+
     return _df
 
 
@@ -115,14 +102,18 @@ def create_result_dict(inputs):
             match = xp_regex.match(xp_file)
             if match:
                 df = pd.read_parquet(xp_file)
-                df = aggreg_df(df, match.group("mrio_basename"))
+                mriot_basename = match.group("mrio_basename")
+                mriot_sectors_agg = match.group("mrio_aggreg_sectors")
+                mriot_regions_agg = match.group("mrio_aggreg_regions")
+                df = aggreg_df(df, mriot_basename, mriot_sectors_agg, mriot_regions_agg)
                 df = common_monetary_factor(df, match.group("mrio_basename"))
                 res_dict[
                     (
                         key,
                         match.group("mrio_basename"),
                         match.group("mrio_year"),
-                        match.group("mrio_aggreg"),
+                        match.group("mrio_aggreg_sectors"),
+                        match.group("mrio_aggreg_regions"),
                         match.group("sectors_scenario"),
                         match.group("recovery_scenario"),
                         match.group("flood_scenario"),
@@ -151,7 +142,8 @@ pd.concat(
         "variable",
         "mrio_basename",
         "mrio_year",
-        "mrio_aggreg",
+        "mrio_aggreg_sectors",
+        "mrio_aggreg_regions",
         "sectors_sce",
         "recovery_sce",
         "flood_sce",

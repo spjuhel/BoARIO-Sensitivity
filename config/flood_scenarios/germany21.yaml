@@ -1,0 +1,43 @@
+name: germany21
+
+year: 2021
+unit: "euro"
+prod_cap_impact_unit: 19400000000
+house_impact_unit:    14000000000
+estimated_gdp_unit:   3600000000000
+
+duration: 14
+
+countries_affected:
+  exiobase3_ixi: "DE"
+  eora26: "DEU"
+  euregio: "DE"
+
+regions_affected:
+  exiobase3_ixi:
+    "DE": 1.
+  eora26:
+    "DEU" : 1.
+  euregio:
+    'DE21' : 0.00137977016177574
+    'DE22' : 0.00137977016177574
+    'DE23' : 0.00137977016177574
+    'DE24' : 0.00137977016177574
+    'DE25' : 0.00137977016177574
+    'DE26' : 0.00137977016177574
+    'DE27' : 0.00137977016177574
+    'DEA1' : 0.0797303429052959
+    'DEA2' : 0.0797303429052959
+    'DEA3' : 0.0797303429052959
+    'DEA4' : 0.0797303429052959
+    'DEA5' : 0.0797303429052959
+    'DEB1' : 0.194464250988527
+    'DEB2' : 0.194464250988527
+    'DEB3' : 0.194464250988527
+    'DED1' : 0.00276571379183682
+    'DED2' : 0.00276571379183682
+    'DED3' : 0.00276571379183682
+  common:
+    "DEU" : 1.
+
+productive_capital_impact_sectoral_distrib_type: gdp

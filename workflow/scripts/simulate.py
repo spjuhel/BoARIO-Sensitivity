@@ -3,6 +3,8 @@ import sys
 import re
 import subprocess
 import pathlib
+from boario_tools.mriot import load_mrio
+from boario_tools.regex_patterns import MRIOT_FULLNAME_REGEX
 import pandas as pd
 import logging, traceback
 import pickle
@@ -58,63 +60,20 @@ def get_git_describe() -> str:
     )
 
 
-def load_mrio(filename: str) -> pym.IOSystem:
-    """
-    Loads the pickle file with the given filename.
-
-    Args:
-        filename: A string representing the name of the file to load (without the .pkl extension).
-                  Valid file names follow the format <prefix>_full_<year>, where <prefix> is one of
-                  'icio2021', 'euregio', 'exiobase3', or 'eora26', and <year> is a four-digit year
-                  such as '2000' or '2010'.
-
-    Returns:
-        The loaded pickle file.
-
-    Raises:
-        ValueError: If the given filename does not match the valid file name format, or the file doesn't contain an IOSystem.
-
-    """
-    filepath = "./mrio-files/pkls/"  # the path to the pickle files
-    regex = regex_patterns.MRIOT_FULLNAME_REGEX
-
-    match = regex.match(filename)  # match the filename with the regular expression
-
-    if not match:
-        raise ValueError(f"The file name {filename} is not valid.")
-
-    mrio_basename, mrio_year, mrio_aggreg = match.groups()  # get the mrio_basename and mrio_year from the matched groups
-
-    fullpath = filepath + mrio_basename + "/" + filename + ".pkl"  # create the full file path
-
-    logger.info(f"Loading {filename} mrio")
-    with open(fullpath, "rb") as f:
-        mrio = pickle.load(f)  # load the pickle file
-
-    if not isinstance(mrio, pym.IOSystem):
-        raise ValueError(f"{filename} was loaded but it is not an IOSystem")
-
-    return mrio
-
-
-def get_flood_scenario(mrio_name, flood_scenario, smk_config):
-    regex = regex_patterns.MRIOT_FULLNAME_REGEX
+def get_flood_scenario(mrio_name, flood_scenario):
+    regex = MRIOT_FULLNAME_REGEX
     match = regex.match(mrio_name)  # match the filename with the regular expression
-
     if not match:
         raise ValueError(f"The file name {mrio_name} is not valid.")
-
-    mrio_basename = match["mrio_basename"]  # get the mrio_basename and mrio_year from the matched groups
-    mrio_year = int(match["mrio_year"])
     flood_scenarios = pd.read_csv(
-        smk_config["flood_scenarios"],
-        index_col=[0, 1, 2],
+        snakemake.input.flood_scenarios,
+        index_col=[1, 3],
         converters={
             "regions_affected": ast.literal_eval,
             "productive_capital_impact_regional_distrib": ast.literal_eval,
         },
     )
-    scenar = flood_scenarios.loc[(mrio_basename, flood_scenario, mrio_year)]
+    scenar = flood_scenarios.loc[(mrio_name, flood_scenario)]
     return scenar
 
 
@@ -123,13 +82,12 @@ def create_event(
     flood_scenario,
     recovery_scenario,
     sectors_df,
-    smk_config,
 ):
     aff_sectors = sectors_df.loc[sectors_df.affected == 1].index
     rebuilding_sectors = sectors_df.loc[
         sectors_df.rebuilding_factor > 0, "rebuilding_factor"
     ].to_dict()
-    scenar = get_flood_scenario(mrio_name, flood_scenario, smk_config)
+    scenar = get_flood_scenario(mrio_name, flood_scenario)
     logger.debug(
         f"Creating event from : productive_capital_impact {scenar.productive_capital_impact} ; households_impact {scenar.households_impact} ; duration {scenar.duration} ; aff_sectors {aff_sectors} ; reb_sectors {rebuilding_sectors}"
     )
@@ -143,11 +101,11 @@ def create_event(
     duration = scenar.duration
     productive_capital_impact_regional_distrib = scenar.productive_capital_impact_regional_distrib
     productive_capital_impact_sectoral_distrib_type = scenar.productive_capital_impact_sectoral_distrib_type
-    if sce_tuple[0] == "recovery":
+    if sce_tuple[0] == "rec":
         event = EventKapitalRecover.from_scalar_regions_sectors(
             impact=productive_capital_impact,
-            recovery_function=sce_tuple[1],
-            recovery_time=sce_tuple[2],
+            recovery_function="linear",
+            recovery_time=int( sce_tuple[1] ),
             regions=aff_regions,
             impact_regional_distrib=productive_capital_impact_regional_distrib,
             sectors=aff_sectors,
@@ -155,31 +113,31 @@ def create_event(
             duration=duration,
             #event_monetary_factor=10**6,
         )
-    elif sce_tuple[0] == "rebuilding":
+    elif sce_tuple[0] == "reb":
         event = EventKapitalRebuild.from_scalar_regions_sectors(
             impact=productive_capital_impact,
             households_impact=households_impact,
             rebuilding_sectors=rebuilding_sectors,
-            rebuild_tau=sce_tuple[2],
+            rebuild_tau=int( sce_tuple[1] ),
             regions=aff_regions,
             impact_regional_distrib=productive_capital_impact_regional_distrib,
             sectors=aff_sectors,
             impact_sectoral_distrib=productive_capital_impact_sectoral_distrib_type,
             duration=duration,
-            rebuilding_factor=sce_tuple[1],
+            rebuilding_factor=1.0,
             #event_monetary_factor=10**6,
         )
     else:
         raise ValueError(
-            f'Invalid event type: {sce_tuple[0]} (expected "recovery" or "rebuilding")'
+            f'Invalid event type: {sce_tuple[0]} (expected "rec" or "reb")'
         )
 
     return event
 
 
 def run(
-        mriot_file,
         mrio_name,
+        pkl_filepath,
     order_type,
     psi_param,
     tau_alpha,
@@ -195,8 +153,7 @@ def run(
     sectors_df,
 ):
 
-    with open(mriot_file,"rb") as f:
-        mrio = pickle.load(f)
+    mrio = load_mrio(filename=mrio_name, pkl_filepath=pkl_filepath)
 
     model = ARIOPsiModel(
         pym_mrio=mrio,
@@ -231,7 +188,6 @@ def run(
         flood_scenario,
         recovery_scenario,
         sectors_df,
-        smk_config,
     )
 
     sim.add_event(event)
@@ -262,9 +218,7 @@ smk_config = snakemake.config
 output_dir = pathlib.Path(snakemake.output.output_dir).resolve()
 output_parquets = output_dir / "parquets"
 flood_scenario = simulation_params["flood_scenario"]
-recovery_scenario = smk_config["recovery_scenarios"][
-    simulation_params["recovery_scenario"]
-]
+recovery_scenario = simulation_params["recovery_scenario"].split("_")
 
 logger.info(f"Running simulation for {output_parquets}")
 
@@ -276,21 +230,22 @@ logger.info(
 )
 logger.info("BoARIO's location is : {}".format(boario.__path__))
 
-mrio_regex = regex_patterns.MRIOT_FULLNAME_REGEX
-
-mrio_match = mrio_regex.match(simulation_params["mrio"])
+mrio_regex = MRIOT_FULLNAME_REGEX
+mrio_match = mrio_regex.match(simulation_params["mriot"])
 if not mrio_match:
     raise ValueError(f"The file name {simulation_params['mrio']} is not valid.")
+
 (
     mrio_basename,
     mrio_year,
-    mrio_aggreg
+    mrio_sectors_aggreg,
+    mrio_regions_aggreg,
 ) = mrio_match.groups()  # get the mrio_basename and mrio_year from the matched groups
 
 
 run(
-    mriot_file=snakemake.input.mrio,
-    mrio_name=simulation_params["mrio"],
+    mrio_name=simulation_params["mriot"],
+    pkl_filepath=snakemake.config["data-mriot"]["prefix"] + snakemake.config["data-mriot"]["parsed_mriot_dir"],
     order_type=simulation_params["order"],
     psi_param=simulation_params["psi"],
     tau_alpha=simulation_params["tau_alpha"],
