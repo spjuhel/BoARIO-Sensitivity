@@ -49,6 +49,11 @@ rule regroup_parquet_to_common_aggreg:
                 "eora26":"eora26_full_no_reexport_sectors_to_common_aggreg",
                 "euregio":"euregio_full_sectors_to_common_aggreg",
             }
+        },
+        monetary_factor={
+            "exiobase3_ixi":1000000,
+            "eora26":1000,
+            "euregio":1000000
         }
 
     threads: 4

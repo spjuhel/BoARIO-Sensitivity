@@ -90,7 +90,7 @@ def aggreg_df(df, mrio_name, orig_sec_agg, orig_reg_agg):
 
 def common_monetary_factor(df, mrio_basename):
     _df = df.copy()
-    _df = _df * (snakemake.config["monetary_factor"][mrio_basename] / 10**6)
+    _df = _df * (snakemake.params["monetary_factor"][mrio_basename] / 10**6)
     return _df
 
 
