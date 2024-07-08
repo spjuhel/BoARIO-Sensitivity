@@ -121,5 +121,5 @@ rule cp_exio3_full_to_storage:
     ),
     shell:
         """
-        cp {input} {output}
+        cp {input} $(pwd)/{output}
         """
