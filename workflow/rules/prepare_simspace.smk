@@ -1,6 +1,6 @@
 from itertools import product
 
-simspace_file = Path(f"{workflow.basedir}/../config/{config['simulation space test']}").resolve()
+simspace_file = Path(f"{workflow.basedir}/../config/{config['simulation space']}").resolve()
 with open(simspace_file) as stream:
     try:
         data = yaml.safe_load(stream)
