@@ -109,3 +109,17 @@ rule create_flood_scenarios_csv:
         "../envs/BoARIO-sensi.yml"
     script:
         "../scripts/create_flood_scenarios_csv.py"
+
+rule cp_exio3_full_to_storage:
+    input:
+        exio3_sectors_config=str(Path(f"{workflow.basedir}/../config/{config['mriot_base_config']}").resolve())
+    output:
+        exio3_sectors_config=expand(
+            "{mriot_data}{mriot_params_dir}/exiobase3_ixi_full_sectors.csv",
+            mriot_params_dir=config["data-mriot"]["mriot_params_dir"],
+            mriot_data=config["data-mriot"]["prefix"]
+    ),
+    shell:
+        """
+        cp {input} {output}
+        """

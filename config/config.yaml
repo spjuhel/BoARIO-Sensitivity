@@ -4,6 +4,8 @@ testing: True
 flood scenario params:
   local region: "DEU"
 
+mriot_base_config: "mriot_base_scenarios"
+
 data-mriot:
   prefix: "mriot_data/"
   downloaded_mriot_dir: "downloaded"
