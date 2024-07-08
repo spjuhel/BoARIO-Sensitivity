@@ -93,10 +93,10 @@ def prepare_df_general(inpt, drop_dict=None, drop_unused=True):
     """
     res_df = pd.read_parquet(inpt)
     logger.info("Melting")
-    res_df = res_df.melt(ignore_index=False).reset_index(level=["mrio_basename", "mrio_year", "mrio_aggreg"])
+    res_df = res_df.melt(ignore_index=False).reset_index(level=["mrio_basename", "mrio_year", "mrio_aggreg_sectors","mrio_aggreg_regions"])
     logger.info("Joining mrio with year")
-    res_df["mrio"] = res_df[["mrio_basename", "mrio_year", "mrio_aggreg"]].agg("_".join, axis=1)
-    res_df.drop(["mrio_basename", "mrio_year", "mrio_aggreg"], axis=1, inplace=True)
+    res_df["mrio"] = res_df[["mrio_basename", "mrio_year", "mrio_aggreg_sectors","mrio_aggreg_regions"]].agg("_".join, axis=1)
+    res_df.drop(["mrio_basename", "mrio_year", "mrio_aggreg_sectors","mrio_aggreg_regions"], axis=1, inplace=True)
     res_df.set_index("mrio", append=True, inplace=True)
 
     if drop_dict:
@@ -148,8 +148,8 @@ def prepare_df_local_analysis(inpt, region, drop_dict=None):
     res_df.name = "value"
     res_df = res_df.reset_index()
 
-    res_df["mrio"] = res_df[["mrio_basename", "mrio_year", "mrio_aggreg"]].agg("_".join, axis=1)
-    res_df.drop(["mrio_basename", "mrio_year", "mrio_aggreg"], axis=1, inplace=True)
+    res_df["mrio"] = res_df[["mrio_basename", "mrio_year", "mrio_aggreg_sectors","mrio_aggreg_regions"]].agg("_".join, axis=1)
+    res_df.drop(["mrio_basename", "mrio_year", "mrio_aggreg_sectors","mrio_aggreg_regions"], axis=1, inplace=True)
     res_df.set_index("mrio", inplace=True)
 
     if drop_dict:
