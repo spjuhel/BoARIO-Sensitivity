@@ -101,7 +101,7 @@ def create_event(
     duration = scenar.duration
     productive_capital_impact_regional_distrib = scenar.productive_capital_impact_regional_distrib
     productive_capital_impact_sectoral_distrib_type = scenar.productive_capital_impact_sectoral_distrib_type
-    if sce_tuple[0] == "rec":
+    if sce_tuple[0] == "reclin":
         event = EventKapitalRecover.from_scalar_regions_sectors(
             impact=productive_capital_impact,
             recovery_function="linear",
@@ -129,7 +129,7 @@ def create_event(
         )
     else:
         raise ValueError(
-            f'Invalid event type: {sce_tuple[0]} (expected "rec" or "reb")'
+            f'Invalid event type: {sce_tuple[0]} (expected "reclin" or "reb")'
         )
 
     return event
