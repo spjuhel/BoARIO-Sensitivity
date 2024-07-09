@@ -55,6 +55,7 @@ combinations = list(product(*values))
 df = pd.DataFrame(combinations, columns=keys)
 
 df.loc[(df["mriot"]=="eora26") & (df["mriot_aggreg"]=="full_sectors_full_regions"),"mriot_aggreg"] = "full_no_reexport_sectors_full_regions"
+df.loc[(df["mriot"]=="eora26") & (df["mriot_aggreg"]=="full_sectors_common_regions"),"mriot_aggreg"] = "full_no_reexport_sectors_common_regions"
 
 logger.info(f"Saving simulation space csv to {snakemake.output[0]}")
 df.to_csv(snakemake.output[0])
