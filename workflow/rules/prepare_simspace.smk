@@ -17,6 +17,7 @@ combinations = list(product(*values))
 df = pd.DataFrame(combinations, columns=keys)
 
 df.loc[(df["mriot"]=="eora26") & (df["mriot_aggreg"]=="full_sectors_full_regions"),"mriot_aggreg"] = "full_no_reexport_sectors_full_regions"
+df.loc[(df["mriot"]=="eora26") & (df["mriot_aggreg"]=="full_sectors_common_regions"),"mriot_aggreg"] = "full_no_reexport_sectors_common_regions"
 
 df["mriot"] = df[["mriot","mriot_year","mriot_aggreg"]].apply(
         lambda row: f'{"_".join(row.values.astype(str))}',
