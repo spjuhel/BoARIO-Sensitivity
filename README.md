@@ -6,8 +6,6 @@ A Snakemake workflow for deploying a sensitivity analysis for the BoARIO economi
 
 ## Usage
 
-The usage of this workflow is described in the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/?usage=spjuhel%2FBoARIO-Sensitivity).
-
 Deploying with snakedeploy is not required, you can simply clone the repository and configure it by yourself.
 
 If you use this workflow in a paper, don't forget to give credits to the authors by citing the URL of this (original) repository.
