@@ -27,11 +27,8 @@ module mriot_tools_snake:
 include: "rules/prepare_simspace.smk"
 include: "rules/simulations.smk"
 include: "rules/treat_results.smk"
-#include: "rules/report.smk"
 
-#### report [WIP] ####
-# report : "report/workflow.rst"
-
+#include: "rules/report.smk" # Yet to be correctly implemented
 
 
 use rule * from mriot_tools_snake exclude all_mriot

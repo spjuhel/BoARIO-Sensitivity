@@ -1,8 +1,15 @@
 # path or URL to sample sheet (TSV format, columns: sample, condition, ...)
 testing: True
 
-flood scenario params:
-  local region: "DEU"
+flood scenario: flood_scenarios/germany21.yaml
+simulation space test: simulations/test.yaml
+simulation space: simulations/germany21.yaml
+
+sim_length: 1095
+register_stocks: False
+variables:
+  - production_realised
+#  - production_capacity
 
 mriot_base_config: "mriot_base_scenarios"
 
@@ -20,40 +27,11 @@ data-mriot:
     eora26: "full_no_reexport_sectors_full_regions"
     euregio: "full_sectors_full_regions"
 
-flood scenario: flood_scenarios/germany21.yaml
-simulation space test: simulations/test.yaml
-simulation space: simulations/germany21.yaml
+flood scenario params:
+  local region: "DEU"
 
-sim_length: 1095
 
-register_stocks: False
-
-variables:
-  - production_realised
-#  - production_capacity
-
-plot config:
-  grid:
-    sharey: True
-    row order: ["DEU","FRA","CHN","USA","ROW"]
-
-  plot variable name mapping:
-    production_realised: production
-    final_demand_unmet: final demand not met
-    production_capacity: production capacity
-
-  plot types:
-    - classic
-    - cumsum
-
-  extensions:
-    - pdf
-    - svg
-
-focus:
-  all_sim: "all"
-  no_absurd: "cumsum_impact_class >= 'absurd'"
-
+## Following configuration is for advanced use only and should be kept as is in most case ##
 impacts_bins_name: {'crash': 'economy crashed',
  'L90': 'losses >90%',
  '90L70': 'losses in 70-90%',
@@ -92,3 +70,25 @@ gains_bins: {'no gains': -.inf,
  '15G20': 15,
  '20G25': 20,
  'G25': 25}
+
+plot config:
+  grid:
+    sharey: True
+    row order: ["DEU","FRA","CHN","USA","ROW"]
+
+  plot variable name mapping:
+    production_realised: production
+    final_demand_unmet: final demand not met
+    production_capacity: production capacity
+
+  plot types:
+    - classic
+    - cumsum
+
+  extensions:
+    - pdf
+    - svg
+
+focus:
+  all_sim: "all"
+  no_absurd: "cumsum_impact_class >= 'absurd'"
